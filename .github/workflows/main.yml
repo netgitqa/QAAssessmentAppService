@@ -1,4 +1,4 @@
-name: Web Playwright Tests on LambdaTest
+name: Playwright Tests on LambdaTest
 
 on:
   workflow_dispatch:
@@ -6,7 +6,8 @@ on:
     - cron: '0 10 * * *'
 
 jobs:
-  playwright-tests:
+  chrome:
+    name: Chrome Tests on LambdaTest
     runs-on: ubuntu-latest
 
     env:
@@ -14,10 +15,10 @@ jobs:
       LT_ACCESS_KEY: ${{ secrets.ACCESS_KEY_LT }}
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -25,5 +26,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Playwright test suite on LambdaTest
-        run: npm test
+      - name: Run Chrome tests remotely
+        run: npm run test:chrome
