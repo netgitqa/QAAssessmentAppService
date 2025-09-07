@@ -1,0 +1,17 @@
+{
+  "name": "playwright",
+  "description": "Classroom dekstop tests with Allure reporting and GitHub Actions integration",
+  "scripts": {
+    "test": "npx playwright test",
+    "allure:generate": "allure generate ./allure-results --clean -o ./allure-report",
+    "allure:open": "allure open ./allure-report"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "allure-playwright": "^2.0.0-beta.18",
+    "@playwright/test": "^1.41.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.41.0"
+  }
+}
