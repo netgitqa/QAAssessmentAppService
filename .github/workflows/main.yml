@@ -1,0 +1,29 @@
+name: Web Playwright Tests on LambdaTest
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 10 * * *'
+
+jobs:
+  playwright-tests:
+    runs-on: ubuntu-latest
+
+    env:
+      LT_USERNAME: ${{ secrets.USERNAME_LT }}
+      LT_ACCESS_KEY: ${{ secrets.ACCESS_KEY_LT }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Playwright test suite on LambdaTest
+        run: npm test
