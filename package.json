@@ -2,7 +2,7 @@
   "name": "playwright",
   "description": "Classroom dekstop tests with Allure reporting and GitHub Actions integration",
   "scripts": {
-    "test:chrome": "npx playwright test --config=conf/chromeWin.config.js",
+    "test:chrome": "npx playwright test specs/login.spec.js --config=conf/chromeWin.config.js",
     "allure:generate": "allure generate ./allure-results --clean -o ./allure-report",
     "allure:open": "allure open ./allure-report"
   },
