@@ -1,3 +1,4 @@
+const path = require('path');
 require('dotenv').config();
 const { defineConfig } = require('@playwright/test');
 
@@ -17,7 +18,7 @@ const capabilities = {
 };
 
 module.exports = defineConfig({
-  testDir: './specs',
+  testDir: path.resolve(__dirname, '../specs'),  // <-- change here
   timeout: 30 * 1000,
   retries: 1,
   reporter: [['list'], ['allure-playwright']],
