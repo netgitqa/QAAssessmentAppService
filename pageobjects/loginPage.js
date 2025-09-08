@@ -26,6 +26,11 @@ class LoginPage {
         await this.page.fill(this.passwordInput, password);
     }
 
+    async submitLogin() {
+        Logger.step('Clicking login button');
+        await this.page.click(this.loginButton);
+    }
+    
     async clickForgotPassword() {
         Logger.step('Clicking forgot password link');
         await this.page.click(this.forgotPasswordLink);
