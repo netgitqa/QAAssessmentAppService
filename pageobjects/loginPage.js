@@ -16,18 +16,14 @@ class LoginPage {
         await this.page.goto('/login');
     }
 
-    async login(email, password) {
-        Logger.step(`Entering credentials: ${email} / ${password ? '******' : ''}`);
+    async enterEmail(email) {
+        Logger.step(`Entering email: ${email}`);
         await this.page.fill(this.emailInput, email);
+    }
+
+    async enterPassword(password) {
+        Logger.step(`Entering password`);
         await this.page.fill(this.passwordInput, password);
-
-        if (await this.page.isVisible(this.separator)) {
-            Logger.step('Clicking separator to hide keyboard');
-            await this.page.click(this.separator);
-        }
-
-        Logger.step('Clicking login button');
-        await this.page.click(this.loginButton);
     }
 
     async clickForgotPassword() {
