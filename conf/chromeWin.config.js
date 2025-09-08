@@ -18,7 +18,7 @@ const capabilities = {
 };
 
 module.exports = defineConfig({
-  testDir: path.resolve(__dirname, '../specs'),  // <-- change here
+  testDir: path.resolve(__dirname, '../specs'),
   timeout: 30 * 1000,
   retries: 1,
   reporter: [['list'], ['allure-playwright']],
@@ -26,8 +26,9 @@ module.exports = defineConfig({
     baseURL: process.env.BASE_URL,
     headless: true,
     viewport: { width: 1280, height: 720 },
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    screenshot: 'off',
+    video: 'off',
+
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
         JSON.stringify(capabilities)
