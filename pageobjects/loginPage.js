@@ -37,7 +37,11 @@ class LoginPage {
 
     async getErrorMessages() {
         Logger.step('Getting error messages');
-        await this.page.waitForTimeout(500);
+        await this.page.waitForSelector(this.errorMessages, {
+            timeout: 5000,
+            state: 'visible'
+        });
+    
         const errors = await this.page.$$eval(this.errorMessages, elements =>
             elements.map(el => el.textContent.trim()).join(' ')
         );
