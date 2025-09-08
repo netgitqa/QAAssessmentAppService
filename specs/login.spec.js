@@ -9,50 +9,55 @@ const FAKE_EMAIL = 'fakevalue@test.com';
 const FAKE_PASSWORD = 'fakevalue';
 
 test.describe('User Authentication', () => {
-    test('should log in with valid credentials', async ({ page }) => {
-        const login = new LoginPage(page);
-        const learning = new LearningPage(page);
+  let login;
+  let learning;
 
-        await login.goto();
-        await login.login(EMAIL, PASSWORD);
+  test.beforeEach(async ({ page }) => {
+    login = new LoginPage(page);
+    learning = new LearningPage(page);
+    await login.goto();
+  });
 
-        await learning.waitForTitle('My learning');
-        const title = await learning.getTitle();
-        expect(title).toContain('My learning');
-    });
+  test('should log in with valid credentials', async () => {
+    await login.enterEmail(EMAIL);
+    await login.enterPassword(PASSWORD);
+    await login.submitLogin();
 
-    test('should not log in with incorrect email', async ({ page }) => {
-        const login = new LoginPage(page);
-        await login.goto();
-        await login.login(FAKE_EMAIL, PASSWORD);
+    await learning.waitForTitle('My learning');
+    const title = await learning.getTitle();
+    expect(title).toContain('My learning');
+  });
 
-        const msg = await login.getErrorMessages();
-        expect(msg).toContain('This email is not in our system');
-    });
+  test('should not log in with incorrect email', async () => {
+    await login.enterEmail(FAKE_EMAIL);
+    await login.enterPassword(PASSWORD);
+    await login.submitLogin();
 
-    test('should not log in with incorrect password', async ({ page }) => {
-        const login = new LoginPage(page);
-        await login.goto();
-        await login.login(EMAIL, FAKE_PASSWORD);
+    const msg = await login.getErrorMessages();
+    expect(msg).toContain('This email is not in our system');
+  });
 
-        const msg = await login.getErrorMessages();
-        expect(msg).toContain('Either email or password are incorrect');
-    });
+  test('should not log in with incorrect password', async () => {
+    await login.enterEmail(EMAIL);
+    await login.enterPassword(FAKE_PASSWORD);
+    await login.submitLogin();
 
-    test('should not login with empty credentials', async ({ page }) => {
-        const login = new LoginPage(page);
-        await login.goto();
-        await login.login('', '');
+    const msg = await login.getErrorMessages();
+    expect(msg).toContain('Either email or password are incorrect');
+  });
 
-        const msg = await login.getErrorMessages();
-        expect(msg).toContain('Please enter an email address');
-        expect(msg).toContain('Please enter a password');
-    });
+  test('should not login with empty credentials', async () => {
+    await login.enterEmail('');
+    await login.enterPassword('');
+    await login.submitLogin();
 
-    test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
-        const login = new LoginPage(page);
-        await login.goto();
-        await login.clickForgotPassword();
-        await expect(page).toHaveURL(/reset-password/);
-    });
+    const msg = await login.getErrorMessages();
+    expect(msg).toContain('Please enter an email address');
+    expect(msg).toContain('Please enter a password');
+  });
+
+  test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
+    await login.clickForgotPassword();
+    await expect(page).toHaveURL(/reset-password/);
+  });
 });
