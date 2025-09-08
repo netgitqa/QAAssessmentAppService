@@ -7,8 +7,8 @@ const capabilities = {
   browserVersion: 'latest',
   'LT:Options': {
     platform: 'Windows 10',
-    build: 'Chrome Build',
-    name: 'Chrome Login Test',
+    build: 'Playwright Chrome Win 10',
+    name: 'Login Test',
     user: process.env.LT_USERNAME,
     accessKey: process.env.LT_ACCESS_KEY,
     network: true,
@@ -17,6 +17,8 @@ const capabilities = {
   }
 };
 
+
+
 module.exports = defineConfig({
   testDir: path.resolve(__dirname, '../specs'),
   timeout: 30 * 1000,
@@ -24,8 +26,7 @@ module.exports = defineConfig({
   reporter: [['list'], ['allure-playwright']],
   use: {
     baseURL: process.env.BASE_URL,
-    headless: true,
-    viewport: { width: 1280, height: 720 },
+    headless: false,
     screenshot: 'off',
     video: 'off',
 
