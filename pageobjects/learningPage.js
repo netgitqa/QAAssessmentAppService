@@ -17,7 +17,9 @@ class LearningPage {
             expected,
             { timeout: 15000 }
         );
-        await page.waitForTimeout(3000);
+
+        
+        await this.page.waitForTimeout(3000);
     }
 }
 
