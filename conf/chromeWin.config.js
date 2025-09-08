@@ -29,7 +29,7 @@ module.exports = defineConfig({
     headless: false,
     screenshot: 'off',
     video: 'off',
-
+    viewport: null,
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
         JSON.stringify(capabilities)
