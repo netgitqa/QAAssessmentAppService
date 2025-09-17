@@ -2,7 +2,7 @@
   "name": "playwright",
   "description": "Classroom dekstop tests with Allure reporting and GitHub Actions integration",
   "scripts": {
-    "test:all": "sh -c 'for f in conf/android*.conf.js; do echo Running $f; npx wdio $f; done'",
+    "test:all": "sh -c 'for f in conf/*.conf.js; do echo Running $f; npx playwright test --config=$f; done'",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:serve": "allure serve allure-results"

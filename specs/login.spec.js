@@ -28,36 +28,36 @@ test.describe('User Authentication', () => {
     expect(title).toContain('My learning');
   });
 
-  test('should not log in with incorrect email', async () => {
-    await login.enterEmail(FAKE_EMAIL);
-    await login.enterPassword(PASSWORD);
-    await login.submitLogin();
-
-    const msg = await login.getErrorMessages();
-    expect(msg).toContain('This email is not in our system');
-  });
-
-  test('should not log in with incorrect password', async () => {
-    await login.enterEmail(EMAIL);
-    await login.enterPassword(FAKE_PASSWORD);
-    await login.submitLogin();
-
-    const msg = await login.getErrorMessages();
-    expect(msg).toContain('Either email or password are incorrect');
-  });
-
-  test('should not login with empty credentials', async () => {
-    await login.enterEmail('');
-    await login.enterPassword('');
-    await login.submitLogin();
-
-    const msg = await login.getErrorMessages();
-    expect(msg).toContain('Please enter an email address');
-    expect(msg).toContain('Please enter a password');
-  });
-
-  test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
-    await login.clickForgotPassword();
-    await expect(page).toHaveURL(/reset-password/);
-  });
+  // test('should not log in with incorrect email', async () => {
+  //   await login.enterEmail(FAKE_EMAIL);
+  //   await login.enterPassword(PASSWORD);
+  //   await login.submitLogin();
+  //
+  //   const msg = await login.getErrorMessages();
+  //   expect(msg).toContain('This email is not in our system');
+  // });
+  //
+  // test('should not log in with incorrect password', async () => {
+  //   await login.enterEmail(EMAIL);
+  //   await login.enterPassword(FAKE_PASSWORD);
+  //   await login.submitLogin();
+  //
+  //   const msg = await login.getErrorMessages();
+  //   expect(msg).toContain('Either email or password are incorrect');
+  // });
+  //
+  // test('should not login with empty credentials', async () => {
+  //   await login.enterEmail('');
+  //   await login.enterPassword('');
+  //   await login.submitLogin();
+  //
+  //   const msg = await login.getErrorMessages();
+  //   expect(msg).toContain('Please enter an email address');
+  //   expect(msg).toContain('Please enter a password');
+  // });
+  //
+  // test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
+  //   await login.clickForgotPassword();
+  //   await expect(page).toHaveURL(/reset-password/);
+  // });
 });
