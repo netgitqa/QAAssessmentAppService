@@ -13,6 +13,7 @@ jobs:
     env:
       LT_USERNAME: ${{ secrets.USERNAME_LT }}
       LT_ACCESS_KEY: ${{ secrets.ACCESS_KEY_LT }}
+      LT_GRID_URL: mobile-hub.lambdatest.com
 
     steps:
       - name: Checkout
@@ -27,4 +28,23 @@ jobs:
         run: npm install
 
       - name: Run Chrome tests remotely
-        run: npm run test:chrome
+        run: npm run test:all
+
+      - name: Generate Allure report
+        if: always()
+        run: npm run allure:generate
+
+      - name: Deploy Allure report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
+          publish_branch: gh-pages
+
+      - name: Upload Allure results as artifact (optional)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
