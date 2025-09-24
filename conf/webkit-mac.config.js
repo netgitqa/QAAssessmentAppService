@@ -3,7 +3,7 @@ const commonConfig = require('./common.config');
 
 const capabilities = {
   browserName: 'pw-webkit',
-  browserVersion: '18.4',
+  browserVersion: 'latest',
   'LT:Options': {
     platform: 'macOS Big sur',
     build: 'Login Test',
@@ -22,7 +22,13 @@ module.exports = defineConfig({
   use: {
     ...commonConfig.use,
     launchOptions: {
-      args: [],
+      headless: true,
+      video: 'on',
+      args: [
+        '--disable-background-networking',
+        '--disable-background-timer-throttling',
+        '--disable-renderer-backgrounding'
+      ],
     },
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
