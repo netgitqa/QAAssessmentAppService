@@ -21,18 +21,9 @@ module.exports = defineConfig({
   ...commonConfig,
   use: {
     ...commonConfig.use,
-    launchOptions: {
-      headless: true,
-      video: 'on',
-      args: [
-        '--disable-background-networking',
-        '--disable-background-timer-throttling',
-        '--disable-renderer-backgrounding'
-      ],
-    },
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-        JSON.stringify(capabilities)
+          JSON.stringify(capabilities)
       )}`
     }
   }

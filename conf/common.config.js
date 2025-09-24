@@ -12,6 +12,6 @@ module.exports = defineConfig({
         headless: false,
         screenshot: 'off',
         video: 'off',
-        viewport: null
+        viewport: { width: 1280, height: 720 }
     }
 });
