@@ -2,12 +2,12 @@ const { defineConfig } = require('@playwright/test');
 const commonConfig = require('./common.conf');
 
 const capabilities = {
-  browserName: 'Chrome',
+  browserName: 'pw-webkit',
   browserVersion: 'latest',
   'LT:Options': {
-    platform: 'Windows 10',
+    platform: 'macOS Big sur',
     build: 'Login Test',
-    name: 'Playwright Chrome Win 10',
+    name: 'Playwright Webkit Big sur',
     user: process.env.LT_USERNAME,
     accessKey: process.env.LT_ACCESS_KEY,
     network: true,
@@ -22,7 +22,7 @@ module.exports = defineConfig({
     ...commonConfig.use,
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-          JSON.stringify(capabilities)
+        JSON.stringify(capabilities)
       )}`
     }
   }
