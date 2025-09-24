@@ -5,7 +5,7 @@ const playwrightVersion = '1.50';
 
 const capabilities = {
   browserName: 'pw-webkit',
-  browserVersion: '18.2',
+  browserVersion: 'latest',
   'LT:Options': {
     platform: 'macOS Big sur',
     build: 'Login Test',
@@ -15,7 +15,7 @@ const capabilities = {
     network: true,
     video: true,
     console: true,
-    playwrightClientVersion: playwrightVersion
+    
   }
 };
 
