@@ -1,11 +1,11 @@
 const { defineConfig } = require('@playwright/test');
 const commonConfig = require('./common.config');
 
-const playwrightVersion = '1.52';
+const playwrightVersion = '1.50';
 
 const capabilities = {
   browserName: 'pw-webkit',
-  browserVersion: 'latest',
+  browserVersion: '18.2',
   'LT:Options': {
     platform: 'macOS Big sur',
     build: 'Login Test',
