@@ -18,9 +18,16 @@ const capabilities = {
 
 module.exports = defineConfig({
   ...commonConfig,
-  headless: true,
   use: {
     ...commonConfig.use,
+    launchOptions: {
+      headless: true,
+      args: [
+        '--disable-background-networking',
+        '--disable-background-timer-throttling',
+        '--disable-renderer-backgrounding'
+      ],
+    },
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
         JSON.stringify(capabilities)
