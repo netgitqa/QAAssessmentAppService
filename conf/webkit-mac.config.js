@@ -3,7 +3,7 @@ const commonConfig = require('./common.config');
 
 const capabilities = {
   browserName: 'pw-webkit',
-  browserVersion: '18.4',
+  browserVersion: 'latest',
   'LT:Options': {
     platform: 'macOS Big sur',
     build: 'Login Test',
@@ -18,6 +18,7 @@ const capabilities = {
 
 module.exports = defineConfig({
   ...commonConfig,
+  headless: true,
   use: {
     ...commonConfig.use,
     connectOptions: {
