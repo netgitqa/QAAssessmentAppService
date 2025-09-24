@@ -22,12 +22,7 @@ module.exports = defineConfig({
   use: {
     ...commonConfig.use,
     launchOptions: {
-      headless: true,
-      args: [
-        '--disable-background-networking',
-        '--disable-background-timer-throttling',
-        '--disable-renderer-backgrounding'
-      ],
+      args: [],
     },
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
