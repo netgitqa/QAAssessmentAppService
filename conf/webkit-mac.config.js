@@ -24,7 +24,7 @@ module.exports = defineConfig({
   use: {
     ...commonConfig.use,
     launchOptions: {
-      headless: false,
+      headless: true,
       args: [
         '--disable-background-networking',
         '--disable-background-timer-throttling',
