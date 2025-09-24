@@ -1,8 +1,6 @@
 const { defineConfig } = require('@playwright/test');
 const commonConfig = require('./common.config');
 
-const playwrightVersion = '1.50';
-
 const capabilities = {
   browserName: 'pw-webkit',
   browserVersion: 'latest',
@@ -15,7 +13,7 @@ const capabilities = {
     network: true,
     video: true,
     console: true,
-    
+
   }
 };
 
