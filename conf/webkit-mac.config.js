@@ -5,7 +5,7 @@ const capabilities = {
   browserName: 'pw-webkit',
   browserVersion: 'latest',
   'LT:Options': {
-    platform: 'macOS Big sur',
+    platform: 'macOS Catalina',
     build: 'Login Test',
     name: 'Playwright Webkit Big sur',
     user: process.env.LT_USERNAME,
