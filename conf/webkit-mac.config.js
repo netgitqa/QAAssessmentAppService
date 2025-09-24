@@ -1,5 +1,5 @@
 const { defineConfig } = require('@playwright/test');
-const commonConfig = require('./common.conf');
+const commonConfig = require('./common.config');
 
 const capabilities = {
   browserName: 'pw-webkit',
