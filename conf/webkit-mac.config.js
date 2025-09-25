@@ -3,7 +3,7 @@ const commonConfig = require('./common.config');
 
 const capabilities = {
   browserName: 'pw-webkit',
-  browserVersion: 'latest',
+  browserVersion: '18.0',
   'LT:Options': {
     platform: 'macOS Big sur',
     build: 'Login Test',
@@ -22,9 +22,7 @@ module.exports = defineConfig({
   use: {
     ...commonConfig.use,
     connectOptions: {
-      wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-          JSON.stringify(capabilities)
-      )}`
+      wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(JSON.stringify(capabilities))}`
     }
   }
 });
