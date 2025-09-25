@@ -12,6 +12,7 @@ module.exports = defineConfig({
         headless: false,
         screenshot: 'off',
         video: 'off',
-        viewport: { width: 1280, height: 720 }
+        viewport: null,
+        args: ['--start-maximized']
     }
 });
