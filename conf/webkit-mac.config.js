@@ -6,7 +6,7 @@ const capabilities = {
   browserVersion: '18.0',
   'LT:Options': {
     platform: 'macOS Big sur',
-    build: 'Login Test',
+    build: 'Login Test Check',
     name: 'Playwright Webkit Big sur',
     user: process.env.LT_USERNAME,
     accessKey: process.env.LT_ACCESS_KEY,
