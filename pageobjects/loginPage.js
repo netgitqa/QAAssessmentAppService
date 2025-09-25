@@ -5,7 +5,8 @@ class LoginPage {
         this.page = page;
         this.emailInput = '#email';
         this.passwordInput = '#password';
-        this.loginButton = 'button.g-recaptcha';
+        this.loginButton = page.getByRole('button', { name: 'Login with email' });
+        // this.loginButton = 'button.g-recaptcha';
         this.separator = '.signup-separator';
         this.forgotPasswordLink = 'text=Forgot password?';
         this.errorMessages = 'p.usahello-form-error.usahello-form-validation_msg';
