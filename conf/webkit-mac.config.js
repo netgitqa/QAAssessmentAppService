@@ -3,7 +3,7 @@ const commonConfig = require('./common.config');
 
 const capabilities = {
   browserName: 'pw-webkit',
-  browserVersion: '17.4',
+  browserVersion: '16.4',
   'LT:Options': {
     platform: 'macOS Big sur',
     build: 'Login Test',
