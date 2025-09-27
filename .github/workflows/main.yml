@@ -31,9 +31,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Decode storageState.json from secret
-        run: |
-          echo "$STORAGE_STATE_B64" | base64 -d > storageState.json
+      - name: Create storageState.json from secret
+        run: echo "$STORAGE_STATE_B64" | base64 -d > storageState.json
+        shell: bash
           
       - name: Run Chrome tests remotely
         run: npm run test:all
