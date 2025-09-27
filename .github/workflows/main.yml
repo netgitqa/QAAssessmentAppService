@@ -14,9 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      STORAGE_STATE_B64: ${{ secrets.STORAGE_STATE_B64 }}
+      LT_GRID_URL: mobile-hub.lambdatest.com
       LT_USERNAME: ${{ secrets.USERNAME_LT }}
       LT_ACCESS_KEY: ${{ secrets.ACCESS_KEY_LT }}
-      LT_GRID_URL: mobile-hub.lambdatest.com
 
     steps:
       - name: Checkout
@@ -30,6 +31,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Decode storageState.json from secret
+        run: |
+          echo "$STORAGE_STATE_B64" | base64 -d > storageState.json
+          
       - name: Run Chrome tests remotely
         run: npm run test:all
 
