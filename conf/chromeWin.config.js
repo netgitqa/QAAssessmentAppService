@@ -20,7 +20,7 @@ module.exports = defineConfig({
   ...commonConfig,
   use: {
     ...commonConfig.use,
-    storageState: 'storageState.json',
+    storageState: path.resolve(__dirname, '../storageState.json'),
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
           JSON.stringify(capabilities)
@@ -28,6 +28,7 @@ module.exports = defineConfig({
     }
   }
 });
+
 
 
 
