@@ -3,9 +3,9 @@ const commonConfig = require('./common.config');
 
 const capabilities = {
   browserName: 'Chrome',
-  browserVersion: '108.0',
+  browserVersion: 'latest',
   'LT:Options': {
-    platform: 'Windows 8.1',
+    platform: 'Windows 10',
     build: 'Login Test',
     name: 'Playwright Chrome Win 10',
     user: process.env.LT_USERNAME,
@@ -27,4 +27,5 @@ module.exports = defineConfig({
     }
   }
 });
+
 
