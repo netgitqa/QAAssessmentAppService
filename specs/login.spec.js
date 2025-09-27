@@ -18,7 +18,7 @@ test.describe('User Authentication', () => {
   //   await login.goto();
   // });
 
-  test('should log in with valid credentials', async ({ page ) => {
+  test('should log in with valid credentials', async ({ page }) => {
     // await login.enterEmail(EMAIL);
     // await login.enterPassword(PASSWORD);
     // await login.submitLogin();
