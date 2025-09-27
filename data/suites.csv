@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","10775","should log in with valid credentials","","Sat Sep 27 14:36:48 UTC 2025","failed","Sat Sep 27 14:36:59 UTC 2025","User Authentication","login.spec.js","",""
+"","26085","should log in with valid credentials","","Sat Sep 27 14:47:38 UTC 2025","failed","Sat Sep 27 14:48:04 UTC 2025","User Authentication","login.spec.js","",""
