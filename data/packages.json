@@ -1,1 +1,1 @@
-{"uid":"83edc06c07f9ae9e47eb6dd1b683e4e2","name":"packages","children":[]}
+{"uid":"83edc06c07f9ae9e47eb6dd1b683e4e2","name":"packages","children":[{"name":"should log in with valid credentials","uid":"eb863056c428d624","parentUid":"83edc06c07f9ae9e47eb6dd1b683e4e2","status":"failed","time":{"start":1758985297639,"stop":1758985297667,"duration":28},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":[],"tags":[]}]}
