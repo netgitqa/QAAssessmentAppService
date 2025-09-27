@@ -18,14 +18,28 @@ test.describe('User Authentication', () => {
     await login.goto();
   });
 
-  test('should log in with valid credentials', async () => {
-    await login.enterEmail(EMAIL);
-    await login.enterPassword(PASSWORD);
-    await login.submitLogin();
+  test('should log in with valid credentials', async ({ browser, page }) => {
+    if (STORAGE_STATE_PATH) {
+      const context = await browser.newContext({ storageState: STORAGE_STATE_PATH });
+      const newPage = await context.newPage();
 
-    await learning.waitForTitle('My learning');
-    const title = await learning.getTitle();
-    expect(title).toContain('My learning');
+      learning = new LearningPage(newPage);
+      await newPage.goto('/my-learning');
+
+      await learning.waitForTitle('My learning');
+      const title = await learning.getTitle();
+      expect(title).toContain('My learning');
+
+      await context.close();
+    } else {
+      await login.enterEmail(EMAIL);
+      await login.enterPassword(PASSWORD);
+      await login.submitLogin();
+  
+      await learning.waitForTitle('My learning');
+      const title = await learning.getTitle();
+      expect(title).toContain('My learning');
+    }
   });
 
   // test('should not log in with incorrect email', async () => {
