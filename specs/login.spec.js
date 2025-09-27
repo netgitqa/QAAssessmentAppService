@@ -7,7 +7,6 @@ const EMAIL = process.env.EMAIL_VALUE;
 const PASSWORD = process.env.PASSWORD_VALUE;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const FAKE_PASSWORD = 'fakevalue';
-const STORAGE_STATE = process.env.STORAGE_STATE;
 
 test.describe('User Authentication', () => {
   let login;
@@ -19,28 +18,14 @@ test.describe('User Authentication', () => {
     await login.goto();
   });
 
-  test('should log in with valid credentials', async ({ browser, page }) => {
-    if (STORAGE_STATE) {
-      const context = await browser.newContext({ storageState: STORAGE_STATE });
-      const newPage = await context.newPage();
+  test('should log in with valid credentials', async () => {
+    await login.enterEmail(EMAIL);
+    await login.enterPassword(PASSWORD);
+    await login.submitLogin();
 
-      learning = new LearningPage(newPage);
-      await newPage.goto('/my-learning');
-
-      await learning.waitForTitle('My learning');
-      const title = await learning.getTitle();
-      expect(title).toContain('My learning');
-
-      await context.close();
-    } else {
-      await login.enterEmail(EMAIL);
-      await login.enterPassword(PASSWORD);
-      await login.submitLogin();
-  
-      await learning.waitForTitle('My learning');
-      const title = await learning.getTitle();
-      expect(title).toContain('My learning');
-    }
+    await learning.waitForTitle('My learning');
+    const title = await learning.getTitle();
+    expect(title).toContain('My learning');
   });
 
   // test('should not log in with incorrect email', async () => {
