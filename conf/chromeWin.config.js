@@ -1,4 +1,5 @@
 const { defineConfig } = require('@playwright/test');
+const path = require('path');
 const commonConfig = require('./common.config');
 
 const capabilities = {
@@ -28,6 +29,7 @@ module.exports = defineConfig({
     }
   }
 });
+
 
 
 
