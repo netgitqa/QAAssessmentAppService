@@ -20,6 +20,10 @@ module.exports = defineConfig({
   ...commonConfig,
   use: {
     ...commonConfig.use,
+    headless: false,
+    screenshot: 'on',
+    trace: 'on',
+    video: 'on',
     connectOptions: {
       wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
           JSON.stringify(capabilities)
@@ -27,5 +31,6 @@ module.exports = defineConfig({
     }
   }
 });
+
 
 
