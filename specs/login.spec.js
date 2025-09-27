@@ -7,7 +7,7 @@ const EMAIL = process.env.EMAIL_VALUE;
 const PASSWORD = process.env.PASSWORD_VALUE;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const FAKE_PASSWORD = 'fakevalue';
-const STORAGE_STATE_PATH = process.env.STORAGE_STATE_PATH;
+const STORAGE_STATE_PATH = process.env.STORAGE_STATE;
 
 test.describe('User Authentication', () => {
   let login;
@@ -20,8 +20,8 @@ test.describe('User Authentication', () => {
   });
 
   test('should log in with valid credentials', async ({ browser, page }) => {
-    if (STORAGE_STATE_PATH) {
-      const context = await browser.newContext({ storageState: STORAGE_STATE_PATH });
+    if (STORAGE_STATE) {
+      const context = await browser.newContext({ storageState: STORAGE_STATE });
       const newPage = await context.newPage();
 
       learning = new LearningPage(newPage);
