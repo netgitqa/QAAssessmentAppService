@@ -1,4 +1,5 @@
 const { defineConfig } = require('@playwright/test');
+const path = require('path');
 const commonConfig = require('./common.config');
 
 const capabilities = {
@@ -21,6 +22,7 @@ module.exports = defineConfig({
     ...commonConfig,
     use: {
         ...commonConfig.use,
+        storageState: path.resolve(__dirname, '../storageState.json'),
         connectOptions: {
             wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(JSON.stringify(capabilities))}`
         }
