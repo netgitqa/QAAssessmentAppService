@@ -17,6 +17,6 @@
     "allure-commandline": "^2.34.1"
   },
   "allure": {
-  "outputDir": "allure-results",
+  "outputDir": "allure-results"
   }
 }
