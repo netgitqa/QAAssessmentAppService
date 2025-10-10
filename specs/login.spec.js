@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const allureReporter = require('@wdio/allure-reporter').default;
+const allureReporter = require('allure-playwright');
 const { viewportInfo } = require('../utils/allureUtils');
 const LoginPage = require('../pageobjects/loginPage');
 const LearningPage = require('../pageobjects/learningPage');
