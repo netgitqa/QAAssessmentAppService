@@ -1,4 +1,6 @@
 const { test, expect } = require('@playwright/test');
+const allureReporter = require('@wdio/allure-reporter');
+const { viewportInfo } = require('../utils/allureUtils');
 const LoginPage = require('../pageobjects/loginPage');
 const LearningPage = require('../pageobjects/learningPage');
 require('dotenv').config();
@@ -12,39 +14,35 @@ test.describe('User Authentication', () => {
   let login;
   let learning;
 
-  // test.beforeEach(async ({ page }) => {
-  //   login = new LoginPage(page);
-  //   learning = new LearningPage(page);
-  //   await login.goto();
-  // });
+  test.beforeEach(async ({ page }) => {
+    login = new LoginPage(page);
+    learning = new LearningPage(page);
+    await login.goto();
+
+    const webClient = await viewportInfo(page);
+    llureReporter.addEpic(webClient);
+  });
 
   test('should log in with valid credentials', async ({ page }) => {
-    // await login.enterEmail(EMAIL);
-    // await login.enterPassword(PASSWORD);
-    // await login.submitLogin();
 
-    // await learning.waitForTitle('My learning');
-    // const title = await learning.getTitle();
-    // expect(title).toContain('My learning');
+    await login.enterEmail(EMAIL);
+    await login.enterPassword(PASSWORD);
+    await login.submitLogin();
 
-    learning = new LearningPage(page);
-
-    await page.goto('/my-learning');
     await learning.waitForTitle('My learning');
-    
     const title = await learning.getTitle();
     expect(title).toContain('My learning');
   });
 
-  // test('should not log in with incorrect email', async () => {
-  //   await login.enterEmail(FAKE_EMAIL);
-  //   await login.enterPassword(PASSWORD);
-  //   await login.submitLogin();
-  //
-  //   const msg = await login.getErrorMessages();
-  //   expect(msg).toContain('This email is not in our system');
-  // });
-  //
+  test('should not log in with incorrect email', async () => {
+    await login.enterEmail(FAKE_EMAIL);
+    await login.enterPassword(PASSWORD);
+    await login.submitLogin();
+
+    const msg = await login.getErrorMessages();
+    expect(msg).toContain('This email is not in our system');
+  });
+
   // test('should not log in with incorrect password', async () => {
   //   await login.enterEmail(EMAIL);
   //   await login.enterPassword(FAKE_PASSWORD);

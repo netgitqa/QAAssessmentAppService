@@ -31,13 +31,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Decode storageState.json from GitHub Secret
-        run: |
-          echo "$STORAGE_STATE" | base64 -d > storageState.json
-          echo "storageState.json content:"
-          cat storageState.json || echo "Failed to read file"
-        shell: bash
-
       - name: Run Chrome tests remotely
         run: npm run test:all
 
