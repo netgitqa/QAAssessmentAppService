@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      STORAGE_STATE: ${{ secrets.STORAGE_STATE }}
       LT_GRID_URL: mobile-hub.lambdatest.com
       LT_USERNAME: ${{ secrets.USERNAME_LT }}
       LT_ACCESS_KEY: ${{ secrets.ACCESS_KEY_LT }}
