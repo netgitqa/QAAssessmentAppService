@@ -20,7 +20,7 @@ test.describe('User Authentication', () => {
     await login.goto();
 
     const webClient = await viewportInfo(page);
-    llureReporter.addEpic(webClient);
+    allureReporter.addEpic(webClient);
   });
 
   test('should log in with valid credentials', async ({ page }) => {
