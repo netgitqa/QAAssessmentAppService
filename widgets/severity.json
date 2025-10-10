@@ -1,1 +1,1 @@
-[]
+[{"uid":"5a354bd5ca80be19","name":"should not log in with incorrect email","time":{"start":1760116272164,"stop":1760116279714,"duration":7550},"status":"failed","severity":"normal"},{"uid":"79895a6ce86d9fea","name":"should log in with valid credentials","time":{"start":1760116264202,"stop":1760116271818,"duration":7616},"status":"failed","severity":"normal"}]
