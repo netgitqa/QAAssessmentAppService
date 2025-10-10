@@ -18,9 +18,6 @@ test.describe('User Authentication', () => {
     login = new LoginPage(page);
     learning = new LearningPage(page);
     await login.goto();
-
-    const webClient = await viewportInfo(page);
-    allureReporter.epic(webClient);
   });
 
   test('should log in with valid credentials', async ({ page }) => {
