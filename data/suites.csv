@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","849","should not log in with incorrect email","","Sat Oct 11 13:11:53 UTC 2025","failed","Sat Oct 11 13:11:54 UTC 2025","User Authentication","login.spec.js","",""
+"","807","should log in with valid credentials","","Sat Oct 11 13:11:43 UTC 2025","failed","Sat Oct 11 13:11:44 UTC 2025","User Authentication","login.spec.js","",""
