@@ -1,12 +1,18 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
 # Test info
 
-- Name: User Authentication >> should log in with valid credentials
-- Location: /home/runner/work/QAAssessmentAppService/QAAssessmentAppService/specs/login.spec.js:23:7
+- Name: User Authentication >> should not log in with incorrect email
+- Location: /home/runner/work/QAAssessmentAppService/QAAssessmentAppService/specs/login.spec.js:34:7
 
 # Error details
 
 ```
-Error: browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium-1169/chrome-linux/chrome
+Error: browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium-1161/chrome-linux/chrome
 ╔═════════════════════════════════════════════════════════════════════════╗
 ║ Looks like Playwright Test or Playwright was just installed or updated. ║
 ║ Please run the following command to download new browsers:              ║
@@ -42,8 +48,7 @@ Error: browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-pl
   20 |     await login.goto();
   21 |   });
   22 |
-> 23 |   test('should log in with valid credentials', async ({ page }) => {
-     |       ^ Error: browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium-1169/chrome-linux/chrome
+  23 |   test('should log in with valid credentials', async ({ page }) => {
   24 |     await allureReporter.epic("User Authentication");
   25 |     await login.enterEmail(EMAIL);
   26 |     await login.enterPassword(PASSWORD);
@@ -54,7 +59,8 @@ Error: browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-pl
   31 |     expect(title).toContain('My learning');
   32 |   });
   33 |
-  34 |   test('should not log in with incorrect email', async () => {
+> 34 |   test('should not log in with incorrect email', async () => {
+     |       ^ Error: browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium-1161/chrome-linux/chrome
   35 |     await allureReporter.epic("User Authentication");
   36 |     await login.enterEmail(FAKE_EMAIL);
   37 |     await login.enterPassword(PASSWORD);
