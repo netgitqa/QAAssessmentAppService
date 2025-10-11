@@ -1,3 +1,5 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","5092","should not log in with incorrect email","","Sat Oct 11 13:56:51 UTC 2025","passed","Sat Oct 11 13:56:56 UTC 2025","User Authentication","login.spec.js","",""
-"","11938","should log in with valid credentials","","Sat Oct 11 13:56:32 UTC 2025","passed","Sat Oct 11 13:56:44 UTC 2025","User Authentication","login.spec.js","",""
+"","7","should log in with valid credentials","","Sat Oct 11 14:36:55 UTC 2025","failed","Sat Oct 11 14:36:55 UTC 2025","User Authentication","login.spec.js","",""
+"","6","should not log in with incorrect email","Chrome Windows 10","Sat Oct 11 14:36:54 UTC 2025","failed","Sat Oct 11 14:36:54 UTC 2025","User Authentication","login.spec.js","",""
+"","7","should not log in with incorrect email","","Sat Oct 11 14:36:56 UTC 2025","failed","Sat Oct 11 14:36:56 UTC 2025","User Authentication","login.spec.js","",""
+"","6","should log in with valid credentials","Chrome Windows 10","Sat Oct 11 14:36:53 UTC 2025","failed","Sat Oct 11 14:36:53 UTC 2025","User Authentication","login.spec.js","",""
