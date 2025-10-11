@@ -14,5 +14,6 @@ module.exports = defineConfig({
         video: 'off',
         viewport: null,
         args: ['--start-maximized']
-    }
+    },
+    testMatch: ['**/*.js']
 });
