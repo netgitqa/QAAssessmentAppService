@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "dotenv": "^10.0.0",
-    "allure-playwright": "^2.0.0",
+    "allure-playwright": "^2.4.0",
     "@playwright/test": "1.41.0"
   },
   "devDependencies": {
