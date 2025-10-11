@@ -1,9 +1,9 @@
-const { test, expect } = require('@playwright/test');
-const allureReporter = require('allure-playwright');
-const { viewportInfo } = require('../utils/allureUtils');
-const LoginPage = require('../pageobjects/loginPage');
-const LearningPage = require('../pageobjects/learningPage');
-require('dotenv').config();
+import { test, expect } from '@playwright/test';
+import * as allureReporter from 'allure-js-commons';
+import { viewportInfo } from '../utils/allureUtils';
+import LoginPage from '../pageobjects/loginPage';
+import LearningPage from '../pageobjects/learningPage';
+import dotenv from 'dotenv';
 
 const EMAIL = process.env.EMAIL_VALUE;
 const PASSWORD = process.env.PASSWORD_VALUE;
@@ -21,7 +21,7 @@ test.describe('User Authentication', () => {
   });
 
   test('should log in with valid credentials', async ({ page }) => {
-
+    await allureReporter.epic("User Authentication");
     await login.enterEmail(EMAIL);
     await login.enterPassword(PASSWORD);
     await login.submitLogin();
@@ -32,6 +32,7 @@ test.describe('User Authentication', () => {
   });
 
   test('should not log in with incorrect email', async () => {
+    await allureReporter.epic("User Authentication");
     await login.enterEmail(FAKE_EMAIL);
     await login.enterPassword(PASSWORD);
     await login.submitLogin();

@@ -1,11 +1,10 @@
-const Logger = require('../utils/logger');
+import Logger from '../utils/logger';
 
 class LoginPage {
     constructor(page) {
         this.page = page;
         this.emailInput = '#email';
         this.passwordInput = '#password';
-        // this.loginButton = page.getByRole('button', { name: 'Login with email' });
         this.loginButton = 'button.g-recaptcha';
         this.separator = '.signup-separator';
         this.forgotPasswordLink = 'text=Forgot password?';
