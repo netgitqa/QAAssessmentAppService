@@ -44,7 +44,7 @@ test.describe('User Authentication', () => {
     expect(msg).toContain('This email is not in our system');
   });
 
-  test('should not log in with incorrect password', async () => {
+  test('should not log in with incorrect password', async ({ page }) => {
     await login.enterEmail(EMAIL);
     await login.enterPassword(FAKE_PASSWORD);
     await login.submitLogin();
@@ -53,7 +53,7 @@ test.describe('User Authentication', () => {
     expect(msg).toContain('Either email or password are incorrect');
   });
 
-  test('should not login with empty credentials', async () => {
+  test('should not login with empty credentials', async ({ page }) => {
     await login.enterEmail('');
     await login.enterPassword('');
     await login.submitLogin();
