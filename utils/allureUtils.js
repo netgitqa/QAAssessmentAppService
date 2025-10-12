@@ -15,10 +15,9 @@ function userAgentInfo(value) {
 
 async function webClientInfo(value) {
   const userAgent = await value.evaluate(() => navigator.userAgent);
-  console.log('User Agent:', userAgent);
   const webClient = userAgentInfo(userAgent);
 
-  return `${userAgent}`;
+  return `${webClient}`;
 }
 
 module.exports = {
