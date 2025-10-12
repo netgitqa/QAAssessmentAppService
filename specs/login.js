@@ -9,7 +9,7 @@ const PASSWORD = process.env.PASSWORD_VALUE;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const FAKE_PASSWORD = 'fakevalue';
 
-test.describe('User Authentication', () => {
+
   let login;
   let learning;
 
@@ -21,7 +21,7 @@ test.describe('User Authentication', () => {
 
   test('should log in with valid credentials', async ({ page }) => {
     const webClient = await webClientInfo(page);
-    allureReporter.startSuite(`${webClient}`);
+    allureReporter.suite(`${webClient}`);
     await allureReporter.epic("User Authentication");
 
     await login.enterEmail(EMAIL);
@@ -35,7 +35,7 @@ test.describe('User Authentication', () => {
 
   test('should not log in with incorrect email', async ({ page }) => {
     const webClient = await webClientInfo(page);
-    allureReporter.startSuite(`${webClient}`);
+    allureReporter.suite(`${webClient}`);
     await allureReporter.epic("User Authentication");
 
     await login.enterEmail(FAKE_EMAIL);
@@ -69,4 +69,4 @@ test.describe('User Authentication', () => {
   //   await login.clickForgotPassword();
   //   await expect(page).toHaveURL(/reset-password/);
   // });
-});
+
