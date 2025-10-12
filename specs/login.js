@@ -21,7 +21,7 @@ const FAKE_PASSWORD = 'fakevalue';
 
   test('should log in with valid credentials', async ({ page }) => {
     const webClient = await webClientInfo(page);
-    allureReporter.suite(`${webClient}`);
+    allureReporter.suite(`Test Check`);
     await allureReporter.epic("User Authentication");
 
     await login.enterEmail(EMAIL);
@@ -35,7 +35,7 @@ const FAKE_PASSWORD = 'fakevalue';
 
   test('should not log in with incorrect email', async ({ page }) => {
     const webClient = await webClientInfo(page);
-    allureReporter.suite(`${webClient}`);
+    allureReporter.suite(`Check test`);
     await allureReporter.epic("User Authentication");
 
     await login.enterEmail(FAKE_EMAIL);
