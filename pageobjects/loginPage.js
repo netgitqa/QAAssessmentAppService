@@ -55,9 +55,8 @@ class LoginPage {
     await this.page.waitForTimeout(500);
     await this.page.context().clearCookies();
     await this.page.waitForTimeout(500);
-    await this.page.evaluate(() => { sessionStorage.clear(); })
-    await this.page.waitForTimeout(500);
     await this.page.reload();
+    await this.page.waitForTimeout(500);
   }
 }
 
