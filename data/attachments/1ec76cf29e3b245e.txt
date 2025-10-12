@@ -1,3 +1,0 @@
-STEP: Navigating to login page
-STEP: Entering email: 
-STEP: Entering password

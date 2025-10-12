@@ -1,0 +1,2 @@
+STEP: Entering password
+STEP: Clicking login button

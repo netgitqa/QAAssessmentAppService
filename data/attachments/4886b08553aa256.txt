@@ -1,0 +1,4 @@
+STEP: Entering password
+STEP: Clicking login button
+STEP: Waiting for page title to contain "My learning"
+STEP: Getting page title
