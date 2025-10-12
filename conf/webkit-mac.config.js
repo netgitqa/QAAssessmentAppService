@@ -20,7 +20,7 @@ module.exports = defineConfig({
   ...commonConfig,
   projects: [
     {
-      name: 'WebKit',
+      name: 'Playwright Test Suite',
       use: {
         ...devices['Desktop Safari'],
         connectOptions: {

@@ -20,7 +20,7 @@ module.exports = defineConfig({
   ...commonConfig,
   projects: [
     {
-      name: 'Chrome',
+      name: 'Playwright Test Suite',
       use: {
         ...devices['Desktop Chrome'],
         connectOptions: {
