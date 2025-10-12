@@ -33,11 +33,11 @@ test.describe('User Authentication', () => {
     expect(title).toContain('My learning');
   });
 
-  test('should not log in with incorrect email', async () => {
+  test('should not log in with incorrect email', async ({ page }) => {
     const webClient = await webClientInfo(page);
     allureReporter.suite(`${webClient}`);
     await allureReporter.epic("User Authentication");
-    
+
     await login.enterEmail(FAKE_EMAIL);
     await login.enterPassword(PASSWORD);
     await login.submitLogin();
