@@ -20,7 +20,6 @@ module.exports = defineConfig({
   ...commonConfig,
   projects: [
     {
-      name: 'WebKit macOS Big Sur',
       use: {
         ...devices['Desktop Safari'],
         connectOptions: {
