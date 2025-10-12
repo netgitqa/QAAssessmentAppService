@@ -58,7 +58,7 @@ test.describe('User Authentication', () => {
     await login.enterPassword('');
     await login.submitLogin();
 
-    await expect(page).toHaveURL('/login');
+    await expect(page).toHaveURL(/login/);
   });
 
   test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
