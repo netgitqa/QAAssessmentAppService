@@ -1,6 +1,25 @@
+const { defineConfig } = require('@playwright/test');
 const path = require('path');
 require('dotenv').config();
-const { defineConfig } = require('@playwright/test');
+
+const commonCapabilities = {
+    network: true,
+    video: true,
+    console: true,
+};
+
+const getCapabilities = (browserName, platform, buildName, testName) => ({
+    browserName,
+    browserVersion: 'latest',
+    'LT:Options': {
+        ...commonCapabilities,
+        platform,
+        build: buildName,
+        name: testName,
+        user: process.env.LT_USERNAME,
+        accessKey: process.env.LT_ACCESS_KEY,
+    },
+});
 
 module.exports = defineConfig({
     testDir: path.resolve(__dirname, '../specs'),
@@ -15,5 +34,6 @@ module.exports = defineConfig({
         viewport: null,
         args: ['--start-maximized']
     },
-    testMatch: ['**/*.js']
+    testMatch: ['**/*.js'],
+    getCapabilities,
 });

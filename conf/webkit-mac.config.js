@@ -1,20 +1,13 @@
 const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
+const { getCapabilities } = commonConfig;
 
-const capabilities = {
-  browserName: 'pw-webkit',
-  browserVersion: '18.0',
-  'LT:Options': {
-    platform: 'macOS Big sur',
-    build: 'Login Test',
-    name: 'Playwright Webkit Big sur',
-    user: process.env.LT_USERNAME,
-    accessKey: process.env.LT_ACCESS_KEY,
-    network: true,
-    video: true,
-    console: true,
-  }
-};
+const webkitCapabilities = getCapabilities(
+    'pw-webkit',
+    'macOS Big Sur',
+    'Login Test',
+    'Playwright Webkit Big Sur'
+);
 
 module.exports = defineConfig({
   ...commonConfig,
@@ -25,7 +18,7 @@ module.exports = defineConfig({
         ...devices['Desktop Safari'],
         connectOptions: {
           wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-              JSON.stringify(capabilities)
+              JSON.stringify(webkitCapabilities)
           )}`,
         },
       },
