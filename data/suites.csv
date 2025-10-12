@@ -1,5 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","12470","should log in with valid credentials","WebKit macOS Big Sur","Sun Oct 12 05:05:49 UTC 2025","passed","Sun Oct 12 05:06:01 UTC 2025","User Authentication","Check login","",""
-"","4994","should not log in with incorrect email","WebKit macOS Big Sur","Sun Oct 12 05:06:10 UTC 2025","passed","Sun Oct 12 05:06:15 UTC 2025","User Authentication","Check login","",""
-"","4361","should not log in with incorrect email","Chrome Windows 10","Sun Oct 12 05:05:43 UTC 2025","passed","Sun Oct 12 05:05:47 UTC 2025","User Authentication","Check login","",""
-"","12601","should log in with valid credentials","Chrome Windows 10","Sun Oct 12 05:05:22 UTC 2025","passed","Sun Oct 12 05:05:34 UTC 2025","User Authentication","Check login","",""
+"","5157","should not log in with incorrect email","","Sun Oct 12 05:13:32 UTC 2025","passed","Sun Oct 12 05:13:37 UTC 2025","User Authentication","Check login","",""
+"","12323","should log in with valid credentials","","Sun Oct 12 05:13:13 UTC 2025","passed","Sun Oct 12 05:13:26 UTC 2025","User Authentication","Check login","",""
