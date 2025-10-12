@@ -35,7 +35,7 @@ const FAKE_PASSWORD = 'fakevalue';
 
   test('should not log in with incorrect email', async ({ page }) => {
     const webClient = await webClientInfo(page);
-    allureReporter.suite(`Check test`);
+    allureReporter.suite(`Test Check`);
     await allureReporter.epic("User Authentication");
 
     await login.enterEmail(FAKE_EMAIL);
