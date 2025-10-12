@@ -11,7 +11,7 @@ class LoginPage {
     this.errorMessages = 'p.usahello-form-error.usahello-form-validation_msg';
   }
 
-  async goto() {
+  async open() {
     await Logger.step('Navigating to login page');
     await this.page.goto('/login');
   }
