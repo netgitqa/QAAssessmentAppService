@@ -17,9 +17,19 @@ module.exports = defineConfig({
       use: {
         ...devices['Desktop Safari'],
         connectOptions: {
-          wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-              JSON.stringify(webkitCapabilities)
-          )}`,
+          wsEndpoint: async ({ projectName, specFile, testInfo }) => {
+            const specName = path.basename(specFile, '.js');
+            const webkitCapabilities = getCapabilities(
+                'pw-webkit',
+                'macOS Big Sur',
+                'Login Test',
+                'Playwright Webkit Big Sur',
+                specName
+            );
+            return `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
+                JSON.stringify(webkitCapabilities)
+            )}`;
+          }
         },
       },
     },

@@ -17,9 +17,19 @@ module.exports = defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         connectOptions: {
-          wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-              JSON.stringify(chromeCapabilities)
-          )}`,
+          wsEndpoint: async ({ projectName, specFile, testInfo }) => {
+            const specName = path.basename(specFile, '.js');
+            const webkitCapabilities = getCapabilities(
+                'Chrome',
+                'Windows 10',
+                'Login Test',
+                'Playwright Chrome Win 10',
+                specName
+            );
+            return `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
+                JSON.stringify(webkitCapabilities)
+          )}`;
+          }
         },
       },
     },
