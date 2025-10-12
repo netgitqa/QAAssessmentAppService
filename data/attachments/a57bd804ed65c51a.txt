@@ -2,4 +2,3 @@ STEP: Navigating to login page
 STEP: Entering email: 
 STEP: Entering password
 STEP: Clicking login button
-STEP: Getting error messages
