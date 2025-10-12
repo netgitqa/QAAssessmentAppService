@@ -18,7 +18,7 @@ async function webClientInfo(value) {
   console.log('User Agent:', userAgent);
   const webClient = userAgentInfo(userAgent);
 
-  return `${webClient}`;
+  return `${userAgent}`;
 }
 
 module.exports = {
