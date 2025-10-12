@@ -1,4 +1,4 @@
-const { allure } = require('allure-playwright');
+import * as allure from 'allure-js-commons';
 
 class Logger {
     static step(message) {
