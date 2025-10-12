@@ -9,6 +9,7 @@ function userAgentInfo(value) {
   if (safariClient && !value.includes('Chrome')) {
     return `Safari ${safariClient[1]}`;
   }
+  
   return 'Unknown';
 }
 
@@ -20,5 +21,5 @@ async function webClientInfo(page) {
 }
 
 module.exports = {
-    viewportInfo
+  webClientInfo
 };
