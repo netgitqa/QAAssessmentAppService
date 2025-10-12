@@ -1,4 +1,4 @@
-const { defineConfig, devices } = require('@playwright/test');
+const { defineConfig } = require('@playwright/test');
 const commonConfig = require('./common.config');
 
 const capabilities = {
@@ -18,23 +18,12 @@ const capabilities = {
 
 module.exports = defineConfig({
   ...commonConfig,
-  projects: [
-    {
-      use: {
-        ...devices['Desktop Chrome'],
-        connectOptions: {
-          wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-              JSON.stringify(capabilities)
-          )}`,
-        },
-      },
-    },
-  ],
+  use: {
+    ...commonConfig.use,
+    connectOptions: {
+      wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
+          JSON.stringify(capabilities)
+      )}`
+    }
+  }
 });
-
-
-
-
-
-
-
