@@ -1,0 +1,2 @@
+STEP: Navigating to login page
+STEP: Clicking forgot password link
