@@ -46,7 +46,7 @@ class LoginPage {
     const errors = await this.page.$$eval(this.errorMessages, elements =>
       elements.map(el => el.textContent.trim()).join(' ')
     );
-    
+
     return errors;
   }
 
@@ -54,8 +54,6 @@ class LoginPage {
     await Logger.step('Refreshing app state');
     await this.page.waitForTimeout(500);
     await this.page.context().clearCookies();
-    await this.page.waitForTimeout(500);
-    await this.page.evaluate(() => { localStorage.clear(); })
     await this.page.waitForTimeout(500);
     await this.page.evaluate(() => { sessionStorage.clear(); })
     await this.page.waitForTimeout(500);
