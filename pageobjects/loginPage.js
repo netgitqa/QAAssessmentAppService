@@ -1,3 +1,4 @@
+import * as allure from 'allure-js-commons';
 import Logger from '../utils/logger';
 
 class LoginPage {
@@ -12,13 +13,13 @@ class LoginPage {
   }
 
   async open() {
-    await Logger.step('Navigating to login page', async () => {
+    await allure.step('Navigating to login page', async () => {
       await this.page.goto('/login');
     });
   }
 
   async enterEmail(email) {
-    await Logger.step(`Entering email: ${email}`, async () => {
+    await allure.step(`Entering email: ${email}`, async () => {
       await this.page.fill(this.emailInput, email);
     });
   }
