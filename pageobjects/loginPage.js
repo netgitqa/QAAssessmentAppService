@@ -12,13 +12,15 @@ class LoginPage {
   }
 
   async open() {
-    await Logger.step('Navigating to login page');
-    await this.page.goto('/login');
+    await Logger.step('Navigating to login page', async () => {
+      await this.page.goto('/login');
+    });
   }
 
   async enterEmail(email) {
-    await Logger.step(`Entering email: ${email}`);
-    await this.page.fill(this.emailInput, email);
+    await Logger.step(`Entering email: ${email}`, async () => {
+      await this.page.fill(this.emailInput, email);
+    });
   }
 
   async enterPassword(password) {
