@@ -16,17 +16,12 @@ module.exports = defineConfig({
     {
       name: 'Playwright Windows 10',
       use: {
-        ...devices['Desktop Chrome']
-      },
-      beforeAll: async ({ browser, context, page }) => {
-        const wsEndpoint = `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-            JSON.stringify(capabilities)
-        )}`;
-        await browser.newContext({
-          connectOptions: {
-            wsEndpoint
-          },
-        });
+        ...devices['Desktop Chrome'],
+        connectOptions: {
+          wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
+              JSON.stringify(capabilities)
+          )}`,
+        },
       },
     },
   ],
