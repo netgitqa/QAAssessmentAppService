@@ -1,3 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","11818","should log in with valid credentials","","Sun Oct 12 08:15:17 UTC 2025","passed","Sun Oct 12 08:15:29 UTC 2025","","Test Check","",""
-"","5049","should not log in with incorrect email","","Sun Oct 12 08:15:37 UTC 2025","passed","Sun Oct 12 08:15:42 UTC 2025","","Test Check","",""
+"","5129","should not log in with incorrect email","","Sun Oct 12 08:22:46 UTC 2025","passed","Sun Oct 12 08:22:51 UTC 2025","User Authentication","User Authentication","",""
+"","11891","should log in with valid credentials","","Sun Oct 12 08:22:24 UTC 2025","passed","Sun Oct 12 08:22:36 UTC 2025","User Authentication","User Authentication","",""
