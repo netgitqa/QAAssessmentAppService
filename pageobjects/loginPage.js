@@ -11,7 +11,7 @@ class LoginPage {
     this.errorMessages = 'p.usahello-form-error.usahello-form-validation_msg';
   }
 
-  async open() {
+  async goto() {
     await Logger.step('Navigating to login page');
     await this.page.goto('/login');
   }
@@ -46,14 +46,7 @@ class LoginPage {
     const errors = await this.page.$$eval(this.errorMessages, elements =>
       elements.map(el => el.textContent.trim()).join(' ')
     );
-
     return errors;
-  }
-
-  async refresh() {
-    await Logger.step('Refreshing app state');
-    await this.page.context().clearCookies();
-    await this.page.reload();
   }
 }
 
