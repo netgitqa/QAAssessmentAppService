@@ -2,12 +2,14 @@ const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
 const path = require('path')
 
+const specName = path.basename(process.argv[2], '.spec.js');
+
 const capabilities = commonConfig.getCapabilities(
     'pw-webkit',
     'macOS Big Sur',
     'Login Test',
     'Playwright Webkit Big Sur',
-    path.basename(__filename, '.spec.js')
+    specName
 );
 
 capabilities['specsPath'] = path.resolve(__dirname, '../specs');

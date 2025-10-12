@@ -2,12 +2,14 @@ const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
 const path = require('path')
 
+const specName = path.basename(process.argv[2], '.spec.js');
+
 const capabilities = commonConfig.getCapabilities(
     'Chrome',
     'Windows 10',
     'Login Test',
     'Playwright Chrome Win 10',
-    path.basename(__filename, '.spec.js')
+    specName
 );
 
 capabilities['specsPath'] = path.resolve(__dirname, '../specs');
