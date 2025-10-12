@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"9462c3960e123b76190b15c415193888","name":"User Authentication Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}}]}
+{"total":1,"items":[{"uid":"8c95e985f3c8a2ad566965c5c9f58e96","name":"login.js","statistic":{"failed":2,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":2}}]}
