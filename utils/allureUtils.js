@@ -13,8 +13,9 @@ function userAgentInfo(value) {
   return 'Unknown';
 }
 
-async function webClientInfo(page) {
-  const userAgent = await page.evaluate(() => navigator.userAgent);
+async function webClientInfo(value) {
+  const userAgent = await value.evaluate(() => navigator.userAgent);
+  console.log('User Agent:', userAgent);
   const webClient = userAgentInfo(userAgent);
 
   return `${webClient}`;
