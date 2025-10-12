@@ -1,3 +1,5 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","11013","should log in with valid credentials","","Sun Oct 12 08:37:47 UTC 2025","passed","Sun Oct 12 08:37:58 UTC 2025","User Authentication","Check login","",""
-"","4903","should not log in with incorrect email","","Sun Oct 12 08:38:06 UTC 2025","passed","Sun Oct 12 08:38:10 UTC 2025","User Authentication","Check login","",""
+"","4787","should not log in with incorrect email","Chrome","Sun Oct 12 08:44:57 UTC 2025","passed","Sun Oct 12 08:45:02 UTC 2025","","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Safari/537.36","",""
+"","5690","should not log in with incorrect email","WebKit","Sun Oct 12 08:45:21 UTC 2025","passed","Sun Oct 12 08:45:27 UTC 2025","","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15","",""
+"","11437","should log in with valid credentials","WebKit","Sun Oct 12 08:45:04 UTC 2025","passed","Sun Oct 12 08:45:15 UTC 2025","","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15","",""
+"","11514","should log in with valid credentials","Chrome","Sun Oct 12 08:44:37 UTC 2025","passed","Sun Oct 12 08:44:49 UTC 2025","","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Safari/537.36","",""
