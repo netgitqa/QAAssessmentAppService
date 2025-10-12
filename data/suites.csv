@@ -1,3 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","5150","should not log in with incorrect email","","Sun Oct 12 07:48:28 UTC 2025","failed","Sun Oct 12 07:48:33 UTC 2025","User Authentication","login.js","",""
-"","5034","should log in with valid credentials","","Sun Oct 12 07:48:14 UTC 2025","failed","Sun Oct 12 07:48:19 UTC 2025","User Authentication","login.js","",""
+"","5176","should not log in with incorrect email","","Sun Oct 12 07:59:52 UTC 2025","passed","Sun Oct 12 07:59:57 UTC 2025","","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15","",""
+"","11174","should log in with valid credentials","","Sun Oct 12 07:59:34 UTC 2025","passed","Sun Oct 12 07:59:45 UTC 2025","","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15","",""
