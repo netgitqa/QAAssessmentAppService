@@ -22,10 +22,10 @@ test.describe('User Authentication', () => {
 
     login = new LoginPage(page);
     learning = new LearningPage(page);
-    await login.goto();
   });
 
   test('should log in with valid credentials', async ({ page }) => {
+    await login.open();
     await login.enterEmail(EMAIL);
     await login.enterPassword(PASSWORD);
     await login.submitLogin();
@@ -36,6 +36,8 @@ test.describe('User Authentication', () => {
   });
 
   test('should not log in with incorrect email', async ({ page }) => {
+    await login.refresh();
+    await login.open();
     await login.enterEmail(FAKE_EMAIL);
     await login.enterPassword(PASSWORD);
     await login.submitLogin();
@@ -45,6 +47,8 @@ test.describe('User Authentication', () => {
   });
 
   test('should not log in with incorrect password', async () => {
+    await login.refresh();
+    await login.open();
     await login.enterEmail(EMAIL);
     await login.enterPassword(FAKE_PASSWORD);
     await login.submitLogin();
@@ -54,6 +58,8 @@ test.describe('User Authentication', () => {
   });
 
   test('should not login with empty credentials', async () => {
+    await login.refresh();
+    await login.open();
     await login.enterEmail('');
     await login.enterPassword('');
     await login.submitLogin();
@@ -64,6 +70,8 @@ test.describe('User Authentication', () => {
   });
 
   test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
+    await login.refresh();
+    await login.open();
     await login.clickForgotPassword();
     await expect(page).toHaveURL(/reset-password/);
   });
