@@ -1,5 +1,3 @@
 STEP: Navigating to login page
 STEP: Entering email: testqqqaaa@replyloop.com
 STEP: Entering password
-STEP: Clicking login button
-STEP: Getting error messages

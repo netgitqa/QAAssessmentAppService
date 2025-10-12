@@ -1,4 +1,3 @@
 STEP: Navigating to login page
-STEP: Entering email: 
+STEP: Entering email: fakevalue@test.com
 STEP: Entering password
-STEP: Clicking login button
