@@ -1,1 +1,1 @@
-{"total":0,"items":[]}
+{"total":2,"items":[{"uid":"a2adfb77ee83d45fed2b5d223c0fd246","name":"Playwright Windows 10","statistic":{"failed":5,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":5}},{"uid":"c613a9ab986801e44b0b87f098a141a8","name":"Playwright macOS Big sur","statistic":{"failed":5,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":5}}]}
