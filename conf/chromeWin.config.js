@@ -1,12 +1,13 @@
 const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
-const { getCapabilities } = commonConfig;
+const path = require('path')
 
-const chromeCapabilities = getCapabilities(
+const capabilities = commonConfig.getCapabilities(
     'Chrome',
     'Windows 10',
     'Login Test',
-    'Playwright Chrome Win 10'
+    'Playwright Chrome Win 10',
+    path.basename(__filename, '.config.js')
 );
 
 module.exports = defineConfig({
@@ -15,22 +16,17 @@ module.exports = defineConfig({
     {
       name: 'Playwright Windows 10',
       use: {
-        ...devices['Desktop Chrome'],
-        connectOptions: {
-          wsEndpoint: async ({ projectName, specFile, testInfo }) => {
-            const specName = path.basename(specFile, '.js');
-            const webkitCapabilities = getCapabilities(
-                'Chrome',
-                'Windows 10',
-                'Login Test',
-                'Playwright Chrome Win 10',
-                specName
-            );
-            return `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-                JSON.stringify(webkitCapabilities)
-          )}`;
-          }
-        },
+        ...devices['Desktop Chrome']
+      },
+      beforeAll: async ({ browser, context, page }) => {
+        const wsEndpoint = `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
+            JSON.stringify(capabilities)
+        )}`;
+        await browser.newContext({
+          connectOptions: {
+            wsEndpoint
+          },
+        });
       },
     },
   ],
