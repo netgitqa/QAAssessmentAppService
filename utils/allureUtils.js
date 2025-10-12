@@ -1,21 +1,21 @@
-function clientInfo(value) {
+function userAgentInfo(value) {
   const chromeClient = value.match(/Chrome\/([\d.]+)/);
   const safariClient = value.match(/Version\/([\d.]+) Safari/);
 
   if (chromeClient && !value.includes('Edge')) {
-    return `${chromeClient[1]}`;
+    return `Chrome ${chromeClient[1]}`;
   }
 
   if (safariClient && !value.includes('Chrome')) {
-    return `${safariClient[1]}`;
+    return `Safari ${safariClient[1]}`;
   }
-  
+
   return 'Unknown';
 }
 
-async function viewportInfo(page) {
+async function webClientInfo(page) {
   const userAgent = await page.evaluate(() => navigator.userAgent);
-  const webClient = clientInfo(userAgent);
+  const webClient = userAgentInfo(userAgent);
 
   return `${webClient}`;
 }

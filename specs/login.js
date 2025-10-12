@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import * as allureReporter from 'allure-js-commons';
-import { viewportInfo } from '../utils/allureUtils';
+import { webClientInfo } from '../utils/allureUtils';
 import LoginPage from '../pageobjects/loginPage';
 import LearningPage from '../pageobjects/learningPage';
 
@@ -15,7 +15,7 @@ test.describe('User Authentication', () => {
   let learning;
 
   test.beforeEach(async ({ page }) => {
-    const webClient = await viewportInfo(page);
+    const webClient = await webClientInfo(page);
     allureReporter.suite(`${webClient}`);
     await allureReporter.epic("User Authentication");
 
