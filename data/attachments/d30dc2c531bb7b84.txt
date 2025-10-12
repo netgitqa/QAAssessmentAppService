@@ -1,3 +1,0 @@
-STEP: Entering password
-STEP: Clicking login button
-STEP: Getting error messages
