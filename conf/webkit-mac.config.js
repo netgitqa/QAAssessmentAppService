@@ -7,7 +7,7 @@ const capabilities = commonConfig.getCapabilities(
     'macOS Big Sur',
     'Login Test',
     'Playwright Webkit Big Sur',
-    path.basename(__filename, '.config.js')
+    path.basename(__filename, '.spec.js')
 );
 
 module.exports = defineConfig({

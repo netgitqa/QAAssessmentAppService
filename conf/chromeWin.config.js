@@ -7,7 +7,7 @@ const capabilities = commonConfig.getCapabilities(
     'Windows 10',
     'Login Test',
     'Playwright Chrome Win 10',
-    path.basename(__filename, '.config.js')
+    path.basename(__filename, '.spec.js')
 );
 
 module.exports = defineConfig({
