@@ -30,19 +30,19 @@ class LoginPage {
   }
 
   async submitLogin() {
-    await Logger.step('Clicking login button', async () => {
+    await allureReporter.step('Clicking login button', async () => {
       await this.page.click(this.loginButton);
     });
   }
 
   async clickForgotPassword() {
-    await Logger.step('Clicking forgot password link', async () => {
+    await allureReporter.step('Clicking forgot password link', async () => {
       await this.page.click(this.forgotPasswordLink);
     });
   }
 
   async getErrorMessages() {
-    await Logger.step('Getting error messages', async () => {
+    await allureReporter.step('Getting error messages', async () => {
       await this.page.waitForSelector(this.errorMessages, {
         timeout: 5000,
         state: 'visible'
