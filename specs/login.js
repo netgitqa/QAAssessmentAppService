@@ -1,15 +1,16 @@
 import { test, expect } from '@playwright/test';
 import * as allureReporter from 'allure-js-commons';
-import { webClientInfo } from '../utils/allureUtils';
+import { viewportInfo } from '../utils/allureUtils';
 import LoginPage from '../pageobjects/loginPage';
 import LearningPage from '../pageobjects/learningPage';
+import dotenv from 'dotenv';
 
 const EMAIL = process.env.EMAIL_VALUE;
 const PASSWORD = process.env.PASSWORD_VALUE;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const FAKE_PASSWORD = 'fakevalue';
 
-
+test.describe('User Authentication', () => {
   let login;
   let learning;
 
@@ -20,10 +21,8 @@ const FAKE_PASSWORD = 'fakevalue';
   });
 
   test('should log in with valid credentials', async ({ page }) => {
-    const webClient = await webClientInfo(page);
-    allureReporter.suite(`Test Check`);
     await allureReporter.epic("User Authentication");
-
+    await allureReporter.label('suite', 'User Authentication');
     await login.enterEmail(EMAIL);
     await login.enterPassword(PASSWORD);
     await login.submitLogin();
@@ -33,11 +32,9 @@ const FAKE_PASSWORD = 'fakevalue';
     expect(title).toContain('My learning');
   });
 
-  test('should not log in with incorrect email', async ({ page }) => {
-    const webClient = await webClientInfo(page);
-    allureReporter.suite(`Test Check`);
+  test('should not log in with incorrect email', async () => {
     await allureReporter.epic("User Authentication");
-
+    await allureReporter.label('suite', 'User Authentication');
     await login.enterEmail(FAKE_EMAIL);
     await login.enterPassword(PASSWORD);
     await login.submitLogin();
@@ -69,4 +66,4 @@ const FAKE_PASSWORD = 'fakevalue';
   //   await login.clickForgotPassword();
   //   await expect(page).toHaveURL(/reset-password/);
   // });
-
+});
