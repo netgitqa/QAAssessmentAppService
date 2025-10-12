@@ -52,11 +52,8 @@ class LoginPage {
 
   async refresh() {
     await Logger.step('Refreshing app state');
-    await this.page.waitForTimeout(500);
     await this.page.context().clearCookies();
-    await this.page.waitForTimeout(500);
     await this.page.reload();
-    await this.page.waitForTimeout(500);
   }
 }
 
