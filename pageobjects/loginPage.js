@@ -42,7 +42,7 @@ class LoginPage {
   }
 
   async getErrorMessages() {
-    await allureReporter.step('Getting error messages', async () => {
+    return allureReporter.step('Getting error messages', async () => {
       await this.page.waitForSelector(this.errorMessages, {
         timeout: 5000,
         state: 'visible'
