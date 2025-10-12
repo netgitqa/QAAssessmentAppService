@@ -1,10 +1,8 @@
 import * as allure from 'allure-js-commons';
 
 class Logger {
-    static async step(message) {
-        allure.step(message, async () => {
-            await action();
-        });
+    static step(message) {
+        allure.step(message, async () => {});
         console.log(`STEP: ${message}`);
     }
 
