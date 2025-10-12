@@ -21,7 +21,7 @@ test.describe('User Authentication', () => {
 
   test('should log in with valid credentials', async ({ page }) => {
     const webClient = await webClientInfo(page);
-    allureReporter.suite(`${webClient}`);
+    allureReporter.suite(`User Authentication ${webClient}`);
     await allureReporter.epic("User Authentication");
 
     await login.enterEmail(EMAIL);
@@ -35,7 +35,7 @@ test.describe('User Authentication', () => {
 
   test('should not log in with incorrect email', async ({ page }) => {
     const webClient = await webClientInfo(page);
-    allureReporter.suite(`${webClient}`);
+    allureReporter.suite(`User Authentication ${webClient}`);
     await allureReporter.epic("User Authentication");
 
     await login.enterEmail(FAKE_EMAIL);
