@@ -20,6 +20,7 @@ module.exports = defineConfig({
   ...commonConfig,
   projects: [
     {
+      name: 'Chrome',
       use: {
         ...devices['Desktop Chrome'],
         connectOptions: {
