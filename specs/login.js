@@ -21,7 +21,7 @@ test.describe('User Authentication', () => {
   });
 
   test('should log in with valid credentials', async ({ page }) => {
-    await allureReporter.suite('User Authentication');
+    await allureReporter.suite('Check login');
     await allureReporter.epic("User Authentication");
     await login.enterEmail(EMAIL);
     await login.enterPassword(PASSWORD);
@@ -33,7 +33,7 @@ test.describe('User Authentication', () => {
   });
 
   test('should not log in with incorrect email', async () => {
-    await allureReporter.suite('User Authentication');
+    await allureReporter.suite('Check login');
     await allureReporter.epic("User Authentication");
     await login.enterEmail(FAKE_EMAIL);
     await login.enterPassword(PASSWORD);
