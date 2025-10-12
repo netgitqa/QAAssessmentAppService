@@ -1,1 +1,1 @@
-{"total":2,"items":[{"uid":"837fb1e4d4893d5d28f4bb4cfeee8aee","name":"Test Check","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}},{"uid":"a6fbb7146bf113a68c9c0c08c2a01751","name":"Check test","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
+{"total":1,"items":[{"uid":"837fb1e4d4893d5d28f4bb4cfeee8aee","name":"Test Check","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}}]}
