@@ -7,7 +7,7 @@ function userAgentInfo(value) {
   }
 
   if (safariClient && !value.includes('Chrome')) {
-    return `Safari ${safariClient[1]}`;
+    return `WebKit ${safariClient[1]}`;
   }
 
   return 'Unknown';
