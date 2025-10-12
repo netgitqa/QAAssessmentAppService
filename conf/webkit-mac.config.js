@@ -12,8 +12,6 @@ const capabilities = commonConfig.getCapabilities(
 
 module.exports = defineConfig({
   ...commonConfig,
-  testDir: './specs',
-  testMatch: '**/*.spec.js',
   projects: [
     {
       name: 'Playwright macOS Big sur',

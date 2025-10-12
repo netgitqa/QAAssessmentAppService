@@ -23,7 +23,6 @@ const getCapabilities = (browserName, platform, buildName, testName, specName) =
 
 module.exports = defineConfig({
     testDir: path.resolve(__dirname, '../specs'),
-    testMatch: ['**/*.spec.js'],
     timeout: 30000,
     retries: 0,
     reporter: [['list'], ['allure-playwright']],
