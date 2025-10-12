@@ -10,9 +10,10 @@ const capabilities = commonConfig.getCapabilities(
     path.basename(__filename, '.spec.js')
 );
 
+capabilities['specsPath'] = path.resolve(__dirname, '../specs');
+
 module.exports = defineConfig({
   ...commonConfig,
-  testDir: path.resolve(__dirname, 'specs'),
   projects: [
     {
       name: 'Playwright Windows 10',
