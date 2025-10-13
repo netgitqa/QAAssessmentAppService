@@ -89,8 +89,9 @@ class ResetPasswordPage {
   async verifyResetEmailSent(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
+      console.log(`Test value ${emailId}`);
       const emailInfo = await this.getEmailInfo(emailId);
-
+      console.log(`Test value ${JSON.stringify(emailInfo, null, 2)}`);
       const recipient = emailInfo.email;
 
       const sent = recipient === emailValue;
