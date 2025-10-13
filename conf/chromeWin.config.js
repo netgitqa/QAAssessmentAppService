@@ -14,7 +14,6 @@ const capabilities = commonConfig.getCapabilities(
     'Chrome',
     'Windows 10',
     'Login Test',
-    'Playwright Chrome Win 10',
     specName
 );
 

@@ -14,7 +14,6 @@ const capabilities = commonConfig.getCapabilities(
     'pw-webkit',
     'macOS Big Sur',
     'Login Test',
-    'Playwright Webkit Big Sur',
     specName
 );
 
