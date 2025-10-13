@@ -73,7 +73,7 @@ class ResetPasswordPage {
   }
 
   async getEmailInfo(emailId) {
-    await allureReporter.step(`Email info for ID: ${emailId}`, async () => {
+    return await allureReporter.step(`Email info for ID: ${emailId}`, async () => {
       const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/info.json', {
           key: this.apiKey,
           id: emailId
@@ -81,7 +81,7 @@ class ResetPasswordPage {
       );
 
       if (response.status === 'error') {
-        throw new Error(`Mandrill API error: ${data.message}`);
+        throw new Error(`Mandrill API error: ${response.message}`);
       }
 
       return response;
