@@ -3,7 +3,7 @@ import * as allureReporter from 'allure-js-commons';
 
 import { webClientInfo } from '../utils/allureUtils';
 
-import ResetPasswordPage from '../pageobjects/loginPage';
+import ResetPasswordPage from '../pageobjects/resetPasswordPage';
 
 const EMAIL = process.env.EMAIL_VALUE;
 const FAKE_EMAIL = 'fakevalue@test.com';
