@@ -9,12 +9,13 @@ const getSpecName = () => {
   return match ? match[1] : 'unknown-spec';
 };
 
+const specName = getSpecName();
 const capabilities = commonConfig.getCapabilities(
     'pw-webkit',
     'macOS Big Sur',
     'Login Test',
     'Playwright Webkit Big Sur',
-    getSpecName()
+    specName
 );
 
 module.exports = defineConfig({

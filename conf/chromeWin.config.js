@@ -9,12 +9,13 @@ const getSpecName = () => {
   return match ? match[1] : 'unknown-spec';
 };
 
+const specName = getSpecName();
 const capabilities = commonConfig.getCapabilities(
     'Chrome',
     'Windows 10',
     'Login Test',
     'Playwright Chrome Win 10',
-    getSpecName()
+    specName
 );
 
 module.exports = defineConfig({
