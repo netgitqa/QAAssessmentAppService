@@ -2,15 +2,10 @@ const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
 const path = require('path');
 
-const spec = path.basename(__filename, '.spec.js');
-
-console.log(`Running spec: ${spec}`);
-
 const capabilities = commonConfig.getCapabilities(
     'pw-webkit',
     'macOS Big Sur',
-    'Login Test',
-    spec
+    'Login Test'
 );
 
 module.exports = defineConfig({
@@ -29,3 +24,9 @@ module.exports = defineConfig({
     },
   ],
 });
+
+beforeAll: async () => {
+  const spec = path.basename(process.argv[2], '.js');
+  capabilities['LT:Options'].name = spec;
+  console.log(`Test run name set to: ${spec}`);
+}
