@@ -56,17 +56,20 @@ class ResetPasswordPage {
 
   async searchEmailBySubject(subject, recipient, limit = 1) {
     await allureReporter.step(`Search email by subject: "${subject}", "${recipient}"`, async () => {
-      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
+      const value = {
         key: this.apiKey,
         query: `subject:${subject} AND email:${recipient}`,
         limit
-      });
+      };
 
-      console.log(`Test check: ${JSON.stringify(response, null, 2)}`);
+      console.log(`The value: ${JSON.stringify(value, null, 2)}`);
 
-      if (!Array.isArray(response) || response.length === 0) {
-        throw new Error(`No emails found with subject "${subject}"`);
-      }
+      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', value);
+
+      console.log(`Response Status: ${response.status}`);
+      console.log(`Response Headers: ${JSON.stringify(response.headers, null, 2)}`);
+
+      console.log(`Full Response: ${JSON.stringify(response.data || response, null, 2)}`);
 
       return response[0]._id;
     });
@@ -125,7 +128,6 @@ class ResetPasswordPage {
 
             res.on('end', () => {
                 try {
-                    // Parsing the JSON response directly
                     const parsedData = JSON.parse(data);
                     resolve(parsedData);
                 } catch (error) {
