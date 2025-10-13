@@ -62,9 +62,7 @@ class ResetPasswordPage {
         limit
       });
 
-      console.log(response);
-
-      console.log(JSON.stringify(response, null, 2));
+      console.log(response[0]);
 
       if (!Array.isArray(response) || response.length === 0) {
         throw new Error(`No emails found with subject "${subject}"`);
@@ -93,9 +91,8 @@ class ResetPasswordPage {
   async verifyResetEmailSent(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
-      console.log(`Test value ${emailId}`);
       const emailInfo = await this.getEmailInfo(emailId);
-      console.log(`Test value ${JSON.stringify(emailInfo, null, 2)}`);
+
       const recipient = emailInfo.email;
 
       const sent = recipient === emailValue;
