@@ -62,6 +62,10 @@ class ResetPasswordPage {
         limit
       });
 
+      console.log(response);
+
+      console.log(JSON.stringify(response, null, 2));
+
       if (!Array.isArray(response) || response.length === 0) {
         throw new Error(`No emails found with subject "${subject}"`);
       }
