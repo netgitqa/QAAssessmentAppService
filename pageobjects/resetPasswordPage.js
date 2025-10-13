@@ -55,10 +55,10 @@ class ResetPasswordPage {
   }
 
   async searchEmailBySubject(email, subject, limit = 1) {
-    await allureReporter.step(`Search email by subject: "${subject}", "${recipient}"`, async () => {
+    await allureReporter.step(`Search email by subject: "${subject}", "${email}"`, async () => {
       const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
         key: this.apiKey,
-        query: `subject:${subject} AND email:${recipient}`,
+        query: `subject:${subject} AND email:${email}`,
         limit
       });
 
