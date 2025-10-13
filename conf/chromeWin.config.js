@@ -2,19 +2,15 @@ const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
 const path = require('path');
 
-const getSpecName = () => {
-  const aFile = test.info().file;
-  const specName = path.basename(aFile, '.spec.js');
-  return specName;
-}
+const spec = path.basename(__filename, '.spec.js');
 
-const specName = getSpecName();
+console.log(`Running spec: ${spec}`);
 
 const capabilities = commonConfig.getCapabilities(
     'Chrome',
     'Windows 10',
     'Login Test',
-    specName
+    spec
 );
 
 module.exports = defineConfig({
