@@ -16,18 +16,18 @@ test.describe('Reset Password', () => {
     await allureReporter.epic(`${webClient}`);
   });
 
-  // test('should allow the user to send a password reset email to a recipient', async ({ page }) => {
-  //   const resetPasswordPage = new ResetPasswordPage(page);
-  //   await resetPasswordPage.open();
-  //   await resetPasswordPage.enterEmail(EMAIL);
-  //   await resetPasswordPage.clickSubmitBtn();
-  //
-  //   const actualValue = await resetPasswordPage.verifySentEmailTitle('Check your email');
-  //   expect(actualValue).toContain('Check your email');
-  //
-  //   const emailSent = await resetPasswordPage.verifyResetEmailSent(EMAIL, SUBJECT);
-  //   expect(emailSent).toBe(true);
-  // });
+  test('should allow the user to send a password reset email to a recipient', async ({ page }) => {
+    const resetPasswordPage = new ResetPasswordPage(page);
+    await resetPasswordPage.open();
+    await resetPasswordPage.enterEmail(EMAIL);
+    await resetPasswordPage.clickSubmitBtn();
+
+    const actualValue = await resetPasswordPage.verifySentEmailTitle('Check your email');
+    expect(actualValue).toContain('Check your email');
+
+    const emailSent = await resetPasswordPage.verifyResetEmailSent(EMAIL, SUBJECT);
+    expect(emailSent).toBe(true);
+  });
 
   test('should show error message with incorrect email', async ({ page }) => {
     const resetPasswordPage = new ResetPasswordPage(page);
@@ -40,11 +40,11 @@ test.describe('Reset Password', () => {
     expect(actualError).toContain(expectedError);
   });
 
-  // test('should not enable submit button with an empty email field', async ({ page }) => {
-  //   const resetPasswordPage = new ResetPasswordPage(page);
-  //   await resetPasswordPage.open();
-  //
-  //   const clickableState = await resetPasswordPage.submitBtnClickableState();
-  //   expect(clickableState).toBe(false);
-  // });
+  test('should not enable submit button with an empty email field', async ({ page }) => {
+    const resetPasswordPage = new ResetPasswordPage(page);
+    await resetPasswordPage.open();
+
+    const clickableState = await resetPasswordPage.submitBtnClickableState();
+    expect(clickableState).toBe(false);
+  });
 });
