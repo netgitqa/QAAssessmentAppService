@@ -1,13 +1,20 @@
 const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
-const path = require('path')
+const path = require('path');
+const fs = require('fs');
+
+const getSpecName = () => {
+  const stack = new Error().stack;
+  const match = stack && stack.match(/\/specs\/([^\/]+)\.spec\.js/);
+  return match ? match[1] : 'unknown-spec';
+};
 
 const capabilities = commonConfig.getCapabilities(
     'pw-webkit',
     'macOS Big Sur',
     'Login Test',
     'Playwright Webkit Big Sur',
-    path.basename(__filename, '.config.js')
+    getSpecName()
 );
 
 module.exports = defineConfig({
