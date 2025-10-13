@@ -63,7 +63,7 @@ class ResetPasswordPage {
         }
       );
 
-      if (!Array.isArray(data) || data.length === 0) {
+      if (!Array.isArray(response) || response.length === 0) {
         throw new Error(`No emails found with subject "${subject}"`);
       }
 
@@ -79,7 +79,7 @@ class ResetPasswordPage {
         }
       );
 
-      if (data.status === 'error') {
+      if (response.status === 'error') {
         throw new Error(`Mandrill API error: ${data.message}`);
       }
 
