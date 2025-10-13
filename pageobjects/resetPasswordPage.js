@@ -74,31 +74,45 @@ class ResetPasswordPage {
 
   async getEmailInfo(emailId) {
     return await allureReporter.step(`Email info for ID: ${emailId}`, async () => {
-      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/info.json', {
-          key: this.apiKey,
-          id: emailId
-        }
+      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/content', {
+              key: this.apiKey,
+              id: emailId
+          }
       );
 
-      if (response.status === 'error') {
-        throw new Error(`Mandrill API error: ${response.message}`);
-      }
+        if (response.status === 'error') {
+            throw new Error(`Mandrill API error: ${response.message}`);
+        }
 
-      return response;
+        const resetPasswordLink = this.retrieveResetPasswordLink(response.html);
+        return resetPasswordLink;
     });
   }
 
   async verifyResetEmailSent(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
-      const emailInfo = await this.getEmailInfo(emailId);
+      const resetPasswordLink = await this.getEmailInfo(emailId);
 
-      const recipient = emailInfo.email;
+      await this.page.goto(resetPasswordLink);
 
-      const sent = recipient === emailValue;
-
-      return sent;
+      // const recipient = emailInfo.email;
+      //
+      // const sent = recipient === emailValue;
+      //
+      // return sent;
     });
+  }
+
+  retrieveResetPasswordLink(htmlContent) {
+    const regex = /href="(https:\/\/[^"]+)"/;
+    const match = htmlContent.match(regex);
+
+    if (match && match[1]) {
+      return match[1];
+    }
+
+    throw new Error('Reset password link not found in the email HTML content');
   }
 
   async apiRequest(url, body) {
