@@ -8,7 +8,7 @@ const FAKE_EMAIL = 'fakevalue@test.com';
 const SUBJECT = 'Reset your password';
 
 test.describe('Reset Password', () => {
-  test.beforeEach(async () => {
+  test.beforeEach(async ({ page }) => {
     const webClient = await webClientInfo(page);
     await allureReporter.suite(`${webClient}`);
     await allureReporter.epic(`${webClient}`);
