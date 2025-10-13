@@ -54,22 +54,17 @@ class ResetPasswordPage {
     });
   }
 
-  async searchEmailBySubject(subject, recipient, limit = 1) {
+  async searchEmailBySubject(email, subject, limit = 1) {
     await allureReporter.step(`Search email by subject: "${subject}", "${recipient}"`, async () => {
-      const value = {
+      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
         key: this.apiKey,
         query: `subject:${subject} AND email:${recipient}`,
         limit
-      };
+      });
 
-      console.log(`The value: ${JSON.stringify(value, null, 2)}`);
-
-      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', value);
-
-      console.log(`Response Status: ${response.status}`);
-      console.log(`Response Headers: ${JSON.stringify(response.headers, null, 2)}`);
-
-      console.log(`Full Response: ${JSON.stringify(response.data || response, null, 2)}`);
+      if (!Array.isArray(response) || response.length === 0) {
+        throw new Error(`No emails found with subject "${subject}"`);
+      }
 
       return response[0]._id;
     });
@@ -91,14 +86,14 @@ class ResetPasswordPage {
     });
   }
 
-  async verifyResetEmailSent(expectedEmail, subject) {
+  async verifyResetEmailSent(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
-      const emailId = await this.searchEmailBySubject(subject);
+      const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
       const emailInfo = await this.getEmailInfo(emailId);
 
       const recipient = emailInfo.email;
 
-      const sent = recipient === expectedEmail;
+      const sent = recipient === emailValue;
 
       return sent;
     });
