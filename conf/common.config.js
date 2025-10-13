@@ -8,14 +8,14 @@ const commonCapabilities = {
     console: true,
 };
 
-const getCapabilities = (browserName, platform, buildName, testName, specName) => ({
+const getCapabilities = (browserName, platform, buildName, specName) => ({
     browserName,
     browserVersion: 'latest',
     'LT:Options': {
         ...commonCapabilities,
         platform,
         build: buildName,
-        name: `${specName}`,
+        name: specName,
         user: process.env.LT_USERNAME,
         accessKey: process.env.LT_ACCESS_KEY,
     },
