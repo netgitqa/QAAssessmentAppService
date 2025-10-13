@@ -1,0 +1,35 @@
+{
+  clicks: 0,
+  subaccount: null,
+  document_id: '31312912.ca9c9af203fb46059523ebc328c27985',
+  log_classification: 'sensitive',
+  diag: null,
+  ts: 1760359984,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      source_ip: '205.201.139.3',
+      diag: '250 Message Queued (E269F4B3-DFAF-4CE1-B38D-8DA291C70383.1)',
+      type: 'sent',
+      size: 2775,
+      ts: 1760359984
+    }
+  ],
+  '@version': '1',
+  bgtools_code: null,
+  email: 'testcheckqaa@replyloop.com',
+  tags: [],
+  '@timestamp': '2025-10-13T12:57:10.673364510Z',
+  resends: [],
+  state: 'sent',
+  event: [],
+  elasticsearch_index: 'delivered-2025-10-13',
+  opens: 0,
+  reject: null,
+  subject: 'Reset your password',
+  _id: 'ca9c9af203fb46059523ebc328c27985',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
