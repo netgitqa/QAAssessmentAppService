@@ -1,12 +1,11 @@
-import { expect } from '@playwright/test';
-import fetch from 'node-fetch';
+import * as https from 'https';
 import * as allureReporter from 'allure-js-commons';
 
 class ResetPasswordPage {
   constructor(page) {
     this.page = page;
     this.apiKey = process.env.MANDRILL_API_KEY;
-    if (!this.apiKey) throw new Error('MANDRILL_API_KEY is not set');
+    if (!this.apiKey) throw new Error('MANDRILL_API_KEY was not set');
   }
 
   get emailInput() { return this.page.locator('#email'); }
@@ -35,72 +34,56 @@ class ResetPasswordPage {
 
   async submitBtnClickableState() {
     return await allureReporter.step('Check the clickable state of the submit button', async () => {
-      // await expect(this.submitBtn).toBeVisible();
       return await this.submitBtn.isEnabled();
     });
   }
 
   async verifyErrorNotice(expectedValue) {
     return await allureReporter.step('Check if the error notice appears', async () => {
-      // await expect(this.noticeError).toBeVisible();
       const actualValue = await this.noticeError.textContent();
-      // if (!actualValue.includes(expectedValue)) {
-      //   allureReporter.error(`Expected error message "${expectedValue}", but got "${actualValue}"`);
-      // }
+
       return actualValue;
     });
   }
 
   async verifySentEmailTitle(expectedValue) {
     return await allureReporter.step('Check if the title appears', async () => {
-      // await expect(this.checkEmailTitle).toBeVisible();
       const actualValue = await this.checkEmailTitle.textContent();
-      // Logger.info(`Actual value: "${actualValue}"`);
-      // if (!actualValue.includes(expectedValue)) {
-      //   Logger.error(`Expected title "${expectedValue}", but got "${actualValue}"`);
-      // }
+
       return actualValue;
     });
   }
 
   async searchEmailBySubject(subject, recipient, limit = 1) {
     await allureReporter.step(`Search email by subject: "${subject}", "${recipient}"`, async () => {
-      const response = await fetch('https://mandrillapp.com/api/1.0/messages/search.json', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
           key: this.apiKey,
           query: `subject:"${subject}" AND to:"${recipient}"`,
           limit
-        })
-      });
+        }
+      );
 
-      const data = await response.json();
       if (!Array.isArray(data) || data.length === 0) {
         throw new Error(`No emails found with subject "${subject}"`);
       }
 
-      return data[0]._id;
+      return response[0]._id;
     });
   }
 
   async getEmailInfo(emailId) {
     await allureReporter.step(`Email info for ID: ${emailId}`, async () => {
-      const response = await fetch('https://mandrillapp.com/api/1.0/messages/info.json', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/info.json', {
           key: this.apiKey,
           id: emailId
-        })
-      });
+        }
+      );
 
-      const data = await response.json();
       if (data.status === 'error') {
         throw new Error(`Mandrill API error: ${data.message}`);
       }
 
-      return data;
+      return response;
     });
   }
 
@@ -114,6 +97,48 @@ class ResetPasswordPage {
       const sent = recipient === expectedEmail;
 
       return sent;
+    });
+  }
+
+  async apiRequest(url, body) {
+    const postData = JSON.stringify(body);
+
+    const options = {
+        hostname: 'mandrillapp.com',
+        port: 443,
+        path: new URL(url).pathname,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(postData)
+        }
+    };
+
+    return new Promise((resolve, reject) => {
+        const req = https.request(options, (res) => {
+            let data = '';
+
+            res.on('data', (chunk) => {
+                data += chunk;
+            });
+
+            res.on('end', () => {
+                try {
+                    // Parsing the JSON response directly
+                    const parsedData = JSON.parse(data);
+                    resolve(parsedData);
+                } catch (error) {
+                    reject(new Error(`Error parsing response: ${error.message}`));
+                }
+            });
+        });
+
+        req.on('error', (error) => {
+            reject(new Error(`Error making API request: ${error.message}`));
+        });
+
+        req.write(postData);
+        req.end();
     });
   }
 }
