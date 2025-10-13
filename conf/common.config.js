@@ -15,7 +15,7 @@ const getCapabilities = (browserName, platform, buildName, testName, specName) =
         ...commonCapabilities,
         platform,
         build: buildName,
-        name: `${testName} - ${specName}`,
+        name: `${specName}`,
         user: process.env.LT_USERNAME,
         accessKey: process.env.LT_ACCESS_KEY,
     },
