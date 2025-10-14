@@ -80,12 +80,14 @@ class ResetPasswordPage {
           }
       );
 
-        if (response.status === 'error') {
-            throw new Error(`Mandrill API error: ${response.message}`);
-        }
+      console.log('Email Info Response:', response);
 
-        const resetPasswordLink = this.retrieveResetPasswordLink(response.html);
-        return resetPasswordLink;
+      if (response.status === 'error') {
+        throw new Error(`Mandrill API error: ${response.message}`);
+      }
+
+      const resetPasswordLink = this.retrieveResetPasswordLink(response.html);
+      return resetPasswordLink;
     });
   }
 
