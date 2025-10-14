@@ -1,0 +1,61 @@
+{
+  ts: 1760448911,
+  reject: null,
+  diag: null,
+  opens: 0,
+  email: 'testcheckqa@replyloop.com',
+  '@timestamp': '2025-10-14T13:38:24.467256173Z',
+  state: 'sent',
+  subaccount: null,
+  '@version': '1',
+  event: [],
+  tags: [],
+  smtp_events: [
+    {
+      ts: 1760448911,
+      destination_ip: '15.204.213.223',
+      diag: '250 Message Queued (575DE7FF-EEF6-439F-A2DA-3266B326C19C.1)',
+      source_ip: '198.2.145.18',
+      type: 'sent',
+      size: 2788
+    }
+  ],
+  bgtools_code: null,
+  elasticsearch_index: 'delivered-2025-10-14',
+  subject: 'Reset your password',
+  clicks: 0,
+  document_id: '31312912.b2833a735d5e4d1f8caebfc36fc474d6',
+  resends: [],
+  log_classification: 'sensitive',
+  _id: 'b2833a735d5e4d1f8caebfc36fc474d6',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Email Info Response: {
+  headers: {
+    Date: 'Tue, 14 Oct 2025 13:35:10 +0000',
+    To: 'testcheckqa@replyloop.com',
+    From: 'USAHello <classroom@usahello.org>',
+    'Message-Id': '<czWyhzT3zLeWkq4P4J4frYH175WhMxlfJNfbtdGxs@stg-sandboxw-staging.kinsta.cloud>',
+    'X-Mailer': 'WPMailSMTP/Mailer/smtp 4.6.0',
+    'Mime-Version': '1.0',
+    'Content-Type': 'text/html; charset=UTF-8'
+  },
+  html: '<!DOCTYPE html>\n' +
+    'A request to change your password for the USAHello Classroom has been made. Please click on this link to set a new password.<br><br><a href="https://mandrillapp.com/track/click/31312912/stg-sandboxw-staging.kinsta.cloud?p=eyJzIjoid2MyUVBydE5GTDFvQzJycmhhTGFxTjF0cEFrIiwidiI6MiwicCI6IntcInVcIjozMTMxMjkxMixcInZcIjoyLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3N0Zy1zYW5kYm94dy1zdGFnaW5nLmtpbnN0YS5jbG91ZFxcXC9zZXQtbmV3LXBhc3N3b3JkXFxcLz9lbWFpbFZlcmlmaWVkPXRydWUmZW1haWw9ZEdWemRHTm9aV05yY1dGQWNtVndiSGxzYjI5d0xtTnZiUSUzRCUzRCZ2ZXJpZmljYXRpb25Db2RlPUphZzNlbnhZS2dIYlJFdEdIV3R0JnJlc2V0UGFzc3dvcmQ9dHJ1ZVwiLFwiaWRcIjpcImIyODMzYTczNWQ1ZTRkMWY4Y2FlYmZjMzZmYzQ3NGQ2XCIsXCJ1cmxfaWRzXCI6W1wiOTU0ZDM1OGZjMzAyZmJmNTJhOWM2NjExMzQ1MWFjMmRjOGIxOGJiN1wiXSxcIm1zZ190c1wiOjE3NjA0NDg5MTF9In0" target="_blank"> Click this link to create a new password. </a>',
+  from_email: 'classroom@usahello.org',
+  from_name: 'USAHello',
+  to: { email: 'testcheckqa@replyloop.com', name: '' },
+  subject: 'Reset your password',
+  attachments: [],
+  text: 'A request to change your password for the USAHello Classroom has been made.\n' +
+    'Please click on this link to set a new password.\n' +
+    '\n' +
+    ' Click this link to create a new password.\n' +
+    '<https://stg-sandboxw-staging.kinsta.cloud/set-new-password/?emailVerified=true&email=dGVzdGNoZWNrcWFAcmVwbHlsb29wLmNvbQ%3D%3D&verificationCode=Jag3enxYKgHbREtGHWtt&resetPassword=true>',
+  ts: 1760448911,
+  tags: [],
+  _id: 'b2833a735d5e4d1f8caebfc36fc474d6'
+}
