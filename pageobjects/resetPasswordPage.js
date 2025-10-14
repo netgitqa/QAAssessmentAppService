@@ -81,7 +81,8 @@ class ResetPasswordPage {
       const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
         key: this.apiKey,
         query: `subject:${subject} AND email:${email}`,
-        limit
+        limit,
+        sort_dir: 'DESC'
       });
 
       console.log(response[0]);
@@ -118,12 +119,6 @@ class ResetPasswordPage {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
       const linkResetPassword = await this.getEmailInfo(emailId);
 
-      // await this.page.goto(resetPasswordLink);
-
-      // const recipient = emailInfo.email;
-      //
-      // const sent = recipient === emailValue;
-      //
       return linkResetPassword;
     });
   }
