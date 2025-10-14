@@ -21,8 +21,9 @@ class ResetPasswordPage {
     });
   }
 
-  async open(value) {
+  async openUrl(value) {
     await allureReporter.step('Open the link ${value}', async () => {
+      await this.page.goto('about:blank');
       await this.page.goto(value);
     });
   }

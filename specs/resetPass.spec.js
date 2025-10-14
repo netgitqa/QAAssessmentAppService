@@ -30,7 +30,7 @@ test.describe('Reset Password', () => {
     expect(actualValue).toContain('Check your email');
 
     const linkResetPass = await resetPasswordPage.getResetPassword(EMAIL, SUBJECT);
-    await resetPasswordPage.open(linkResetPass);
+    await resetPasswordPage.openUrl(linkResetPass);
     await resetPasswordPage.enterPassword(PASSWORD);
     await resetPasswordPage.clickSetPasswordBtn();
 
