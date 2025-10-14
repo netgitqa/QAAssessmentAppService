@@ -22,6 +22,8 @@ test.describe('Reset Password', () => {
     await resetPasswordPage.enterEmail(EMAIL);
     await resetPasswordPage.clickSubmitBtn();
 
+    await page.waitForTimeout(10000);
+
     const actualValue = await resetPasswordPage.verifySentEmailTitle('Check your email');
     expect(actualValue).toContain('Check your email');
 
