@@ -9,7 +9,9 @@ class ResetPasswordPage {
   }
 
   get emailInput() { return this.page.locator('#email'); }
+  get passwordInput() { return this.page.locator('#password'); }
   get submitBtn() { return this.page.locator('#reset-password-btn'); }
+  get setPasswordBtn() { return this.page.locator('#set-password-btn'); }
   get noticeError() { return this.page.locator('.usahello-form-error'); }
   get checkEmailTitle() { return this.page.locator('.mb-3.source-serif'); }
 
@@ -19,16 +21,35 @@ class ResetPasswordPage {
     });
   }
 
-  async enterEmail(email) {
-    await allureReporter.step(`Enter email: ${email}`, async () => {
+  async open(value) {
+    await allureReporter.step('Open the link ${value}', async () => {
+      await this.page.goto(value);
+    });
+  }
+
+  async enterEmail(value) {
+    await allureReporter.step(`Enter email: ${value}`, async () => {
       await this.emailInput.fill('');
-      await this.emailInput.fill(email);
+      await this.emailInput.fill(value);
+    });
+  }
+
+  async enterPassword(value) {
+    await allureReporter.step(`Enter password: ${value}`, async () => {
+      await this.passwordInput.fill('');
+      await this.passwordInput.fill(value);
     });
   }
 
   async clickSubmitBtn() {
     await allureReporter.step('Click submit button', async () => {
       await this.submitBtn.click();
+    });
+  }
+
+  async clickSetPasswordBtn() {
+    await allureReporter.step('Click set password button', async () => {
+      await this.setPasswordBtn.click();
     });
   }
 
@@ -46,7 +67,7 @@ class ResetPasswordPage {
     });
   }
 
-  async verifySentEmailTitle(expectedValue) {
+  async getSentEmailTitle() {
     return await allureReporter.step('Check if the title appears', async () => {
       const actualValue = await this.checkEmailTitle.textContent();
 
@@ -91,18 +112,18 @@ class ResetPasswordPage {
     });
   }
 
-  async verifyResetEmailSent(emailValue, subjectValue) {
+  async getResetPassword(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
-      const resetPasswordLink = await this.getEmailInfo(emailId);
+      const linkResetPassword = await this.getEmailInfo(emailId);
 
-      await this.page.goto(resetPasswordLink);
+      // await this.page.goto(resetPasswordLink);
 
       // const recipient = emailInfo.email;
       //
       // const sent = recipient === emailValue;
       //
-      // return sent;
+      return linkResetPassword;
     });
   }
 

@@ -4,9 +4,11 @@ import * as allureReporter from 'allure-js-commons';
 import { webClientInfo } from '../utils/allureUtils';
 
 import ResetPasswordPage from '../pageobjects/resetPasswordPage';
+import LearningPage from '../pageobjects/learningPage';
 
 const EMAIL = process.env.EMAIL_VALUE;
 const FAKE_EMAIL = 'fakevalue@test.com';
+const PASSWORD = `Test${Math.floor(Math.random() * 100000)}`;
 const SUBJECT = 'Reset your password';
 
 test.describe('Reset Password', () => {
@@ -24,11 +26,18 @@ test.describe('Reset Password', () => {
 
     await page.waitForTimeout(10000);
 
-    const actualValue = await resetPasswordPage.verifySentEmailTitle('Check your email');
+    const actualValue = await resetPasswordPage.getSentEmailTitle();
     expect(actualValue).toContain('Check your email');
 
-    const emailSent = await resetPasswordPage.verifyResetEmailSent(EMAIL, SUBJECT);
-    // expect(emailSent).toBe(true);
+    const linkResetPass = await resetPasswordPage.getResetPassword(EMAIL, SUBJECT);
+    await resetPasswordPage.open(linkResetPass);
+    await resetPasswordPage.enterPassword(PASSWORD);
+    await resetPasswordPage.clickSetPasswordBtn();
+
+    const learning = new LearningPage(page);
+    await learning.waitForTitle('My learning');
+    const title = await learning.getTitle();
+    expect(title).toContain('My learning');
   });
 
   test('should show error message with incorrect email', async ({ page }) => {
