@@ -101,8 +101,6 @@ class ResetPasswordPage {
           checkpoint -= 10000;
         }
 
-        console.log(`Test ${checkpoint}, Email ${responseTimestamp}`);
-
         if (checkpoint > responseTimestamp) {
           if (attempts < maxRetries) {
             await this.page.waitForTimeout(delayMs);
@@ -123,8 +121,6 @@ class ResetPasswordPage {
               id: emailId
           }
       );
-
-      console.log('Email Info Response:', response);
 
       if (response.status === 'error') {
         throw new Error(`Mandrill API error: ${response.message}`);
