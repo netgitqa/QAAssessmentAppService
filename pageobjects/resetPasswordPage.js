@@ -88,7 +88,7 @@ class ResetPasswordPage {
       let attempts = 0;
       let response;
 
-      const checkpoint = Date.now() - 100;
+      const checkpoint = new Date(Date.now()).toISOString();
 
       while (attempts < maxRetries) {
         attempts++;
@@ -101,7 +101,7 @@ class ResetPasswordPage {
 
         console.log(response[0]);
 
-        const responseTimestamp = Date.parse(response[0]['@timestamp']);
+        const responseTimestamp = new Date(response[0]['@timestamp']).toISOString();
 
         console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
 
