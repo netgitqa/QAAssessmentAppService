@@ -101,7 +101,7 @@ class ResetPasswordPage {
 
         const responseTimestamp = new Date(response.data[0]['@timestamp']).getTime();
 
-        if (attempts === 0) {
+        if (attempts === 1) {
           checkpoint = new Date(response.headers['date']).getTime();
         }
 
@@ -186,9 +186,6 @@ class ResetPasswordPage {
             res.on('end', () => {
                 try {
                     const parsedData = JSON.parse(data);
-
-                    console.log('Response Headers:', res.headers);
-                    console.log('Date Header:', serverDateHeader);
 
                     resolve({
                       data: parsedData,
