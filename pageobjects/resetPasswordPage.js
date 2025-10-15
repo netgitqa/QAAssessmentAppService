@@ -88,7 +88,7 @@ class ResetPasswordPage {
       let attempts = 0;
       let response;
 
-      const checkpoint = checkpoint();
+      const checkpoint = await this.checkpoint();
 
       while (attempts < maxRetries) {
         attempts++;
