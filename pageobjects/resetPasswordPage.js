@@ -84,7 +84,7 @@ class ResetPasswordPage {
     return await allureReporter.step(`Search email by subject: "${subject}", "${email}"`, async () => {
       const limit = 1;
       const maxRetries = 30;
-      const delayMs = 1000;
+      const delayMs = 5000;
       let attempts = 0;
       let response;
 
