@@ -79,8 +79,8 @@ class ResetPasswordPage {
   async searchEmailBySubject(email, subject) {
     return await allureReporter.step(`Search email by subject: "${subject}", "${email}"`, async () => {
       const limit = 1;
-      const maxRetries = 30;
-      const delayMs = 5000;
+      const maxRetries = 50;
+      const delayMs = 1000;
       let checkpoint;
       let response;
       let attempts = 0;
@@ -94,19 +94,14 @@ class ResetPasswordPage {
           limit
         });
 
-        console.log(response.data[0]);
-        console.log(response.data[0]['@timestamp']);
-        console.log(response.headers['date']);
-        console.log(new Date(response.data[0]['@timestamp']).toISOString());
-
         const responseTimestamp = new Date(response.data[0]['@timestamp']).getTime();
 
         if (attempts === 1) {
           checkpoint = new Date(response.headers['date']).getTime();
-          checkpoint -= 500;
+          checkpoint -= 10000;
         }
 
-        console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
+        console.log(`Test ${checkpoint}, Email ${responseTimestamp}`);
 
         if (checkpoint > responseTimestamp) {
           if (attempts < maxRetries) {
@@ -135,7 +130,7 @@ class ResetPasswordPage {
         throw new Error(`Mandrill API error: ${response.message}`);
       }
 
-      const resetPasswordLink = this.retrieveResetPasswordLink(response.html);
+      const resetPasswordLink = this.retrieveResetPasswordLink(response.data.html);
       return resetPasswordLink;
     });
   }
