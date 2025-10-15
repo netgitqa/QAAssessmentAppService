@@ -32,10 +32,6 @@ class ResetPasswordPage {
     await allureReporter.step(`Enter email: ${value}`, async () => {
       await this.emailInput.fill('');
       await this.emailInput.fill(value);
-
-        await this.page.evaluate(() => {
-            document.getElementById("reset-password-btn").disabled = false;
-        });
     });
   }
 
