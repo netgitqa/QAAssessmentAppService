@@ -88,9 +88,7 @@ class ResetPasswordPage {
       let attempts = 0;
       let response;
 
-      const checkpoint = new Date(Date.now()).toISOString();
-
-      await this.page.waitForTimeout(delayMs);
+      const checkpoint = checkpoint();
 
       while (attempts < maxRetries) {
         attempts++;
@@ -107,11 +105,7 @@ class ResetPasswordPage {
 
         console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
 
-        const checkpnt = Date.parse(checkpoint);
-
-        console.log(`Test Now ${checkpnt}, Email ${responseTimestamp}`);
-
-        if (checkpnt > responseTimestamp) {
+        if (checkpoint > responseTimestamp) {
           if (attempts < maxRetries) {
             await this.page.waitForTimeout(delayMs);
           }
@@ -202,6 +196,10 @@ class ResetPasswordPage {
         req.write(postData);
         req.end();
     });
+  }
+
+  async checkpoint() {
+    return Date.now();
   }
 }
 
