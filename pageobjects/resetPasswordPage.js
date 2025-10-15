@@ -101,11 +101,11 @@ class ResetPasswordPage {
 
         console.log(response[0]);
 
-        const emailTimestamp = response[0].ts * 1000;
+        const responseTimestamp = response[0].ts * 1000;
 
         console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
 
-        const value = (checkpoint - emailTimestamp) / 1000;
+        const value = (checkpoint - responseTimestamp) / 1000;
 
         if (value > 15) {
           return response[0]._id;
