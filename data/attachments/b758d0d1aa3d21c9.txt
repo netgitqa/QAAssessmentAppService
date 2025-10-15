@@ -1,0 +1,90 @@
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760557997311
+Test 1760563076000, Email 1760563086272
+Email Info Response: {
+  data: {
+    headers: {
+      Date: 'Wed, 15 Oct 2025 21:18:05 +0000',
+      To: 'testqaaa@replyloop.com',
+      From: 'USAHello <classroom@usahello.org>',
+      'Message-Id': '<vKi6XsebYx5yDqFqT88bj835JW2xv3evivp5728Nf8A@stg-sandboxw-staging.kinsta.cloud>',
+      'X-Mailer': 'WPMailSMTP/Mailer/smtp 4.6.0',
+      'Mime-Version': '1.0',
+      'Content-Type': 'text/html; charset=UTF-8'
+    },
+    html: '<!DOCTYPE html>\n' +
+      'A request to change your password for the USAHello Classroom has been made. Please click on this link to set a new password.<br><br><a href="https://mandrillapp.com/track/click/31312912/stg-sandboxw-staging.kinsta.cloud?p=eyJzIjoiRy14WWZQV2ZLaVB2S0FFaHFhMHJOcnZ6Qi13IiwidiI6MiwicCI6IntcInVcIjozMTMxMjkxMixcInZcIjoyLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3N0Zy1zYW5kYm94dy1zdGFnaW5nLmtpbnN0YS5jbG91ZFxcXC9zZXQtbmV3LXBhc3N3b3JkXFxcLz9lbWFpbFZlcmlmaWVkPXRydWUmZW1haWw9ZEdWemRIRmhZV0ZBY21Wd2JIbHNiMjl3TG1OdmJRJTNEJTNEJnZlcmlmaWNhdGlvbkNvZGU9WlJZUm1CbWhYalJ1blBrNTl5aW0mcmVzZXRQYXNzd29yZD10cnVlXCIsXCJpZFwiOlwiMTBkZTg2ODhhNjJhNDBmZTgyZmFiMzc4ZWRmMjI2MTVcIixcInVybF9pZHNcIjpbXCI5NTRkMzU4ZmMzMDJmYmY1MmE5YzY2MTEzNDUxYWMyZGM4YjE4YmI3XCJdLFwibXNnX3RzXCI6MTc2MDU2MzA4Nn0ifQ" target="_blank"> Click this link to create a new password. </a>',
+    from_email: 'classroom@usahello.org',
+    from_name: 'USAHello',
+    to: { email: 'testqaaa@replyloop.com', name: '' },
+    subject: 'Reset your password',
+    attachments: [],
+    text: 'A request to change your password for the USAHello Classroom has been made.\n' +
+      'Please click on this link to set a new password.\n' +
+      '\n' +
+      ' Click this link to create a new password.\n' +
+      '<https://stg-sandboxw-staging.kinsta.cloud/set-new-password/?emailVerified=true&email=dGVzdHFhYWFAcmVwbHlsb29wLmNvbQ%3D%3D&verificationCode=ZRYRmBmhXjRunPk59yim&resetPassword=true>',
+    ts: 1760563086,
+    tags: [],
+    _id: '10de8688a62a40fe82fab378edf22615'
+  },
+  headers: {
+    date: 'Wed, 15 Oct 2025 21:19:08 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'transfer-encoding': 'chunked',
+    connection: 'close',
+    server: 'nginx',
+    'access-control-allow-origin': '*',
+    'access-control-allow-methods': 'POST, GET, OPTIONS',
+    'access-control-allow-headers': 'Content-Type',
+    'access-control-allow-credentials': 'false'
+  },
+  serverDate: 'Wed, 15 Oct 2025 21:19:08 GMT'
+}
