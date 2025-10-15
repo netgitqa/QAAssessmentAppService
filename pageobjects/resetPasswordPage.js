@@ -103,6 +103,7 @@ class ResetPasswordPage {
 
         if (attempts === 1) {
           checkpoint = new Date(response.headers['date']).getTime();
+          checkpoint -= 500;
         }
 
         console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
