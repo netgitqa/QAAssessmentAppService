@@ -88,7 +88,7 @@ class ResetPasswordPage {
       let attempts = 0;
       let response;
 
-      const checkpoint = Date.now().toISOString();
+      const checkpoint = new Date(Date.now()).toISOString();
 
       await this.page.waitForTimeout(delayMs);
 
