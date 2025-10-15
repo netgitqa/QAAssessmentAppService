@@ -90,7 +90,7 @@ class ResetPasswordPage {
 
       const now = Date.now();
 
-      await this.page.waitForTimeout(1000);
+      await this.page.waitForTimeout(delayMs);
 
       while (attempts < maxRetries) {
         attempts++;
