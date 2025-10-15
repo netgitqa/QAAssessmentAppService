@@ -27,8 +27,6 @@ test.describe('Reset Password', () => {
     const actualValue = await resetPasswordPage.getSentEmailTitle();
     expect(actualValue).toContain('Check your email');
 
-    await page.waitForTimeout(10000);
-
     const linkResetPass = await resetPasswordPage.getResetPassword(EMAIL, SUBJECT);
     await resetPasswordPage.openUrl(linkResetPass);
     await resetPasswordPage.enterPassword(PASSWORD);

@@ -90,10 +90,12 @@ class ResetPasswordPage {
 
       const now = Date.now();
 
+      await this.page.waitForTimeout(1000);
+
       while (attempts < maxRetries) {
         attempts++;
 
-        const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
+        response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
           key: this.apiKey,
           query: `subject:${subject} AND email:${email}`,
           limit
