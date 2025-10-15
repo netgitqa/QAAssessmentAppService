@@ -1,0 +1,792 @@
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
+{
+  resends: [],
+  '@version': '1',
+  diag: null,
+  event: [],
+  document_id: '31312912.93ff5a6a6408408c90b5f59e5d092b8c',
+  '@timestamp': '2025-10-15T13:37:14.288493081Z',
+  subject: 'Reset your password',
+  elasticsearch_index: 'delivered-2025-10-15',
+  email: 'testqqqaaa@replyloop.com',
+  state: 'sent',
+  tags: [],
+  reject: null,
+  subaccount: null,
+  ts: 1760535216,
+  opens: 0,
+  log_classification: 'sensitive',
+  clicks: 0,
+  bgtools_code: null,
+  smtp_events: [
+    {
+      destination_ip: '15.204.213.223',
+      ts: 1760535216,
+      diag: '250 Message Queued (290673BF-8082-4F72-84DC-75B0C84FCD54.1)',
+      source_ip: '205.201.139.3',
+      type: 'sent',
+      size: 2759
+    }
+  ],
+  _id: '93ff5a6a6408408c90b5f59e5d092b8c',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T13:43:49.879Z, Email 2025-10-15T13:37:14.288Z
