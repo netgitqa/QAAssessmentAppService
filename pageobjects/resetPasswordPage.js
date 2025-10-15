@@ -17,7 +17,7 @@ class ResetPasswordPage {
 
   async open() {
     await allureReporter.step('Open reset password page', async () => {
-      await this.page.goto('/reset-password');
+      await this.page.goto('/reset-password/?noRecaptcha=true');
     });
   }
 
