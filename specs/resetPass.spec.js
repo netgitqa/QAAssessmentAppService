@@ -27,7 +27,9 @@ test.describe('Reset Password', () => {
     const actualValue = await resetPasswordPage.getSentEmailTitle();
     expect(actualValue).toContain('Check your email');
 
-    const linkResetPass = await resetPasswordPage.getResetPassword(EMAIL, SUBJECT);
+    const checkpoint = await resetPasswordPage.checkpoint();
+
+    const linkResetPass = await resetPasswordPage.getResetPassword(EMAIL, SUBJECT, checkpoint);
     await resetPasswordPage.openUrl(linkResetPass);
     await resetPasswordPage.enterPassword(PASSWORD);
     await resetPasswordPage.clickSetPasswordBtn();
