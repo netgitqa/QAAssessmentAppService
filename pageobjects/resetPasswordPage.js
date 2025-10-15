@@ -88,7 +88,7 @@ class ResetPasswordPage {
       let attempts = 0;
       let response;
 
-      const checkpoint = Date.now();
+      const checkpoint = new Date(Date.now()).toISOString();
 
       while (attempts < maxRetries) {
         attempts++;
@@ -101,18 +101,23 @@ class ResetPasswordPage {
 
         console.log(response[0]);
 
-        const responseTimestamp = response[0].ts * 1000;
+        const responseTimestamp = new Date(response.data[0]['@timestamp']).toISOString();
+        const serverDate = response.serverDate;
+        const responseTime = response.responseTime;
+
+        console.log(response.data[0]);
+        console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
+        console.log(`Server Date (from header): ${serverDate}`);
+        console.log(`Response Time (from header): ${responseTime}`);
 
         console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
 
-        const value = (checkpoint - responseTimestamp) / 1000;
-
-        if (value > 15) {
-          return response[0]._id;
-        } else {
+        if (responseTime > responseTimestamp) {
           if (attempts < maxRetries) {
             await this.page.waitForTimeout(delayMs);
           }
+        } else {
+          return response[0]._id;
         }
       }
 
@@ -177,6 +182,13 @@ class ResetPasswordPage {
         const req = https.request(options, (res) => {
             let data = '';
 
+            const responseTimeHeader = res.headers['x-response-time'];
+            const serverDateHeader = res.headers['date'];
+
+            console.log('Response Headers:', res.headers);
+            console.log('X-Response-Time:', responseTimeHeader);
+            console.log('Date Header:', serverDateHeader);
+
             res.on('data', (chunk) => {
                 data += chunk;
             });
@@ -184,7 +196,12 @@ class ResetPasswordPage {
             res.on('end', () => {
                 try {
                     const parsedData = JSON.parse(data);
-                    resolve(parsedData);
+                    resolve({
+                      data: parsedData,
+                      headers: res.headers,
+                      responseTime: responseTimeHeader,
+                      serverDate: serverDateHeader
+                    });
                 } catch (error) {
                     reject(new Error(`Error parsing response: ${error.message}`));
                 }
