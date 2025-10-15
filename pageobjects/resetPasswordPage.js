@@ -80,13 +80,15 @@ class ResetPasswordPage {
     });
   }
 
-  async searchEmailBySubject(email, subject, checkpoint) {
+  async searchEmailBySubject(email, subject) {
     return await allureReporter.step(`Search email by subject: "${subject}", "${email}"`, async () => {
       const limit = 1;
       const maxRetries = 3;
       const delayMs = 5000;
       let attempts = 0;
       let response;
+
+      const checkpoint = Date.now() - 100;
 
       while (attempts < maxRetries) {
         attempts++;
@@ -135,9 +137,9 @@ class ResetPasswordPage {
     });
   }
 
-  async getResetPassword(emailValue, subjectValue, checkpoint) {
+  async getResetPassword(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
-      const emailId = await this.searchEmailBySubject(emailValue, subjectValue, checkpoint);
+      const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
       const linkResetPassword = await this.getEmailInfo(emailId);
 
       return linkResetPassword;
@@ -194,10 +196,6 @@ class ResetPasswordPage {
         req.write(postData);
         req.end();
     });
-  }
-
-  async checkpoint() {
-    return Date.now();
   }
 }
 
