@@ -84,8 +84,6 @@ class ResetPasswordPage {
       let attempts = 0;
       let response;
 
-      const checkpoint = new Date(Date.now()).toISOString();
-
       while (attempts < maxRetries) {
         attempts++;
 
@@ -95,25 +93,22 @@ class ResetPasswordPage {
           limit
         });
 
-        console.log(response[0]);
-
-        const responseTimestamp = new Date(response.data[0]['@timestamp']).toISOString();
-        const serverDate = response.serverDate;
-        const responseTime = response.responseTime;
-
         console.log(response.data[0]);
-        console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
-        console.log(`Server Date (from header): ${serverDate}`);
-        console.log(`Response Time (from header): ${responseTime}`);
+        console.log(response.data[0]['@timestamp']);
+        console.log(response.headers['date']);
+        console.log(new Date(response.data[0]['@timestamp']).toISOString());
+
+        const responseTimestamp = new Date(response.data[0]['@timestamp']).getTime();
+        const checkpoint = new Date(response.headers['date']).getTime();
 
         console.log(`Test Now ${checkpoint}, Email ${responseTimestamp}`);
 
-        if (responseTime > responseTimestamp) {
+        if (checkpoint > responseTimestamp) {
           if (attempts < maxRetries) {
             await this.page.waitForTimeout(delayMs);
           }
         } else {
-          return response[0]._id;
+          return response.data[0]._id;
         }
       }
 
@@ -178,12 +173,7 @@ class ResetPasswordPage {
         const req = https.request(options, (res) => {
             let data = '';
 
-            const responseTimeHeader = res.headers['x-response-time'];
             const serverDateHeader = res.headers['date'];
-
-            console.log('Response Headers:', res.headers);
-            console.log('X-Response-Time:', responseTimeHeader);
-            console.log('Date Header:', serverDateHeader);
 
             res.on('data', (chunk) => {
                 data += chunk;
@@ -192,10 +182,13 @@ class ResetPasswordPage {
             res.on('end', () => {
                 try {
                     const parsedData = JSON.parse(data);
+
+                    console.log('Response Headers:', res.headers);
+                    console.log('Date Header:', serverDateHeader);
+
                     resolve({
                       data: parsedData,
                       headers: res.headers,
-                      responseTime: responseTimeHeader,
                       serverDate: serverDateHeader
                     });
                 } catch (error) {
