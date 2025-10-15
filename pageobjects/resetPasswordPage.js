@@ -76,22 +76,41 @@ class ResetPasswordPage {
     });
   }
 
-  async searchEmailBySubject(email, subject, limit = 1) {
+  async searchEmailBySubject(email, subject) {
     return await allureReporter.step(`Search email by subject: "${subject}", "${email}"`, async () => {
-      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
-        key: this.apiKey,
-        query: `subject:${subject} AND email:${email}`,
-        limit,
-        sort_dir: 'DESC'
-      });
+      const limit = 1;
+      const maxRetries = 3;
+      const delayMs = 5000;
+      let attempts = 0;
+      let response;
 
-      console.log(response[0]);
+      const now = Date.now();
 
-      if (!Array.isArray(response) || response.length === 0) {
-        throw new Error(`No emails found with subject "${subject}"`);
+      while (attempts < maxRetries) {
+        attempts++;
+
+        const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
+          key: this.apiKey,
+          query: `subject:${subject} AND email:${email}`,
+          limit
+        });
+
+        const emailTimestamp = response[0].ts * 1000;
+
+        console.log(response[0]);
+
+        console.log(`Test Now ${now}, Email ${emailTimestamp}`);
+
+        if (now > emailTimestamp) {
+          if (attempts < maxRetries) {
+            await this.page.waitForTimeout(delayMs);
+          }
+        } else {
+          return response[0]._id;
+        }
       }
 
-      return response[0]._id;
+      throw new Error(`Failed to retrieve valid email after ${maxRetries} attempts.`);
     });
   }
 
