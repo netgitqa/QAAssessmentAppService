@@ -101,13 +101,13 @@ class ResetPasswordPage {
           limit
         });
 
-        const emailTimestamp = response[0].ts * 1000;
+        const responseTimestamp = Date.parse(response[0]['@timestamp']);
 
         console.log(response[0]);
 
-        console.log(`Test Now ${now}, Email ${emailTimestamp}`);
+        console.log(`Test Now ${now}, Email ${responseTimestamp}`);
 
-        if (now > emailTimestamp) {
+        if (now > responseTimestamp) {
           if (attempts < maxRetries) {
             await this.page.waitForTimeout(delayMs);
           }
