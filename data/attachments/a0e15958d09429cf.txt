@@ -1,0 +1,53 @@
+Response Headers: {
+  date: 'Wed, 15 Oct 2025 17:18:49 GMT',
+  'content-type': 'application/json; charset=utf-8',
+  'transfer-encoding': 'chunked',
+  connection: 'close',
+  server: 'nginx',
+  'access-control-allow-origin': '*',
+  'access-control-allow-methods': 'POST, GET, OPTIONS',
+  'access-control-allow-headers': 'Content-Type',
+  'access-control-allow-credentials': 'false'
+}
+X-Response-Time: undefined
+Date Header: Wed, 15 Oct 2025 17:18:49 GMT
+undefined
+{
+  opens: 0,
+  clicks: 0,
+  email: 'testqaaa@replyloop.com',
+  ts: 1760542748,
+  resends: [],
+  document_id: '31312912.7378ceb6e67f43abbfd8b0ec42eabfd4',
+  elasticsearch_index: 'delivered-2025-10-15',
+  reject: null,
+  '@timestamp': '2025-10-15T15:43:04.252763018Z',
+  tags: [],
+  subaccount: null,
+  bgtools_code: null,
+  '@version': '1',
+  event: [],
+  state: 'sent',
+  subject: 'Reset your password',
+  smtp_events: [
+    {
+      size: 2765,
+      source_ip: '205.201.139.3',
+      destination_ip: '15.204.213.223',
+      ts: 1760542748,
+      type: 'sent',
+      diag: '250 Message Queued (824C1B0F-A4F5-4087-9AE2-566F9DD51BCB.1)'
+    }
+  ],
+  log_classification: 'sensitive',
+  diag: null,
+  _id: '7378ceb6e67f43abbfd8b0ec42eabfd4',
+  sender: 'classroom@usahello.org',
+  template: null,
+  opens_detail: [],
+  clicks_detail: []
+}
+Test Now 2025-10-15T17:18:49.211Z, Email 2025-10-15T15:43:04.252Z
+Server Date (from header): Wed, 15 Oct 2025 17:18:49 GMT
+Response Time (from header): undefined
+Test Now 2025-10-15T17:18:49.211Z, Email 2025-10-15T15:43:04.252Z
