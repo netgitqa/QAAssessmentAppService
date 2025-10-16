@@ -11,8 +11,8 @@ const PASSWORD = process.env.PASSWORD_VALUE;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const FAKE_PASSWORD = 'fakevalue';
 
-let login;
-let learning;
+let loginPage;
+let learningPage;
 
 test.describe('User Authentication', () => {
   test.beforeEach(async ({ page }) => {
@@ -20,14 +20,14 @@ test.describe('User Authentication', () => {
     await allureReporter.suite(`${webClient}`);
     await allureReporter.epic(`${webClient}`);
 
-    login = new LoginPage(page);
-    learning = new LearningPage(page);
+    loginPage = new LoginPage(page);
+    learningPage = new LearningPage(page);
     await login.open();
   });
 
   test('should log in with valid credentials', async ({ page }) => {
-    await login.enterEmail(EMAIL);
-    await login.enterPassword(PASSWORD);
+    await loginPage.enterEmail(EMAIL);
+    await loginPage.enterPassword(PASSWORD);
     // await login.submitLogin();
     //
     // await learning.waitForTitle('My learning');

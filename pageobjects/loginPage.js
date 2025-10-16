@@ -12,7 +12,7 @@ class LoginPage {
   }
 
   async open() {
-    await allureReporter.step('Navigating to login page', async () => {
+    await allureReporter.step('Open login page', async () => {
       await this.page.goto('/login');
     });
   }

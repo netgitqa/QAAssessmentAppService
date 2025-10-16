@@ -17,7 +17,7 @@ class ResetPasswordPage {
 
   async open() {
     await allureReporter.step('Open reset password page', async () => {
-      await this.page.goto('/reset-password/?noRecaptcha=true');
+      await this.page.goto('/reset-password');
     });
   }
 
@@ -81,7 +81,7 @@ class ResetPasswordPage {
       const limit = 1;
       const maxRetries = 50;
       const delayMs = 1000;
-      let checkpoint;
+      let requestTs;
       let response;
       let attempts = 0;
 
@@ -94,14 +94,14 @@ class ResetPasswordPage {
           limit
         });
 
-        const responseTimestamp = new Date(response.data[0]['@timestamp']).getTime();
+        const responseTs = new Date(response.data[0]['@timestamp']).getTime();
 
         if (attempts === 1) {
-          checkpoint = new Date(response.headers['date']).getTime();
-          checkpoint -= 10000;
+          requestTs = new Date(response.headers['date']).getTime();
+          requestTs -= 10000;
         }
 
-        if (checkpoint > responseTimestamp) {
+        if (requestTs > responseTs) {
           if (attempts < maxRetries) {
             await this.page.waitForTimeout(delayMs);
           }
@@ -131,7 +131,7 @@ class ResetPasswordPage {
     });
   }
 
-  async getResetPassword(emailValue, subjectValue) {
+  async linkFromEmail(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
       const linkResetPassword = await this.getEmailInfo(emailId);

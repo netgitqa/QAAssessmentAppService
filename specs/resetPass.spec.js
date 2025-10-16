@@ -6,20 +6,23 @@ import { webClientInfo } from '../utils/allureUtils';
 import ResetPasswordPage from '../pageobjects/resetPasswordPage';
 import LearningPage from '../pageobjects/learningPage';
 
-const EMAIL = process.env.EMAIL_VALUE;
+const EMAIL = process.env.EMAIL_RESET;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const PASSWORD = `Test${Math.floor(Math.random() * 100000)}`;
 const SUBJECT = 'Reset your password';
+
+let resetPasswordPage;
 
 test.describe('Reset Password', () => {
   test.beforeEach(async ({ page }) => {
     const webClient = await webClientInfo(page);
     await allureReporter.suite(`${webClient}`);
     await allureReporter.epic(`${webClient}`);
+
+    resetPasswordPage = new ResetPasswordPage(page);
   });
 
-  test('should allow the user to send a password reset email to a recipient', async ({ page }) => {
-    const resetPasswordPage = new ResetPasswordPage(page);
+  test('should allow the user to reset a password', async ({ page }) => {
     await resetPasswordPage.open();
     await resetPasswordPage.enterEmail(EMAIL);
     await resetPasswordPage.clickSubmitBtn();
@@ -27,7 +30,7 @@ test.describe('Reset Password', () => {
     const actualValue = await resetPasswordPage.getSentEmailTitle();
     expect(actualValue).toContain('Check your email');
 
-    const linkResetPass = await resetPasswordPage.getResetPassword(EMAIL, SUBJECT);
+    const linkResetPass = await resetPasswordPage.linkFromEmail(EMAIL, SUBJECT);
     await resetPasswordPage.openUrl(linkResetPass);
     await resetPasswordPage.enterPassword(PASSWORD);
     await resetPasswordPage.clickSetPasswordBtn();
@@ -39,7 +42,6 @@ test.describe('Reset Password', () => {
   });
 
   test('should show error message with incorrect email', async ({ page }) => {
-    const resetPasswordPage = new ResetPasswordPage(page);
     await resetPasswordPage.open();
     await resetPasswordPage.enterEmail(FAKE_EMAIL);
     await resetPasswordPage.clickSubmitBtn();
@@ -50,7 +52,6 @@ test.describe('Reset Password', () => {
   });
 
   test('should not enable submit button with an empty email field', async ({ page }) => {
-    const resetPasswordPage = new ResetPasswordPage(page);
     await resetPasswordPage.open();
 
     const clickableState = await resetPasswordPage.submitBtnClickableState();
