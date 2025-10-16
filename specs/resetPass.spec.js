@@ -20,10 +20,10 @@ test.describe('Reset Password', () => {
     await allureReporter.epic(`${webClient}`);
 
     resetPasswordPage = new ResetPasswordPage(page);
+    await resetPasswordPage.open();
   });
 
   test('should allow the user to reset a password', async ({ page }) => {
-    await resetPasswordPage.open();
     await resetPasswordPage.enterEmail(EMAIL);
     await resetPasswordPage.clickSubmitBtn();
 
@@ -42,7 +42,6 @@ test.describe('Reset Password', () => {
   });
 
   test('should show error message with incorrect email', async ({ page }) => {
-    await resetPasswordPage.open();
     await resetPasswordPage.enterEmail(FAKE_EMAIL);
     await resetPasswordPage.clickSubmitBtn();
 
@@ -52,8 +51,6 @@ test.describe('Reset Password', () => {
   });
 
   test('should not enable submit button with an empty email field', async ({ page }) => {
-    await resetPasswordPage.open();
-
     const clickableState = await resetPasswordPage.submitBtnClickableState();
     expect(clickableState).toBe(false);
   });

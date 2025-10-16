@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import * as allureReporter from 'allure-js-commons';
 import { webClientInfo } from '../utils/allureUtils';
-
 import ImmigrationGuidePage from '../pageobjects/immigrationGuidePage';
 
 const EMAIL = `testemail${Math.floor(Math.random() * 100000)}@replyloop.com`;
@@ -16,10 +15,10 @@ test.describe('Sign up for USAHello updates', () => {
     await allureReporter.epic(`${webClient}`);
 
     immigrationGuidePage = new ImmigrationGuidePage(page);
+    await immigrationGuidePage.open();
   });
 
   // test('should signup for USAHello updates with valid email', async ({ page }) => {
-  //   await immigrationGuidePage.open();
   //   await immigrationGuidePage.closeModal();
   //   await immigrationGuidePage.clickEmailSignupBtn();
   //   await immigrationGuidePage.enterEmail(EMAIL);
