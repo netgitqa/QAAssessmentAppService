@@ -94,6 +94,8 @@ class ResetPasswordPage {
           limit
         });
 
+        console.log(response[0]);
+
         const responseTs = new Date(response.data[0]['@timestamp']).getTime();
 
         if (attempts === 1) {
@@ -131,7 +133,7 @@ class ResetPasswordPage {
     });
   }
 
-  async linkFromEmail(emailValue, subjectValue) {
+  async linkToResetPassword(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
       const linkResetPassword = await this.getEmailInfo(emailId);
