@@ -1,3 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","4608","should log in with valid credentials","Playwright Windows 10","Sat Oct 18 14:44:06 UTC 2025","passed","Sat Oct 18 14:44:10 UTC 2025","User Authentication","Chrome 129.0.6668.29","",""
-"","4582","should signup for USAHello updates with valid email","Playwright Windows 10","Sat Oct 18 14:44:06 UTC 2025","failed","Sat Oct 18 14:44:10 UTC 2025","Sign up for USAHello updates","Chrome 129.0.6668.29","",""
+"","3965","should log in with valid credentials","Playwright Windows 10","Sat Oct 18 14:50:26 UTC 2025","passed","Sat Oct 18 14:50:30 UTC 2025","User Authentication","Chrome 129.0.6668.29","",""
+"","5238","should signup for USAHello updates with valid email","Playwright Windows 10","Sat Oct 18 14:50:26 UTC 2025","failed","Sat Oct 18 14:50:32 UTC 2025","Sign up for USAHello updates","Chrome 129.0.6668.29","",""
