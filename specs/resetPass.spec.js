@@ -6,22 +6,23 @@ import { webClientInfo } from '../utils/allureUtils';
 import ResetPasswordPage from '../pageobjects/resetPasswordPage';
 import LearningPage from '../pageobjects/learningPage';
 
-const EMAIL = process.env.EMAIL_RESET;
+const EMAIL = process.env.EMAIL_REGISTERED;
+const EMAIL_LIMIT = process.env.EMAIL_LIMIT;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const PASSWORD = `Test${Math.floor(Math.random() * 100000)}`;
 const SUBJECT = 'Reset your password';
 
 let resetPasswordPage;
 
-test.describe('Reset Password', () => {
-  test.beforeEach(async ({ page }) => {
-    const webClient = await webClientInfo(page);
-    await allureReporter.suite(`${webClient}`);
-    await allureReporter.epic(`${webClient}`);
-
-    resetPasswordPage = new ResetPasswordPage(page);
-    await resetPasswordPage.open();
-  });
+// test.describe('Reset Password', () => {
+  // test.beforeEach(async ({ page }) => {
+  //   const webClient = await webClientInfo(page);
+  //   await allureReporter.suite(`${webClient}`);
+  //   await allureReporter.epic(`${webClient}`);
+  //
+  //   resetPasswordPage = new ResetPasswordPage(page);
+  //   await resetPasswordPage.open();
+  // });
 
   // test('should allow the user to reset a password', async ({ page }) => {
   //   await resetPasswordPage.enterEmail(EMAIL);
@@ -54,4 +55,4 @@ test.describe('Reset Password', () => {
   //   const clickableState = await resetPasswordPage.submitBtnClickableState();
   //   expect(clickableState).toBe(false);
   // });
-});
+// });
