@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","3850","should log in with valid credentials","Playwright Windows 10","Sat Oct 18 14:31:00 UTC 2025","failed","Sat Oct 18 14:31:03 UTC 2025","User Authentication","Chrome 129.0.6668.29","",""
+"","4383","should log in with valid credentials","Playwright Windows 10","Sat Oct 18 14:36:34 UTC 2025","passed","Sat Oct 18 14:36:38 UTC 2025","User Authentication","Chrome 129.0.6668.29","",""
