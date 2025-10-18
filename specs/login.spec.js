@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+
 import * as allureReporter from 'allure-js-commons';
 
 import { webClientInfo } from '../utils/allureUtils';
@@ -6,8 +7,8 @@ import { webClientInfo } from '../utils/allureUtils';
 import LoginPage from '../pageobjects/loginPage';
 import LearningPage from '../pageobjects/learningPage';
 
-const EMAIL = process.env.EMAIL_VALUE;
-const PASSWORD = process.env.PASSWORD_VALUE;
+const EMAIL = process.env.EMAIL_REGISTERED;
+const PASSWORD = process.env.PASSWORD;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const FAKE_PASSWORD = 'fakevalue';
 
