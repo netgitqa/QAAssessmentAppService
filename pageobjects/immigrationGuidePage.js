@@ -84,33 +84,17 @@ class ImmigrationGuidePage {
   }
 
   async fetchMailchimpListId() {
-    await allureReporter.step('Fetch lists from Mailchimp API', async () => {
-      const maxRetries = 100;
-      const delayMs = 1000;
-      let response;
-      let attempts = 0;
+    return await allureReporter.step('Fetch lists from Mailchimp API', async () => {
+      const response = await this.apiRequest(
+        'https://us1.api.mailchimp.com/3.0/lists',
+        this.apiKey
+      );
 
-      // while (attempts < maxRetries) {
-      //   attempts++;
-
-        response = await this.apiRequest(
-          'https://us1.api.mailchimp.com/3.0/lists',
-          this.apiKey
-        );
-
-        console.log(response);
-
-        // if (response?.lists?.length) {
-        //   console.log(response.data.lists[0].id);
-        //   return response.data.lists[0].id;
-        // }
-        //
-        // if (attempts < maxRetries) {
-        //   await this.page.waitForTimeout(delayMs);
-        // }
-      // }
-
-      throw new Error('No lists appeared in the response');
+      if (response?.lists?.length > 0) {
+        console.log(response.lists[0].id);
+        return response.lists[0].id;
+      }
+      throw new Error('No lists available in the Mailchimp API response');
     });
   }
 
@@ -119,13 +103,30 @@ class ImmigrationGuidePage {
       const emailHashed = createHash('md5').update(email).digest('hex');
       const listId = await this.fetchMailchimpListId();
 
-      const response = await this.apiRequest(
-        `https://us1.api.mailchimp.com/3.0/lists/${listId}/members/${emailHashed}`, {
-          key: this.apiKey
-        }
-      );
+      const maxRetries = 100;
+      const delayMs = 1000;
+      let response;
+      let attempts = 0;
 
-      return response.status;
+      while (attempts < maxRetries) {
+        attempts++;
+
+        response = await this.apiRequest(
+          `https://us1.api.mailchimp.com/3.0/lists/${listId}/members/${emailHashed}`, {
+            key: this.apiKey
+          }
+        );
+
+        if (response?.status) {
+          return response.status;
+        }
+
+        if (attempts < maxRetries) {
+          await this.page.waitForTimeout(delayMs);
+        }
+      }
+      
+      throw new Error(`Failed to retrieve status after ${maxRetries} attempts.`);
     });
   }
 
