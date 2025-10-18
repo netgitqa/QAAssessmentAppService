@@ -78,20 +78,36 @@ class ImmigrationGuidePage {
 
   async closeModal() {
     await allureReporter.step('Close modal', async () => {
-      const modalDisplayed = await this.modalCloseBtn.nth(0).isVisible({ timeout: 10000 });
+      await this.modalCloseBtn.nth(0).isVisible({ timeout: 10000 });
       await this.modalCloseBtn.nth(0).click();
     });
   }
 
   async fetchMailchimpListId() {
     await allureReporter.step('Fetch lists from Mailchimp API', async () => {
-      const response = await this.apiRequest(
-        'https://us1.api.mailchimp.com/3.0/lists',
-        this.apiKey
-      );
+      const maxRetries = 100;
+      const delayMs = 1000;
+      let response;
+      let attempts = 0;
 
-      if (response?.lists?.length) {
-        return response.lists[0].id;
+      while (attempts < maxRetries) {
+        attempts++;
+
+        const response = await this.apiRequest(
+          'https://us1.api.mailchimp.com/3.0/lists',
+          this.apiKey
+        );
+
+        console.log(response[0]);
+
+        if (response?.lists?.length) {
+          console.log(response.lists[0].id);
+          return response.lists[0].id;
+        }
+
+        if (attempts < maxRetries) {
+          await this.page.waitForTimeout(delayMs);
+        }
       }
 
       throw new Error('No lists appeared in the response');
