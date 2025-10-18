@@ -117,6 +117,8 @@ class ImmigrationGuidePage {
           }
         );
 
+        console.log(response);
+
         if (response?.status) {
           return response.status;
         }
