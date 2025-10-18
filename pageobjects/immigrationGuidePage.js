@@ -90,7 +90,7 @@ class ImmigrationGuidePage {
         this.apiKey
       );
 
-      if (response.lists.length > 0) {
+      if (response?.lists?.length) {
         return response.lists[0].id;
       }
 
