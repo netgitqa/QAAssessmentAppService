@@ -90,25 +90,25 @@ class ImmigrationGuidePage {
       let response;
       let attempts = 0;
 
-      while (attempts < maxRetries) {
-        attempts++;
+      // while (attempts < maxRetries) {
+      //   attempts++;
 
         response = await this.apiRequest(
           'https://us1.api.mailchimp.com/3.0/lists',
           this.apiKey
         );
 
-        console.log(response.data[0]);
+        console.log(response);
 
-        if (response?.lists?.length) {
-          console.log(response.data.lists[0].id);
-          return response.data.lists[0].id;
-        }
-
-        if (attempts < maxRetries) {
-          await this.page.waitForTimeout(delayMs);
-        }
-      }
+        // if (response?.lists?.length) {
+        //   console.log(response.data.lists[0].id);
+        //   return response.data.lists[0].id;
+        // }
+        //
+        // if (attempts < maxRetries) {
+        //   await this.page.waitForTimeout(delayMs);
+        // }
+      // }
 
       throw new Error('No lists appeared in the response');
     });
