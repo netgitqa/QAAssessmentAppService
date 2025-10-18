@@ -79,11 +79,7 @@ class ImmigrationGuidePage {
   async closeModal() {
     await allureReporter.step('Close modal', async () => {
       const modalDisplayed = await this.modalCloseBtn.nth(0).isVisible({ timeout: 10000 });
-      if (modalDisplayed) {
-        await this.modalCloseBtn.nth(0).click();
-      } else {
-        allureReporter.createAttachment('Info', 'The modal was not displayed');
-      }
+      await this.modalCloseBtn.nth(0).click();
     });
   }
 
