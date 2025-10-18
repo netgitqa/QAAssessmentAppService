@@ -23,11 +23,6 @@ class ImmigrationGuidePage {
   async open() {
     await allureReporter.step('Open Immigration Guide page', async () => {
       await this.page.goto(`/safety`);
-
-      const userAgent = await this.page.evaluate(() => navigator.userAgent);
-      const userAgentTag = userAgentInfo(userAgent);
-
-      Logger.addTag(userAgentTag);
     });
   }
 
