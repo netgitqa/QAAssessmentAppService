@@ -1,7 +1,0 @@
-{
-  type: 'https://mailchimp.com/developer/marketing/docs/errors/',
-  title: 'API Key Invalid',
-  status: 401,
-  detail: "Your API key may be invalid, or you've attempted to access the wrong datacenter.",
-  instance: 'd11204d9-a3f3-8697-a767-dbf49580f6eb'
-}
