@@ -125,7 +125,7 @@ class ImmigrationGuidePage {
           await this.page.waitForTimeout(delayMs);
         }
       }
-      
+
       throw new Error(`Failed to retrieve status after ${maxRetries} attempts.`);
     });
   }
