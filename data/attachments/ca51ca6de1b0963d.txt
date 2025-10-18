@@ -1,0 +1,121 @@
+019b24029d
+{
+  id: '67079acc82ae7589c8af46b010c83db6',
+  email_address: 'testemail97317@replyloop.com',
+  unique_email_id: 'cac620c85c',
+  contact_id: 'c717b430ada80a9bdd4d36166830ed3e',
+  full_name: '',
+  web_id: 606526084,
+  email_type: 'html',
+  status: 'pending',
+  consents_to_one_to_one_messaging: true,
+  sms_phone_number: '',
+  sms_subscription_status: '',
+  sms_subscription_last_updated: '',
+  merge_fields: {
+    DONORNAME: '',
+    DONATEAMT: '',
+    DONATEDATE: '',
+    HONOREE: '',
+    DONATETYPE: '',
+    ERRORTYPE: '',
+    ERRORCODE: '',
+    ERRORPARAM: '',
+    ERRORMSG: '',
+    STUDNTNAME: '',
+    STDNTREGDA: ''
+  },
+  stats: { avg_open_rate: 0, avg_click_rate: 0 },
+  ip_signup: '34.125.96.134',
+  timestamp_signup: '2025-10-18T16:15:05+00:00',
+  ip_opt: '',
+  timestamp_opt: '',
+  member_rating: 2,
+  last_changed: '2025-10-18T16:15:05+00:00',
+  language: '',
+  vip: false,
+  email_client: '',
+  location: {
+    latitude: 0,
+    longitude: 0,
+    gmtoff: 0,
+    dstoff: 0,
+    country_code: '',
+    timezone: '',
+    region: ''
+  },
+  marketing_permissions: [
+    {
+      marketing_permission_id: 'd693362c76',
+      text: 'Yes',
+      enabled: false
+    }
+  ],
+  source: 'API - Generic',
+  tags_count: 0,
+  tags: [],
+  list_id: '019b24029d',
+  _links: [
+    {
+      rel: 'self',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6',
+      method: 'GET',
+      targetSchema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json'
+    },
+    {
+      rel: 'parent',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members',
+      method: 'GET',
+      targetSchema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/CollectionResponse.json',
+      schema: 'https://us1.api.mailchimp.com/schema/3.0/Paths/Lists/Members/Collection.json'
+    },
+    {
+      rel: 'update',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6',
+      method: 'PATCH',
+      targetSchema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json',
+      schema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PATCH.json'
+    },
+    {
+      rel: 'upsert',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6',
+      method: 'PUT',
+      targetSchema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json',
+      schema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PUT.json'
+    },
+    {
+      rel: 'delete',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6',
+      method: 'DELETE'
+    },
+    {
+      rel: 'activity',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6/activity',
+      method: 'GET',
+      targetSchema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Activity/Response.json'
+    },
+    {
+      rel: 'goals',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6/goals',
+      method: 'GET',
+      targetSchema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Goals/Response.json'
+    },
+    {
+      rel: 'notes',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6/notes',
+      method: 'GET',
+      targetSchema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/CollectionResponse.json'
+    },
+    {
+      rel: 'events',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6/events',
+      method: 'POST',
+      targetSchema: 'https://us1.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Events/POST.json'
+    },
+    {
+      rel: 'delete_permanent',
+      href: 'https://us1.api.mailchimp.com/3.0/lists/019b24029d/members/67079acc82ae7589c8af46b010c83db6/actions/delete-permanent',
+      method: 'POST'
+    }
+  ]
+}
