@@ -93,16 +93,16 @@ class ImmigrationGuidePage {
       while (attempts < maxRetries) {
         attempts++;
 
-        const response = await this.apiRequest(
+        response = await this.apiRequest(
           'https://us1.api.mailchimp.com/3.0/lists',
           this.apiKey
         );
 
-        console.log(response[0]);
+        console.log(response.data[0]);
 
         if (response?.lists?.length) {
-          console.log(response.lists[0].id);
-          return response.lists[0].id;
+          console.log(response.data.lists[0].id);
+          return response.data.lists[0].id;
         }
 
         if (attempts < maxRetries) {
