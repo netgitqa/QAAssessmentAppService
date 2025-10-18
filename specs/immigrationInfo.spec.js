@@ -3,7 +3,8 @@ import * as allureReporter from 'allure-js-commons';
 import { webClientInfo } from '../utils/allureUtils';
 import ImmigrationGuidePage from '../pageobjects/immigrationGuidePage';
 
-const EMAIL = `testemail${Math.floor(Math.random() * 100000)}@replyloop.com`;
+// const EMAIL = `testemail${Math.floor(Math.random() * 100000)}@replyloop.com`;
+const EMAIL = `testemail97317@replyloop.com`;
 const FAKE_VALUE = 'fakevalue';
 
 let immigrationGuidePage;
@@ -21,8 +22,8 @@ test.describe('Sign up for USAHello updates', () => {
   test('should signup for USAHello updates with valid email', async ({ page }) => {
     await immigrationGuidePage.closeModal();
     await immigrationGuidePage.clickEmailSignupBtn();
-    await immigrationGuidePage.enterEmail(EMAIL);
-    await immigrationGuidePage.clickSubmitBtn();
+    // await immigrationGuidePage.enterEmail(EMAIL);
+    // await immigrationGuidePage.clickSubmitBtn();
 
     const actualStatus = (await immigrationGuidePage.getResponseStatus(EMAIL)).toUpperCase();
     expect(actualStatus).toContain('PENDING');

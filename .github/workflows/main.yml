@@ -20,6 +20,7 @@ jobs:
 
       # Email testing
       MANDRILL_API_KEY: ${{ secrets.MANDRILL_API_KEY }}
+      MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
 
     steps:
       - name: Checkout
