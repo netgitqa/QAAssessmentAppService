@@ -1,1 +1,1 @@
-[{"uid":"dc3eaa805c7cd8e1","name":"should log in with valid credentials","time":{"start":1760798194456,"stop":1760798198839,"duration":4383},"status":"passed","severity":"normal"}]
+[{"uid":"d6a9c46925e21e9e","name":"should log in with valid credentials","time":{"start":1760798646093,"stop":1760798650701,"duration":4608},"status":"passed","severity":"normal"},{"uid":"b2e33926973add6","name":"should signup for USAHello updates with valid email","time":{"start":1760798646095,"stop":1760798650677,"duration":4582},"status":"failed","severity":"normal"}]
