@@ -5,7 +5,6 @@ class ResetPasswordPage {
   constructor(page) {
     this.page = page;
     this.apiKey = process.env.MANDRILL_API_KEY;
-    if (!this.apiKey) throw new Error('MANDRILL_API_KEY was not set');
   }
 
   get emailInput() { return this.page.locator('#email'); }
@@ -17,7 +16,8 @@ class ResetPasswordPage {
 
   async open() {
     await allureReporter.step('Open reset password page', async () => {
-      await this.page.goto('/reset-password');
+      await this.page.goto('about:blank');
+      await this.page.goto(`${process.env.CLASSROOM_URL}/reset-password`);
     });
   }
 
@@ -94,8 +94,6 @@ class ResetPasswordPage {
           limit
         });
 
-        console.log(response[0]);
-
         const responseTs = new Date(response.data[0]['@timestamp']).getTime();
 
         if (attempts === 1) {
@@ -133,7 +131,7 @@ class ResetPasswordPage {
     });
   }
 
-  async linkToResetPassword(emailValue, subjectValue) {
+  async getResetPassword(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
       const linkResetPassword = await this.getEmailInfo(emailId);

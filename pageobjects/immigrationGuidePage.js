@@ -1,11 +1,12 @@
 import * as https from 'https';
 import * as allureReporter from 'allure-js-commons';
+import * as md5 from 'md5';
+import { createHash } from 'crypto';
 
 class ImmigrationGuidePage {
   constructor(page) {
     this.page = page;
-    this.apiKey = process.env.MANDRILL_API_KEY;
-    if (!this.apiKey) throw new Error('MANDRILL_API_KEY was not set');
+    this.apiKey = process.env.MAILCHIMP_API_KEY;
   }
 
   get modalCloseBtn() { return this.page.locator('.modal-dialog .btn-close'); }
@@ -21,8 +22,7 @@ class ImmigrationGuidePage {
 
   async open() {
     await allureReporter.step('Open Immigration Guide page', async () => {
-      await this.page.goto('about:blank');
-      await this.page.goto(`${process.env.BASE_URL_USAHello}/safety`);
+      await this.page.goto(`/safety`);
 
       const userAgent = await this.page.evaluate(() => navigator.userAgent);
       const userAgentTag = userAgentInfo(userAgent);
@@ -90,6 +90,73 @@ class ImmigrationGuidePage {
       } else {
         Logger.info('The modal was not displayed');
       }
+    });
+  }
+
+  async fetchMailchimpListId() {
+    await allureReporter.step('Fetch lists from Mailchimp API', async () => {
+      const response = await this.apiRequest(
+        'https://us1.api.mailchimp.com/3.0/lists',
+        this.apiKey
+      );
+
+      if (response.lists.length > 0) {
+        return response.lists[0].id;
+      }
+
+      throw new Error('No lists appeared in the response');
+    });
+  }
+
+  async getResponseStatus(email) {
+    return await allureReporter.step('Check member pending status', async () => {
+      const emailHashed = createHash('md5').update(email).digest('hex');
+      const listId = await this.fetchMailchimpListId();
+
+      const response = await this.apiRequest(
+        `https://us1.api.mailchimp.com/3.0/lists/${listId}/members/${emailHashed}`, {
+          key: this.apiKey
+        }
+      );
+
+      return response.status;
+    });
+  }
+
+  async apiRequest(url, apiKey) {
+    const options = {
+      hostname: 'us1.api.mailchimp.com',
+      path: new URL(url).pathname,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${Buffer.from(`anystring:${apiKey}`).toString('base64')}`
+      }
+    };
+
+    return new Promise((resolve, reject) => {
+      const req = https.request(options, (res) => {
+        let data = '';
+
+        res.on('data', (chunk) => {
+          data += chunk;
+        });
+
+        res.on('end', () => {
+          try {
+            const parsedData = JSON.parse(data);
+            resolve(parsedData);
+          } catch (error) {
+            reject(new Error(`Error parsing response: ${error.message}`));
+          }
+        });
+      });
+
+      req.on('error', (error) => {
+        reject(new Error(`Error making API request: ${error.message}`));
+      });
+
+      req.end();
     });
   }
 }

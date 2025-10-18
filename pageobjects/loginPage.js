@@ -13,7 +13,8 @@ class LoginPage {
 
   async open() {
     await allureReporter.step('Open login page', async () => {
-      await this.page.goto('/login');
+      await this.page.goto('about:blank');
+      await this.page.goto(`${process.env.CLASSROOM_URL}/login`);
     });
   }
 

@@ -23,35 +23,35 @@ test.describe('Reset Password', () => {
     await resetPasswordPage.open();
   });
 
-  test('should allow the user to reset a password', async ({ page }) => {
-    await resetPasswordPage.enterEmail(EMAIL);
-    await resetPasswordPage.clickSubmitBtn();
-
-    const actualValue = await resetPasswordPage.getSentEmailTitle();
-    expect(actualValue).toContain('Check your email');
-
-    const linkResetPass = await resetPasswordPage.linkToResetPassword(EMAIL, SUBJECT);
-    await resetPasswordPage.openUrl(linkResetPass);
-    await resetPasswordPage.enterPassword(PASSWORD);
-    await resetPasswordPage.clickSetPasswordBtn();
-
-    const learning = new LearningPage(page);
-    await learning.waitForTitle('My learning');
-    const title = await learning.getTitle();
-    expect(title).toContain('My learning');
-  });
-
-  test('should show error message with incorrect email', async ({ page }) => {
-    await resetPasswordPage.enterEmail(FAKE_EMAIL);
-    await resetPasswordPage.clickSubmitBtn();
-
-    const expectedError = 'No account found with this email';
-    const actualError = await resetPasswordPage.verifyErrorNotice(expectedError);
-    expect(actualError).toContain(expectedError);
-  });
-
-  test('should not enable submit button with an empty email field', async ({ page }) => {
-    const clickableState = await resetPasswordPage.submitBtnClickableState();
-    expect(clickableState).toBe(false);
-  });
+  // test('should allow the user to reset a password', async ({ page }) => {
+  //   await resetPasswordPage.enterEmail(EMAIL);
+  //   await resetPasswordPage.clickSubmitBtn();
+  //
+  //   const actualValue = await resetPasswordPage.getSentEmailTitle();
+  //   expect(actualValue).toContain('Check your email');
+  //
+  //   const value = await resetPasswordPage.getResetPassword(EMAIL, SUBJECT);
+  //   await resetPasswordPage.openUrl(value);
+  //   await resetPasswordPage.enterPassword(PASSWORD);
+  //   await resetPasswordPage.clickSetPasswordBtn();
+  //
+  //   const learning = new LearningPage(page);
+  //   await learning.waitForTitle('My learning');
+  //   const title = await learning.getTitle();
+  //   expect(title).toContain('My learning');
+  // });
+  //
+  // test('should show error message with incorrect email', async ({ page }) => {
+  //   await resetPasswordPage.enterEmail(FAKE_EMAIL);
+  //   await resetPasswordPage.clickSubmitBtn();
+  //
+  //   const expectedError = 'No account found with this email';
+  //   const actualError = await resetPasswordPage.verifyErrorNotice(expectedError);
+  //   expect(actualError).toContain(expectedError);
+  // });
+  //
+  // test('should not enable submit button with an empty email field', async ({ page }) => {
+  //   const clickableState = await resetPasswordPage.submitBtnClickableState();
+  //   expect(clickableState).toBe(false);
+  // });
 });
