@@ -81,9 +81,8 @@ class ImmigrationGuidePage {
       const modalDisplayed = await this.modalCloseBtn.nth(0).isVisible({ timeout: 10000 });
       if (modalDisplayed) {
         await this.modalCloseBtn.nth(0).click();
-      Logger.info('The modal closed successfully');
       } else {
-        Logger.info('The modal was not displayed');
+        allureReporter.createAttachment('Info', 'The modal was not displayed');
       }
     });
   }
