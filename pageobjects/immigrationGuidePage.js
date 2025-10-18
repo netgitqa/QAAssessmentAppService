@@ -112,9 +112,8 @@ class ImmigrationGuidePage {
         attempts++;
 
         response = await this.apiRequest(
-          `https://us1.api.mailchimp.com/3.0/lists/${listId}/members/${emailHashed}`, {
-            key: this.apiKey
-          }
+          `https://us1.api.mailchimp.com/3.0/lists/${listId}/members/${emailHashed}`,
+          this.apiKey
         );
 
         console.log(response);
