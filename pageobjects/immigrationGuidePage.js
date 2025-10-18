@@ -78,7 +78,7 @@ class ImmigrationGuidePage {
 
   async closeModal() {
     await allureReporter.step('Close modal', async () => {
-      const modalDisplayed = await this.modalCloseBtn.isVisible({ timeout: 10000 });
+      const modalDisplayed = await this.modalCloseBtn.nth(0).isVisible({ timeout: 10000 });
       if (modalDisplayed) {
         await this.modalCloseBtn.nth(0).click();
       Logger.info('The modal closed successfully');
