@@ -116,7 +116,7 @@ class ResetPasswordPage {
 
   async getEmailInfo(emailId) {
     return await allureReporter.step(`Email info for ID: ${emailId}`, async () => {
-      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/content', {
+      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/content  ', {
               key: this.apiKey,
               id: emailId
           }

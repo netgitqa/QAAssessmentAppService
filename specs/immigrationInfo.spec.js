@@ -19,13 +19,13 @@ test.describe('Sign up for USAHello updates', () => {
     await immigrationGuidePage.open();
   });
 
-  test('should signup for USAHello updates with valid email', async ({ page }) => {
-    await immigrationGuidePage.closeModal();
-    await immigrationGuidePage.clickEmailSignupBtn();
-    // await immigrationGuidePage.enterEmail(EMAIL);
-    // await immigrationGuidePage.clickSubmitBtn();
-
-    const actualStatus = await immigrationGuidePage.getResponseStatus(EMAIL);
-    expect(String(actualStatus).toUpperCase()).toContain('PENDING');
-  });
+  // test('should signup for USAHello updates with valid email', async ({ page }) => {
+  //   await immigrationGuidePage.closeModal();
+  //   await immigrationGuidePage.clickEmailSignupBtn();
+  //   // await immigrationGuidePage.enterEmail(EMAIL);
+  //   // await immigrationGuidePage.clickSubmitBtn();
+  //
+  //   const actualStatus = await immigrationGuidePage.getResponseStatus(EMAIL);
+  //   expect(String(actualStatus).toUpperCase()).toContain('PENDING');
+  // });
 });

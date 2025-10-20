@@ -6,7 +6,7 @@ class LearningPage {
   }
 
   async getTitle() {
-    return allureReporter.step('Getting page title', async () => {
+    return allureReporter.step('Fetching page title', async () => {
       return await this.page.title();
     });
   }

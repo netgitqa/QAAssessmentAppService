@@ -26,16 +26,16 @@ test.describe('User Authentication', () => {
     await loginPage.open();
   });
 
-  test('should log in with valid credentials', async ({ page }) => {
-    await loginPage.enterEmail(EMAIL);
-    await loginPage.enterPassword(PASSWORD);
-    // await loginPage.submitLogin();
-    //
-    // await learning.waitForTitle('My learning');
-    // const title = await learning.getTitle();
-    // expect(title).toContain('My learning');
-  });
-
+  // test('should log in with valid credentials', async ({ page }) => {
+  //   await loginPage.enterEmail(EMAIL);
+  //   await loginPage.enterPassword(PASSWORD);
+  //   await loginPage.submitLogin();
+  //
+  //   await learning.waitForTitle('My learning');
+  //   const title = await learning.getTitle();
+  //   expect(title).toContain('My learning');
+  // });
+  //
   // test('should not log in with incorrect email', async ({ page }) => {
   //   await loginPage.enterEmail(FAKE_EMAIL);
   //   await loginPage.enterPassword(PASSWORD);

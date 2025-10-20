@@ -116,8 +116,6 @@ class ImmigrationGuidePage {
           this.apiKey
         );
 
-        console.log(response);
-
         if (response?.status) {
           return response.status;
         }
