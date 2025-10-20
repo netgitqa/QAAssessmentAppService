@@ -1,1 +1,1 @@
-[]
+[{"uid":"6c533e38d663f3e0","name":"should allow the user to reset a password","time":{"start":1760966037189,"stop":1760966081333,"duration":44144},"status":"failed","severity":"normal"},{"uid":"db0932f228445d56","name":"should allow the user to reset a password","time":{"start":1760965957787,"stop":1760966027052,"duration":69265},"status":"failed","severity":"normal"}]

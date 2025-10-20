@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","69265","should allow the user to reset a password","","Mon Oct 20 13:12:37 UTC 2025","failed","Mon Oct 20 13:13:47 UTC 2025","Reset Password: Windows 10 Chrome latest","resetPass.spec.js","",""
+"","44144","should allow the user to reset a password","","Mon Oct 20 13:13:57 UTC 2025","failed","Mon Oct 20 13:14:41 UTC 2025","Reset Password: macOS Big Sur pw-webkit latest","resetPass.spec.js","",""
