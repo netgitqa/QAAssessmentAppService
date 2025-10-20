@@ -9,14 +9,14 @@ const EMAIL_LIMIT = process.env.EMAIL_LIMIT;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const PASSWORD = `Test${Math.floor(Math.random() * 100000)}`;
 const SUBJECT = 'Reset your password';
+const incorrectEmailNotice = 'No account found with this email';
 
-test.describe('', () => {
-  let resetPasswordPage;
-  let learningPage;
+let resetPasswordPage;
+let learningPage;
 
 test.beforeEach(async ({ page }) => {
   const webClient = await webClientInfo(page);
-  await allureReporter.subSuite(`Reset Password: ${webClient}`);
+  await allureReporter.suite(`Reset Password: ${webClient}`);
   await allureReporter.epic(`${webClient}`);
   await allureReporter.feature('Reset Password');
 
@@ -46,13 +46,11 @@ test('should show error message with incorrect email', async ({ page }) => {
   await resetPasswordPage.enterEmail(FAKE_EMAIL);
   await resetPasswordPage.clickSubmitBtn();
 
-  const expectedError = 'No account found with this email';
-  const actualError = await resetPasswordPage.verifyErrorNotice(expectedError);
+  const actualError = await resetPasswordPage.verifyErrorNotice('No account found with this email');
   expect(actualError).toContain(expectedError);
 });
 
 test('should not enable submit button with an empty email field', async ({ page }) => {
   const clickableState = await resetPasswordPage.submitBtnClickableState();
   expect(clickableState).toBe(false);
-});
 });

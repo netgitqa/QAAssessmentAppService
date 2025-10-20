@@ -1,7 +1,5 @@
 import { test, expect } from '@playwright/test';
-
 import * as allureReporter from 'allure-js-commons';
-
 import { webClientInfo } from '../utils/allureUtils';
 
 import LoginPage from '../pageobjects/loginPage';
@@ -18,52 +16,53 @@ let learningPage;
 test.describe('User Authentication', () => {
   test.beforeEach(async ({ page }) => {
     const webClient = await webClientInfo(page);
-    await allureReporter.suite(`${webClient}`);
+    await allureReporter.suite(`User Authentication: ${webClient}`);
     await allureReporter.epic(`${webClient}`);
+    await allureReporter.feature('User Authentication');
 
     loginPage = new LoginPage(page);
     learningPage = new LearningPage(page);
     await loginPage.open();
   });
 
-  // test('should log in with valid credentials', async ({ page }) => {
-  //   await loginPage.enterEmail(EMAIL);
-  //   await loginPage.enterPassword(PASSWORD);
-  //   await loginPage.submitLogin();
-  //
-  //   await learning.waitForTitle('My learning');
-  //   const title = await learning.getTitle();
-  //   expect(title).toContain('My learning');
-  // });
-  //
-  // test('should not log in with incorrect email', async ({ page }) => {
-  //   await loginPage.enterEmail(FAKE_EMAIL);
-  //   await loginPage.enterPassword(PASSWORD);
-  //   await loginPage.submitLogin();
-  //
-  //   const msg = await login.getErrorMessages();
-  //   expect(msg).toContain('This email is not in our system');
-  // });
-  //
-  // test('should not log in with incorrect password', async ({ page }) => {
-  //   await loginPage.enterEmail(EMAIL);
-  //   await loginPage.enterPassword(FAKE_PASSWORD);
-  //   await loginPage.submitLogin();
-  //
-  //   const msg = await login.getErrorMessages();
-  //   expect(msg).toContain('Either email or password are incorrect');
-  // });
-  //
-  // test('should not login with empty credentials', async ({ page }) => {
-  //   await loginPage.enterEmail('');
-  //   await loginPage.enterPassword('');
-  //   await loginPage.submitLogin();
-  //
-  //   await expect(page).toHaveURL(/login/);
-  // });
-  //
-  // test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
-  //   await loginPage.clickForgotPassword();
-  //   await expect(page).toHaveURL(/reset-password/);
-  // });
+  test('should log in with valid credentials', async ({ page }) => {
+    await loginPage.enterEmail(EMAIL);
+    await loginPage.enterPassword(PASSWORD);
+    await loginPage.submitLogin();
+
+    await learning.waitForTitle('My learning');
+    const title = await learning.getTitle();
+    expect(title).toContain('My learning');
+  });
+
+  test('should not log in with incorrect email', async ({ page }) => {
+    await loginPage.enterEmail(FAKE_EMAIL);
+    await loginPage.enterPassword(PASSWORD);
+    await loginPage.submitLogin();
+
+    const msg = await loginPage.getErrorMessages();
+    expect(msg).toContain('This email is not in our system');
+  });
+
+  test('should not log in with incorrect password', async ({ page }) => {
+    await loginPage.enterEmail(EMAIL);
+    await loginPage.enterPassword(FAKE_PASSWORD);
+    await loginPage.submitLogin();
+
+    const msg = await loginPage.getErrorMessages();
+    expect(msg).toContain('Either email or password are incorrect');
+  });
+
+  test('should not login with empty credentials', async ({ page }) => {
+    await loginPage.enterEmail('');
+    await loginPage.enterPassword('');
+    await loginPage.submitLogin();
+
+    await expect(page).toHaveURL(/login/);
+  });
+
+  test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
+    await loginPage.clickForgotPassword();
+    await expect(page).toHaveURL(/reset-password/);
+  });
 });
