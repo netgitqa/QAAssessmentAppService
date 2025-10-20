@@ -70,7 +70,7 @@ class ImmigrationGuidePage {
 
   async getEmailConfirmationMessage() {
     await allureReporter.step('Wait for email confirmation message', async () => {
-      await this.btnShowResources.scrollIntoViewIfNeeded();
+      await this.emailConfirmationMessage.scrollIntoViewIfNeeded();
       await this.emailConfirmationMessage.waitFor({ state: 'visible', timeout: 3000 });
       return this.emailConfirmationMessage.innerText();
     });
