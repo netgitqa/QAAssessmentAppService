@@ -8,18 +8,21 @@ const commonCapabilities = {
     console: true,
 };
 
-const getCapabilities = (browserName, platform, buildName, testName, specName) => ({
-    browserName,
-    browserVersion: 'latest',
-    'LT:Options': {
-        ...commonCapabilities,
-        platform,
-        build: buildName,
-        name: `${specName}`,
-        user: process.env.LT_USERNAME,
-        accessKey: process.env.LT_ACCESS_KEY,
-    },
-});
+const getCapabilities = (browserName, browserVersion, platform, buildName, testName, specName) => {
+    process.env.RUN_CONTEXT = `${platform} ${browserName} ${browserVersion}`;
+
+    return {
+        browserName,
+        'LT:Options': {
+            ...commonCapabilities,
+            platform,
+            build: buildName,
+            name: `${specName}`,
+            user: process.env.LT_USERNAME,
+            accessKey: process.env.LT_ACCESS_KEY,
+        },
+    };
+};
 
 module.exports = defineConfig({
     testDir: path.resolve(__dirname, '../specs'),

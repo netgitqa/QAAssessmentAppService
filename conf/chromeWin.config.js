@@ -1,11 +1,10 @@
-process.env.RUN_CONTEXT = 'Windows';
-
 const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
 const path = require('path');
 
 const capabilities = commonConfig.getCapabilities(
     'Chrome',
+    'latest',
     'Windows 10',
     'Login Test',
     'Playwright Chrome Win 10',

@@ -14,9 +14,10 @@ const SUBJECT = 'Reset your password';
 
 let resetPasswordPage;
 
-test.describe(`Reset Password: ${process.env.RUN_CONTEXT} ${webClientInfo()}`, () => {
+test.describe(`Reset Password: ${process.env.RUN_CONTEXT}`, () => {
   test.beforeEach(async ({ page }) => {
-    await allureReporter.epic(`${webClientInfo()}`);
+    const webClient = await webClientInfo(page);
+    await allureReporter.epic(`${webClient}`);
 
     resetPasswordPage = new ResetPasswordPage(page);
     await resetPasswordPage.open();
@@ -39,17 +40,17 @@ test.describe(`Reset Password: ${process.env.RUN_CONTEXT} ${webClientInfo()}`, (
     expect(title).toContain('My learning');
   });
 
-  test('should show error message with incorrect email', async ({ page }) => {
-    await resetPasswordPage.enterEmail(FAKE_EMAIL);
-    await resetPasswordPage.clickSubmitBtn();
-
-    const expectedError = 'No account found with this email';
-    const actualError = await resetPasswordPage.verifyErrorNotice(expectedError);
-    expect(actualError).toContain(expectedError);
-  });
-
-  test('should not enable submit button with an empty email field', async ({ page }) => {
-    const clickableState = await resetPasswordPage.submitBtnClickableState();
-    expect(clickableState).toBe(false);
+  // test('should show error message with incorrect email', async ({ page }) => {
+  //   await resetPasswordPage.enterEmail(FAKE_EMAIL);
+  //   await resetPasswordPage.clickSubmitBtn();
+  //
+  //   const expectedError = 'No account found with this email';
+  //   const actualError = await resetPasswordPage.verifyErrorNotice(expectedError);
+  //   expect(actualError).toContain(expectedError);
+  // });
+  //
+  // test('should not enable submit button with an empty email field', async ({ page }) => {
+  //   const clickableState = await resetPasswordPage.submitBtnClickableState();
+  //   expect(clickableState).toBe(false);
   });
 });

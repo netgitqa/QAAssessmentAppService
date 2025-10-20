@@ -1,11 +1,10 @@
-process.env.RUN_CONTEXT = 'WebKit';
-
 const { defineConfig, devices } = require('@playwright/test');
 const commonConfig = require('./common.config');
 const path = require('path');
 
 const capabilities = commonConfig.getCapabilities(
     'pw-webkit',
+    'latest',
     'macOS Big Sur',
     'Login Test',
     'Playwright Webkit Big Sur',
