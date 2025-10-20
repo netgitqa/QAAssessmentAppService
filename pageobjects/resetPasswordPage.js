@@ -60,7 +60,7 @@ class ResetPasswordPage {
     });
   }
 
-  async verifyErrorNotice(expectedValue) {
+  async verifyErrorNotice() {
     return await allureReporter.step('Check if the error notice appears', async () => {
       const actualValue = await this.noticeError.textContent();
 

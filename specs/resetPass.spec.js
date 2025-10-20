@@ -46,8 +46,8 @@ test('should show error message with incorrect email', async ({ page }) => {
   await resetPasswordPage.enterEmail(FAKE_EMAIL);
   await resetPasswordPage.clickSubmitBtn();
 
-  const actualError = await resetPasswordPage.verifyErrorNotice('No account found with this email');
-  expect(actualError).toContain(expectedError);
+  const actualError = await resetPasswordPage.verifyErrorNotice();
+  expect(actualError).toContain('No account found with this email');
 });
 
 test('should not enable submit button with an empty email field', async ({ page }) => {

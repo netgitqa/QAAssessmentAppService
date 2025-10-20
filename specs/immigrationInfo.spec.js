@@ -25,7 +25,10 @@ test.describe('Sign up for USAHello updates', () => {
     await immigrationGuidePage.enterEmail(EMAIL);
     await immigrationGuidePage.clickSubmitBtn();
 
-    const actualStatus = await immigrationGuidePage.getResponseStatus(EMAIL);
+    const actualValue = await immigrationGuidePage.getEmailConfirmationMessage();
+    expect(actualValue).toContain('Check your email to confirm your subscription');
+
+    const actualStatus = await immigrationGuidePage.getPendingStatus(EMAIL);
     expect(String(actualStatus).toUpperCase()).toContain('PENDING');
   });
 });

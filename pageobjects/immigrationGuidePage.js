@@ -98,7 +98,7 @@ class ImmigrationGuidePage {
     });
   }
 
-  async getResponseStatus(email) {
+  async getPendingStatus(email) {
     return await allureReporter.step('Check member pending status', async () => {
       const emailHashed = createHash('md5').update(email).digest('hex');
       const listId = await this.fetchMailchimpListId();
@@ -115,6 +115,8 @@ class ImmigrationGuidePage {
           `https://us1.api.mailchimp.com/3.0/lists/${listId}/members/${emailHashed}`,
           this.apiKey
         );
+
+        console.log(response);
 
         if (response?.status) {
           return response.status;
