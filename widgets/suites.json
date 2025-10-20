@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"93e0835227f0828a3b20ddfb7822fc7d","name":"Reset Password: WebKit 18.0","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]}
+{"total":1,"items":[{"uid":"8ecb8940208afe81e906a7ee2dd8ba5a","name":"resetPass.spec.js","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]}
