@@ -18,7 +18,7 @@ test.beforeEach(async ({ page }) => {
   const webClient = await webClientInfo(page);
   await allureReporter.suite(`Reset Password: ${webClient}`);
   await allureReporter.epic(`${webClient}`);
-  await allure.feature('Reset Password');
+  await allureReporter.feature('Reset Password');
 
   resetPasswordPage = new ResetPasswordPage(page);
   learningPage = new LearningPage(page);
