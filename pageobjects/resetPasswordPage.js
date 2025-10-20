@@ -108,7 +108,7 @@ class ResetPasswordPage {
 
         if (requestTs > responseTs) {
           if (attempts < maxRetries) {
-            await browser.pause(delayMs);
+            await this.page.waitForTimeout(delayMs);
           }
         } else {
           return res[0]._id;
