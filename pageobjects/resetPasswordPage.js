@@ -1,4 +1,3 @@
-import * as https from 'https';
 import * as allureReporter from 'allure-js-commons';
 
 class ResetPasswordPage {

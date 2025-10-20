@@ -2,6 +2,7 @@ import * as https from 'https';
 import * as allureReporter from 'allure-js-commons';
 import * as md5 from 'md5';
 import { createHash } from 'crypto';
+const { Buffer } = require('buffer');
 
 class ImmigrationGuidePage {
   constructor(page) {
@@ -72,7 +73,6 @@ class ImmigrationGuidePage {
     await allureReporter.step('Wait for email confirmation message', async () => {
       await this.emailConfirmationMessage.scrollIntoViewIfNeeded();
       await this.emailConfirmationMessage.waitFor({ state: 'visible', timeout: 10000 });
-      console.log(this.emailConfirmationMessage.innerText());
       return this.emailConfirmationMessage.innerText();
     });
   }
@@ -86,14 +86,21 @@ class ImmigrationGuidePage {
 
   async fetchMailchimpListId() {
     return await allureReporter.step('Fetch lists from Mailchimp API', async () => {
-      const response = await this.apiRequest(
-        'https://us1.api.mailchimp.com/3.0/lists',
-        this.apiKey
-      );
+      const credentials = Buffer.from(`anystring:${this.apiKey}`).toString('base64');
 
-      if (response?.lists?.length > 0) {
-        console.log(response.lists[0].id);
-        return response.lists[0].id;
+      const response = await fetch('https://us1.api.mailchimp.com/3.0/lists', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${credentials}`,
+        }
+      });
+
+      const res = await response.json();
+
+      if (res?.lists?.length > 0) {
+        console.log(res.lists[0].id);
+        return res.lists[0].id;
       }
       throw new Error('No lists available in the Mailchimp API response');
     });
@@ -104,6 +111,8 @@ class ImmigrationGuidePage {
       const emailHashed = createHash('md5').update(email).digest('hex');
       const listId = await this.fetchMailchimpListId();
 
+      const credentials = Buffer.from(`anystring:${this.apiKey}`).toString('base64');
+
       const maxRetries = 100;
       const delayMs = 1000;
       let response;
@@ -112,15 +121,18 @@ class ImmigrationGuidePage {
       while (attempts < maxRetries) {
         attempts++;
 
-        response = await this.apiRequest(
-          `https://us1.api.mailchimp.com/3.0/lists/${listId}/members/${emailHashed}`,
-          this.apiKey
-        );
+        response = await fetch(`https://us1.api.mailchimp.com/3.0/lists/${listId}/members/${emailHashed}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Basic ${credentials}`,
+          }
+        });
 
-        console.log(response);
+        const res = await response.json();
 
-        if (response?.status) {
-          return response.status;
+        if (res?.status) {
+          return res.status;
         }
 
         if (attempts < maxRetries) {
