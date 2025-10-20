@@ -70,10 +70,9 @@ class ImmigrationGuidePage {
   }
 
   async getEmailConfirmationMessage() {
-    await allureReporter.step('Wait for email confirmation message', async () => {
+    return await allureReporter.step('Wait for email confirmation message', async () => {
       await this.emailConfirmationMessage.scrollIntoViewIfNeeded();
-      await this.page.waitForTimeout(3000);
-      console.log(this.emailConfirmationMessage.innerText());
+      await this.emailConfirmationMessage.waitFor({ state: 'visible', timeout: 10000 });
       return this.emailConfirmationMessage.innerText();
     });
   }
