@@ -11,11 +11,10 @@ const EMAIL_LIMIT = process.env.EMAIL_LIMIT;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const PASSWORD = `Test${Math.floor(Math.random() * 100000)}`;
 const SUBJECT = 'Reset your password';
-const webClient = await webClientInfo(page);
 
 let resetPasswordPage;
 
-test.describe(`Reset Password: ${process.env.RUN_CONTEXT} ${webClient}`, () => {
+test.describe(`Reset Password: ${process.env.RUN_CONTEXT} ${webClientInfo}`, () => {
   test.beforeEach(async ({ page }) => {
     await allureReporter.epic(`${webClient}`);
 
