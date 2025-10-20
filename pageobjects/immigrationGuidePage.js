@@ -1,4 +1,3 @@
-import * as https from 'https';
 import * as allureReporter from 'allure-js-commons';
 import * as md5 from 'md5';
 import { createHash } from 'crypto';
@@ -141,43 +140,6 @@ class ImmigrationGuidePage {
       }
 
       throw new Error(`Failed to retrieve status after ${maxRetries} attempts.`);
-    });
-  }
-
-  async apiRequest(url, apiKey) {
-    const options = {
-      hostname: 'us1.api.mailchimp.com',
-      path: new URL(url).pathname,
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Basic ${Buffer.from(`anystring:${apiKey}`).toString('base64')}`
-      }
-    };
-
-    return new Promise((resolve, reject) => {
-      const req = https.request(options, (res) => {
-        let data = '';
-
-        res.on('data', (chunk) => {
-          data += chunk;
-        });
-
-        res.on('end', () => {
-          try {
-            const parsedData = JSON.parse(data);
-            resolve(parsedData);
-          } catch (error) {
-            reject(new Error(`Error parsing response: ${error.message}`));
-          }
-        });
-      });
-
-      req.on('error', (error) => {
-        reject(new Error(`Error making API request: ${error.message}`));
-      });
-
-      req.end();
     });
   }
 }
