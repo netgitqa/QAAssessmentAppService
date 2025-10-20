@@ -1,0 +1,19 @@
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 2309,
+  [Symbol(trigger_async_id_symbol)]: 2284,
+  [Symbol(kResourceStore)]: Zone {
+    type: 'stepZone',
+    data: {
+      stepId: 'test.step@26',
+      category: 'test.step',
+      title: 'Wait for email confirmation message',
+      box: undefined,
+      boxedStack: undefined,
+      location: [Object],
+      steps: [Array],
+      complete: [Function: complete]
+    },
+    previous: undefined
+  }
+}
