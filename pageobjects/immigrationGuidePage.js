@@ -1,7 +1,7 @@
 import * as allureReporter from 'allure-js-commons';
 import * as md5 from 'md5';
 import { createHash } from 'crypto';
-const { Buffer } = require('buffer');
+import { Buffer } from 'buffer';
 
 class ImmigrationGuidePage {
   constructor(page) {
