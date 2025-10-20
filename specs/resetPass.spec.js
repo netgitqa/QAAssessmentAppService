@@ -14,9 +14,9 @@ const SUBJECT = 'Reset your password';
 
 let resetPasswordPage;
 
-test.describe(`Reset Password: ${process.env.RUN_CONTEXT} ${webClientInfo}`, () => {
+test.describe(`Reset Password: ${process.env.RUN_CONTEXT} ${webClientInfo()}`, () => {
   test.beforeEach(async ({ page }) => {
-    await allureReporter.epic(`${webClient}`);
+    await allureReporter.epic(`${webClientInfo()}`);
 
     resetPasswordPage = new ResetPasswordPage(page);
     await resetPasswordPage.open();
