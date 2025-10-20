@@ -4,7 +4,6 @@ const path = require('path');
 
 const capabilities = commonConfig.getCapabilities(
     'Chrome',
-    'latest',
     'Windows 10',
     'Login Test',
     'Playwright Chrome Win 10',

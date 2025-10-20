@@ -4,7 +4,6 @@ const path = require('path');
 
 const capabilities = commonConfig.getCapabilities(
     'pw-webkit',
-    'latest',
     'macOS Big Sur',
     'Login Test',
     'Playwright Webkit Big Sur',
