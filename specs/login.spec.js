@@ -29,8 +29,8 @@ test('should log in with valid credentials', async ({ page }) => {
   await loginPage.enterPassword(PASSWORD);
   await loginPage.submitLogin();
 
-  await loginPage.waitForTitle('My learning');
-  const title = await loginPage.getTitle();
+  await learningPage.waitForTitle('My learning');
+  const title = await learningPage.getTitle();
   expect(title).toContain('My learning');
 });
 
