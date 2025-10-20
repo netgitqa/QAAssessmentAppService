@@ -14,9 +14,10 @@ const SUBJECT = 'Reset your password';
 
 let resetPasswordPage;
 
-test.describe(`Reset Password: ${process.env.RUN_CONTEXT}`, () => {
+// test.describe('Reset Password', () => {
   test.beforeEach(async ({ page }) => {
     const webClient = await webClientInfo(page);
+    await allureReporter.suite(`Reset Password: ${webClient}`);
     await allureReporter.epic(`${webClient}`);
 
     resetPasswordPage = new ResetPasswordPage(page);
@@ -36,6 +37,7 @@ test.describe(`Reset Password: ${process.env.RUN_CONTEXT}`, () => {
     await resetPasswordPage.clickSetPasswordBtn();
 
     const learningPage = new LearningPage(page);
+    await learningPage.waitForTitle('My learning');
     const title = await learningPage.getTitle();
     expect(title).toContain('My learning');
   });
@@ -53,4 +55,4 @@ test.describe(`Reset Password: ${process.env.RUN_CONTEXT}`, () => {
   //   const clickableState = await resetPasswordPage.submitBtnClickableState();
   //   expect(clickableState).toBe(false);
   // });
-});
+// });

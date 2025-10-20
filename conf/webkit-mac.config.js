@@ -15,6 +15,7 @@ module.exports = defineConfig({
   ...commonConfig,
   projects: [
     {
+      name: 'Playwright macOS Big sur',
       use: {
         ...devices['Desktop Safari'],
         connectOptions: {
