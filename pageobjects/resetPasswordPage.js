@@ -88,52 +88,68 @@ class ResetPasswordPage {
       while (attempts < maxRetries) {
         attempts++;
 
-        response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/search.json', {
-          key: this.apiKey,
-          query: `subject:${subject} AND email:${email}`,
-          limit
+        response = await fetch('https://mandrillapp.com/api/1.0/messages/search.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            key: this.apiKey,
+            query: `subject:"${subject}" AND email:"${email}"`,
+            limit
+          })
         });
 
-        const responseTs = new Date(response.data[0]['@timestamp']).getTime();
+        const res = await response.json();
 
+        const responseTs = new Date(res[0]['@timestamp']).getTime();
         if (attempts === 1) {
-          requestTs = new Date(response.headers['date']).getTime();
+          requestTs = new Date(response.headers.get('Date')).getTime();
           requestTs -= 10000;
         }
 
         if (requestTs > responseTs) {
           if (attempts < maxRetries) {
-            await this.page.waitForTimeout(delayMs);
+            await browser.pause(delayMs);
           }
         } else {
-          return response.data[0]._id;
+          return res[0]._id;
         }
       }
 
-      throw new Error(`Failed to retrieve valid email after ${maxRetries} attempts.`);
+      throw new Error(`Failed to retrieve valid email with subject ${subject} after ${maxRetries} attempts`);
     });
   }
 
   async getEmailInfo(emailId) {
     return await allureReporter.step(`Email info for ID: ${emailId}`, async () => {
-      const response = await this.apiRequest('https://mandrillapp.com/api/1.0/messages/content  ', {
-              key: this.apiKey,
-              id: emailId
-          }
-      );
+      const response = await fetch('https://mandrillapp.com/api/1.0/messages/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: this.apiKey,
+          id: emailId
+        })
+      });
 
-      if (response.status === 'error') {
-        throw new Error(`Mandrill API error: ${response.message}`);
+      const raw = await response.text();
+      console.log('Response Check', raw);
+
+      const res = JSON.parse(raw);
+      console.log('Response html:', res);
+
+      const resetPasswordLink = this.retrieveResetPasswordLink(res.html);
+
+      if (resetPasswordLink) {
+        return resetPasswordLink;
       }
 
-      const resetPasswordLink = this.retrieveResetPasswordLink(response.data.html);
-      return resetPasswordLink;
+      throw new Error(`No emails found with subject ${emailId}`);
     });
   }
 
   async getResetPassword(emailValue, subjectValue) {
     return await allureReporter.step('Verify reset email was sent to email address', async () => {
       const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
+      await this.page.waitForTimeout(3000);
       const linkResetPassword = await this.getEmailInfo(emailId);
 
       return linkResetPassword;
@@ -149,54 +165,6 @@ class ResetPasswordPage {
     }
 
     throw new Error('Reset password link not found in the email HTML content');
-  }
-
-  async apiRequest(url, body) {
-    const postData = JSON.stringify(body);
-
-    const options = {
-        hostname: 'mandrillapp.com',
-        port: 443,
-        path: new URL(url).pathname,
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': Buffer.byteLength(postData)
-        }
-    };
-
-    return new Promise((resolve, reject) => {
-        const req = https.request(options, (res) => {
-            let data = '';
-
-            const serverDateHeader = res.headers['date'];
-
-            res.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            res.on('end', () => {
-                try {
-                    const parsedData = JSON.parse(data);
-
-                    resolve({
-                      data: parsedData,
-                      headers: res.headers,
-                      serverDate: serverDateHeader
-                    });
-                } catch (error) {
-                    reject(new Error(`Error parsing response: ${error.message}`));
-                }
-            });
-        });
-
-        req.on('error', (error) => {
-            reject(new Error(`Error making API request: ${error.message}`));
-        });
-
-        req.write(postData);
-        req.end();
-    });
   }
 }
 
