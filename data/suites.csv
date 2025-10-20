@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1180","should allow the user to reset a password","","Mon Oct 20 14:31:02 UTC 2025","failed","Mon Oct 20 14:31:03 UTC 2025","","Reset Password: WebKit 18.0","",""
-"","867","should show error message with incorrect email","","Mon Oct 20 14:31:13 UTC 2025","failed","Mon Oct 20 14:31:14 UTC 2025","","Reset Password: WebKit 18.0","",""
-"","883","should not enable submit button with an empty email field","","Mon Oct 20 14:31:23 UTC 2025","failed","Mon Oct 20 14:31:24 UTC 2025","","Reset Password: WebKit 18.0","",""
+"","5372","should show error message with incorrect email","","Mon Oct 20 14:37:04 UTC 2025","passed","Mon Oct 20 14:37:09 UTC 2025","","Reset Password: WebKit 18.0","",""
+"","41663","should allow the user to reset a password","","Mon Oct 20 14:36:14 UTC 2025","passed","Mon Oct 20 14:36:56 UTC 2025","","Reset Password: WebKit 18.0","",""
+"","5422","should not enable submit button with an empty email field","","Mon Oct 20 14:37:09 UTC 2025","passed","Mon Oct 20 14:37:15 UTC 2025","","Reset Password: WebKit 18.0","",""
