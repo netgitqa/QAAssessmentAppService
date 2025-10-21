@@ -10,9 +10,10 @@ let immigrationGuidePage;
 
 test.beforeEach(async ({ page }) => {
   const webClient = await webClientInfo(page);
-  await allureReporter.suite(`Sign up for USAHello updates: ${webClient}`);
-  await allureReporter.epic(`${webClient}`);
-  await allureReporter.feature('Sign up for USAHello updates');
+  await allureReporter.suite(`${webClient}`);
+  await allureReporter.subSuite(`Sign up for USAHello updates`);
+  // await allureReporter.epic(`${webClient}`);
+  // await allureReporter.feature('Sign up for USAHello updates');
 
   immigrationGuidePage = new ImmigrationGuidePage(page);
   await immigrationGuidePage.open();
