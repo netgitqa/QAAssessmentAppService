@@ -34,7 +34,7 @@ class RegisterPage{
   }
 
     async enterPasswordForRegistration(value) {
-        await allureReporter.step(`Enter password: ${email}`, async () => {
+        await allureReporter.step(`Enter password: ${value}`, async () => {
             await this.passwordInput.fill(value);
         });
     }
