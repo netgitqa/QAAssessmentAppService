@@ -19,7 +19,7 @@ class ImmigrationGuidePage {
   get emailSubmitBtn() { return this.page.locator('#gform_submit_button_3'); }
   get btnShowResources() { return this.page.locator('a.immigration-guide-more-btn'); }
   get emailConfirmationMessage() { return this.page.locator('#hello-imguide-top-confirmation-msg'); }
-  get loader() { return $('span#gform_ajax_spinner_3'); }
+  get loader() { return this.page.locator('span#gform_ajax_spinner_3'); }
 
   async open() {
     await allureReporter.step('Open Immigration Guide page', async () => {
