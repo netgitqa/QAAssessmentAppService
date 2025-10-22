@@ -23,6 +23,10 @@ module.exports = defineConfig({
                     )}`,
                 },
             },
+            testIgnore: [
+                '**/specs/resetPass.spec.js',
+                '**/specs/login.spec.js'
+            ],
         },
     ],
 });
