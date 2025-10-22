@@ -53,6 +53,12 @@ class ResetPasswordPage {
     });
   }
 
+  async submitBtnClickableState() {
+    return await allureReporter.step('Check the clickable state of the submit button', async () => {
+      return await this.submitBtn.isEnabled();
+    });
+  }
+
   async verifyErrorNotice() {
     return await allureReporter.step('Check if the error notice appears', async () => {
       return await this.noticeError.textContent();
