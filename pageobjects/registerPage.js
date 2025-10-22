@@ -76,7 +76,7 @@ class RegisterPage{
                 attempts++;
 
                 response = await fetch('https://mandrillapp.com/api/1.0/messages/search.json', {
-                    method: 'GET',
+                    method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         key: this.apiKey,
@@ -103,7 +103,7 @@ class RegisterPage{
     async getEmailInfo(emailId) {
         return await allureReporter.step(`Email info for ID: ${emailId}`, async () => {
             const response = await fetch('https://mandrillapp.com/api/1.0/messages/content', {
-                method: 'GET',
+                method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     key: this.apiKey,
