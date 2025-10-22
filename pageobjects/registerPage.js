@@ -3,6 +3,7 @@ import * as allureReporter from 'allure-js-commons';
 class RegisterPage{
   constructor(page) {
     this.page = page;
+    this.apiKey = process.env.MANDRILL_API_KEY;
   }
 
   get emailInput() { return this.page.locator('#email'); }
@@ -123,9 +124,9 @@ class RegisterPage{
         });
     }
 
-    async getActivationUrl(emailValue, subjectValue) {
+    async getActivationUrl(email, subject) {
         return await allureReporter.step('Verify reset email was sent to email address', async () => {
-            const emailId = await this.searchEmailBySubject(emailValue, subjectValue);
+            const emailId = await this.searchEmailBySubject(email, subject);
             await this.page.waitForTimeout(3000);
             return await this.getEmailInfo(emailId);
         });
