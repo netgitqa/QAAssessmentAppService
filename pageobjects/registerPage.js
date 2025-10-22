@@ -15,7 +15,7 @@ class RegisterPage{
   async openRegister() {
     await allureReporter.step('Open register page', async () => {
       await this.page.goto('about:blank');
-      await this.page.goto(`${process.env.CLASSROOM_URL}/login`);
+      await this.page.goto(`${process.env.CLASSROOM_URL}/register`);
     });
   }
 
@@ -58,7 +58,7 @@ class RegisterPage{
 
     async getRegisterEmailTitle() {
         return await allureReporter.step('Check if the title appears', async () => {
-            const actualValue = await this.emailTitle.getText();
+            const actualValue = await this.emailTitle.textContent();
 
             return actualValue;
         });

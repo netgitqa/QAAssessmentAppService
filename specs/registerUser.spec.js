@@ -68,16 +68,14 @@ test('should not register a user after too many attempts', async ({ page }) => {
         await registerPage.openRegister();
         await registerPage.enterEmailForRegistration(EMAIL);
         await registerPage.clickSignupBtn();
-
         attempt++;
     }
-
     const expectedValue = 'Too many registration attempts. Please try again later';
     const actualValue = await registerPage.verifyErrorNotice();
     expect(actualValue).toContain(expectedValue);
 });
 
-test('should not a register user with an empty credentials', async ({ page }) => {
+test('should not register a user with an empty credentials', async ({ page }) => {
     await registerPage.enterEmailForRegistration('');
     await registerPage.clickSignupBtn();
 

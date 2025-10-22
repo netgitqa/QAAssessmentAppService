@@ -100,7 +100,6 @@ class ImmigrationGuidePage {
       const res = await response.json();
 
       if (res?.lists?.length > 0) {
-        console.log(res.lists[0].id);
         return res.lists[0].id;
       }
       throw new Error('No lists available in the Mailchimp API response');
