@@ -11,7 +11,7 @@ class ResetPasswordPage {
   get submitBtn() { return this.page.locator('#reset-password-btn'); }
   get setPasswordBtn() { return this.page.locator('#set-password-btn'); }
   get noticeError() { return this.page.locator('.usahello-form-error'); }
-  get checkEmailTitle() { return this.page.locator('.mb-3.source-serif'); }
+  get emailTitle() { return this.page.locator('.mb-3.source-serif'); }
 
   async open() {
     await allureReporter.step('Open reset password page', async () => {
@@ -53,23 +53,15 @@ class ResetPasswordPage {
     });
   }
 
-  async submitBtnClickableState() {
-    return await allureReporter.step('Check the clickable state of the submit button', async () => {
-      return await this.submitBtn.isEnabled();
-    });
-  }
-
   async verifyErrorNotice() {
     return await allureReporter.step('Check if the error notice appears', async () => {
-      const actualValue = await this.noticeError.textContent();
-
-      return actualValue;
+      return await this.noticeError.textContent();
     });
   }
 
   async getSentEmailTitle() {
     return await allureReporter.step('Check if the title appears', async () => {
-      const actualValue = await this.checkEmailTitle.textContent();
+      const actualValue = await this.emailTitle.textContent();
 
       return actualValue;
     });

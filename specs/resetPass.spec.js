@@ -9,7 +9,6 @@ const EMAIL_LIMIT = process.env.EMAIL_LIMIT;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const PASSWORD = `Test${Math.floor(Math.random() * 100000)}`;
 const SUBJECT = 'Reset your password';
-const incorrectEmailNotice = 'No account found with this email';
 
 let resetPasswordPage;
 let learningPage;
@@ -17,8 +16,6 @@ let learningPage;
 test.beforeEach(async ({ page }) => {
   const webClient = await webClientInfo(page);
   await allureReporter.suite(`Reset Password: ${webClient}`);
-  await allureReporter.epic(`${webClient}`);
-  await allureReporter.feature('Reset Password');
 
   resetPasswordPage = new ResetPasswordPage(page);
   learningPage = new LearningPage(page);

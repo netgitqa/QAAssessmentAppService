@@ -19,7 +19,7 @@ class LoginPage {
   }
 
   async enterEmail(email) {
-    await allureReporter.step(`Entering email: ${email}`, async () => {
+    await allureReporter.step(`Enter email: ${email}`, async () => {
       await this.page.fill(this.emailInput, email);
     });
   }

@@ -16,8 +16,6 @@ let learningPage;
 test.beforeEach(async ({ page }) => {
   const webClient = await webClientInfo(page);
   await allureReporter.suite(`User Authentication: ${webClient}`);
-  await allureReporter.epic(`${webClient}`);
-  await allureReporter.feature('User Authentication');
 
   loginPage = new LoginPage(page);
   learningPage = new LearningPage(page);
