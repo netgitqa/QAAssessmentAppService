@@ -19,13 +19,13 @@ test.beforeEach(async ({ page }) => {
 
   loginPage = new LoginPage(page);
   learningPage = new LearningPage(page);
-  await loginPage.open();
+  await loginPage.openLogin();
 });
 
 test('should log in with valid credentials', async ({ page }) => {
-  await loginPage.enterEmail(EMAIL);
-  await loginPage.enterPassword(PASSWORD);
-  await loginPage.submitLogin();
+  await loginPage.enterEmailForLogin(EMAIL);
+  await loginPage.enterPasswordLogin(PASSWORD);
+  await loginPage.clickLoginBtn();
 
   await learningPage.waitForTitle('My learning');
   const title = await learningPage.getTitle();
@@ -33,27 +33,27 @@ test('should log in with valid credentials', async ({ page }) => {
 });
 
 test('should not log in with incorrect email', async ({ page }) => {
-  await loginPage.enterEmail(FAKE_EMAIL);
-  await loginPage.enterPassword(PASSWORD);
-  await loginPage.submitLogin();
+  await loginPage.enterEmailForLogin(FAKE_EMAIL);
+  await loginPage.enterPasswordForLogin(PASSWORD);
+  await loginPage.clickLoginBtn();
 
-  const msg = await loginPage.getErrorMessages();
-  expect(msg).toContain('This email is not in our system');
+  const actual = await loginPage.getLoginErrorNotice();
+  expect(actual).toContain('This email is not in our system');
 });
 
 test('should not log in with incorrect password', async ({ page }) => {
-  await loginPage.enterEmail(EMAIL);
-  await loginPage.enterPassword(FAKE_PASSWORD);
-  await loginPage.submitLogin();
+  await loginPage.enterEmailForLogin(EMAIL);
+  await loginPage.enterPasswordForLogin(FAKE_PASSWORD);
+  await loginPage.clickLoginBtn();
 
-  const msg = await loginPage.getErrorMessages();
-  expect(msg).toContain('Either email or password are incorrect');
+  const actual = await loginPage.getLoginErrorNotice();
+  expect(actual).toContain('Either email or password are incorrect');
 });
 
 test('should not login with empty credentials', async ({ page }) => {
-  await loginPage.enterEmail('');
-  await loginPage.enterPassword('');
-  await loginPage.submitLogin();
+  await loginPage.enterEmailForLogin('');
+  await loginPage.enterPasswordForLogin('');
+  await loginPage.clickLoginBtn();
 
   await expect(page).toHaveURL(/login/);
 });

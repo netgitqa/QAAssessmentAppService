@@ -13,35 +13,35 @@ class ResetPasswordPage {
   get noticeError() { return this.page.locator('.usahello-form-error'); }
   get emailTitle() { return this.page.locator('.mb-3.source-serif'); }
 
-  async open() {
+  async openResetPassword() {
     await allureReporter.step('Open reset password page', async () => {
       await this.page.goto('about:blank');
-      await this.page.goto(`${process.env.CLASSROOM_URL}/reset-password`);
+      await this.page.goto(`${process.env.CLASSROOM_URL}/reset-password/?noRecaptcha=true`);
     });
   }
 
-  async openUrl(value) {
+  async openEmailUrlResetPassword(value) {
     await allureReporter.step('Open the link ${value}', async () => {
       await this.page.goto('about:blank');
       await this.page.goto(value);
     });
   }
 
-  async enterEmail(value) {
+  async enterEmailForResetPassword(value) {
     await allureReporter.step(`Enter email: ${value}`, async () => {
       await this.emailInput.fill('');
       await this.emailInput.fill(value);
     });
   }
 
-  async enterPassword(value) {
+  async enterPasswordForReset(value) {
     await allureReporter.step(`Enter password: ${value}`, async () => {
       await this.passwordInput.fill('');
       await this.passwordInput.fill(value);
     });
   }
 
-  async clickSubmitBtn() {
+  async clickResetPasswordBtn() {
     await allureReporter.step('Click submit button', async () => {
       await this.submitBtn.click();
     });
@@ -59,7 +59,7 @@ class ResetPasswordPage {
     });
   }
 
-  async verifyErrorNotice() {
+  async getResetPasswordErrorNotice() {
     return await allureReporter.step('Check if the error notice appears', async () => {
       return await this.noticeError.textContent();
     });

@@ -21,7 +21,7 @@ class ImmigrationGuidePage {
   get emailConfirmationMessage() { return this.page.locator('#hello-imguide-top-confirmation-msg'); }
   get loader() { return this.page.locator('span#gform_ajax_spinner_3'); }
 
-  async open() {
+  async openImmigrationGuide() {
     await allureReporter.step('Open Immigration Guide page', async () => {
       await this.page.goto(`/safety`);
     });
@@ -49,14 +49,14 @@ class ImmigrationGuidePage {
     });
   }
 
-  async clickEmailSignupBtn() {
+  async clickImmigrationEmailSignupBtn() {
     await allureReporter.step('Click Email Signup button', async () => {
       await this.introSection.scrollIntoViewIfNeeded();
       await this.emailSignupBtn.click();
     });
   }
 
-  async enterEmail(email) {
+  async enterImmigrationEmailForRegistration(email) {
     await allureReporter.step(`Enter email: ${email}`, async () => {
       await this.emailInput.waitFor({ state: 'visible' });
       await this.emailInput.fill(email);
@@ -69,7 +69,7 @@ class ImmigrationGuidePage {
     });
   }
 
-  async getEmailConfirmationMessage() {
+  async getConfirmationSubscriptionTitle() {
     return await allureReporter.step('Fetch email confirmation message', async () => {
       await this.loader.waitFor({ state: 'detached', timeout: 10000 });
       await this.emailConfirmationMessage.waitFor({ state: 'visible', timeout: 10000 });

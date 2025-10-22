@@ -19,19 +19,19 @@ test.beforeEach(async ({ page }) => {
 
   resetPasswordPage = new ResetPasswordPage(page);
   learningPage = new LearningPage(page);
-  await resetPasswordPage.open();
+  await resetPasswordPage.openResetPassword();
 });
 
 test('should allow the user to reset a password', async ({ page }) => {
-  await resetPasswordPage.enterEmail(EMAIL);
-  await resetPasswordPage.clickSubmitBtn();
+  await resetPasswordPage.enterEmailForResetPassword(EMAIL);
+  await resetPasswordPage.clickResetPasswordBtn();
 
   const actualValue = await resetPasswordPage.getSentEmailTitle();
   expect(actualValue).toContain('Check your email');
 
   const value = await resetPasswordPage.getResetPassword(EMAIL, SUBJECT);
-  await resetPasswordPage.openUrl(value);
-  await resetPasswordPage.enterPassword(PASSWORD);
+  await resetPasswordPage.openEmailUrlResetPassword(value);
+  await resetPasswordPage.enterPasswordForReset(PASSWORD);
   await resetPasswordPage.clickSetPasswordBtn();
 
   await learningPage.waitForTitle('My learning');
@@ -40,11 +40,11 @@ test('should allow the user to reset a password', async ({ page }) => {
 });
 
 test('should show error message with incorrect email', async ({ page }) => {
-  await resetPasswordPage.enterEmail(FAKE_EMAIL);
-  await resetPasswordPage.clickSubmitBtn();
+  await resetPasswordPage.enterEmailForResetPassword(FAKE_EMAIL);
+  await resetPasswordPage.clickResetPasswordBtn();
 
-  const actualError = await resetPasswordPage.verifyErrorNotice();
-  expect(actualError).toContain('No account found with this email');
+  const actual = await resetPasswordPage.getResetPasswordErrorNotice();
+  expect(actual).toContain('No account found with this email');
 });
 
 test('should not enable submit button with an empty email field', async ({ page }) => {

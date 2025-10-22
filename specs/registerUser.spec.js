@@ -24,14 +24,14 @@ test.beforeEach(async ({ page }) => {
     learningPage = new LearningPage(page);
     EMAIL = `testemail${Math.floor(Math.random() * 100000)}@${randValue}.com`;
 
-    await registerPage.openRegister();
+    await registerPage.openSignup();
 });
 
 test('should register user with a valid email', async ({ page }) => {
     await registerPage.enterEmailForRegistration(EMAIL);
     await registerPage.clickSignupBtn();
 
-    const actualValue = await registerPage.getRegisterEmailTitle();
+    const actualValue = await registerPage.getRegisterTitle();
     expect(actualValue).toContain('Verify your email');
 
     const value = await registerPage.getActivationUrl(EMAIL, SUBJECT);
@@ -48,9 +48,8 @@ test('should not register a user with a registered email', async ({ page }) => {
     await registerPage.enterEmailForRegistration(EMAIL_REGISTERED);
     await registerPage.clickSignupBtn();
 
-    const expectedValue = 'You already have an account, login to your account above';
-    const actualValue = await registerPage.verifyErrorNotice(expectedValue);
-    expect(actualValue).toContain(expectedValue);
+    const actual = await registerPage.getRegisterErrorNotice();
+    expect(actual).toContain('You already have an account, login to your account above');
 });
 
 test('should not register a user with an incorrect email', async ({ page }) => {
@@ -65,14 +64,14 @@ test('should not register a user after too many attempts', async ({ page }) => {
     const limit = 4;
 
     while (attempt < limit) {
-        await registerPage.openRegister();
+        await registerPage.openSignup();
         await registerPage.enterEmailForRegistration(EMAIL);
         await registerPage.clickSignupBtn();
         attempt++;
     }
-    const expectedValue = 'Too many registration attempts. Please try again later';
-    const actualValue = await registerPage.verifyErrorNotice();
-    expect(actualValue).toContain(expectedValue);
+
+    const actual = await registerPage.getRegisterErrorNotice();
+    expect(actual).toContain('Too many registration attempts. Please try again later');
 });
 
 test('should not register a user with an empty credentials', async ({ page }) => {

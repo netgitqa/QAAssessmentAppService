@@ -13,7 +13,7 @@ class RegisterPage{
   get setPasswordBtn() { return this.page.locator('#set-password-btn'); }
   get noticeError() { return this.page.locator('.usahello-form-error'); }
 
-  async openRegister() {
+  async openSignup() {
     await allureReporter.step('Open register page', async () => {
       await this.page.goto('about:blank');
       await this.page.goto(`${process.env.CLASSROOM_URL}/register`);
@@ -51,13 +51,13 @@ class RegisterPage{
         });
     }
 
-    async verifyErrorNotice() {
+    async getRegisterErrorNotice() {
         return await allureReporter.step('Check if the error notice appears', async () => {
             return await this.noticeError.textContent();
         });
     }
 
-    async getRegisterEmailTitle() {
+    async getRegisterTitle() {
         return await allureReporter.step('Check if the title appears', async () => {
             const actualValue = await this.emailTitle.textContent();
 

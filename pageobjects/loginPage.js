@@ -11,26 +11,26 @@ class LoginPage {
     this.errorMessages = 'p.usahello-form-error.usahello-form-validation_msg';
   }
 
-  async open() {
+  async openLogin() {
     await allureReporter.step('Open login page', async () => {
       await this.page.goto('about:blank');
       await this.page.goto(`${process.env.CLASSROOM_URL}/login`);
     });
   }
 
-  async enterEmail(email) {
+  async enterEmailForLogin(email) {
     await allureReporter.step(`Enter email: ${email}`, async () => {
       await this.page.fill(this.emailInput, email);
     });
   }
 
-  async enterPassword(password) {
+  async enterPasswordForLogin(password) {
     await allureReporter.step(`Entering password`, async () => {
       await this.page.fill(this.passwordInput, password);
     });
   }
 
-  async submitLogin() {
+  async clickLoginBtn() {
     await allureReporter.step('Clicking login button', async () => {
       await this.page.click(this.loginButton);
     });
@@ -42,7 +42,7 @@ class LoginPage {
     });
   }
 
-  async getErrorMessages() {
+  async getLoginErrorNotice() {
     return allureReporter.step('Getting error messages', async () => {
       await this.page.waitForSelector(this.errorMessages, {
         timeout: 5000,

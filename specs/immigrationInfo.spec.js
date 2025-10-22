@@ -15,18 +15,18 @@ test.beforeEach(async ({ page }) => {
   await allureReporter.suite(`Sign up for USAHello updates: ${webClient}`);
 
   immigrationGuidePage = new ImmigrationGuidePage(page);
-  await immigrationGuidePage.open();
+  await immigrationGuidePage.openImmigrationGuide();
 });
 
 test('should signup for USAHello updates with valid email', async ({ page }) => {
   await immigrationGuidePage.closeModal();
-  await immigrationGuidePage.clickEmailSignupBtn();
-  await immigrationGuidePage.enterEmail(EMAIL);
+  await immigrationGuidePage.clickImmigrationEmailSignupBtn();
+  await immigrationGuidePage.enterImmigrationEmailForRegistration(EMAIL);
   await immigrationGuidePage.clickSubmitBtn();
 
-  const actualValue = await immigrationGuidePage.getEmailConfirmationMessage();
-  expect(actualValue).toContain('Check your email to confirm your subscription');
+  const actual = await immigrationGuidePage.getConfirmationSubscriptionTitle();
+  expect(actual).toContain('Check your email to confirm your subscription');
 
-  const actualStatus = await immigrationGuidePage.getUserStatus(EMAIL);
-  expect(String(actualStatus).toUpperCase()).toContain('PENDING');
+  const status = await immigrationGuidePage.getUserStatus(EMAIL);
+  expect(String(status).toUpperCase()).toContain('PENDING');
 });
