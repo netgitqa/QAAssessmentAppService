@@ -12,7 +12,7 @@ let immigrationGuidePage;
 test.beforeEach(async ({ page }) => {
   EMAIL = `testemail${Math.floor(Math.random() * 100000)}@${randValue}.com`;
   const webClient = await webClientInfo(page);
-  await allureReporter.subSuite(`Sign up for USAHello updates: ${webClient}`);
+  await allureReporter.suite(`Sign up for USAHello updates: ${webClient}`);
 
   immigrationGuidePage = new ImmigrationGuidePage(page);
   await immigrationGuidePage.open();
