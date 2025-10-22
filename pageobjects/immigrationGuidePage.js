@@ -19,6 +19,7 @@ class ImmigrationGuidePage {
   get emailSubmitBtn() { return this.page.locator('#gform_submit_button_3'); }
   get btnShowResources() { return this.page.locator('a.immigration-guide-more-btn'); }
   get emailConfirmationMessage() { return this.page.locator('#hello-imguide-top-confirmation-msg'); }
+  get loader() { return $('span#gform_ajax_spinner_3'); }
 
   async open() {
     await allureReporter.step('Open Immigration Guide page', async () => {
@@ -69,7 +70,8 @@ class ImmigrationGuidePage {
   }
 
   async getEmailConfirmationMessage() {
-    return await allureReporter.step('Wait for email confirmation message', async () => {
+    return await allureReporter.step('Fetch email confirmation message', async () => {
+      await expect(this.loader).toBeHidden({ timeout: 10000 });
       await this.emailConfirmationMessage.scrollIntoViewIfNeeded();
       await this.emailConfirmationMessage.waitFor({ state: 'visible', timeout: 10000 });
       return this.emailConfirmationMessage.innerText();
@@ -105,7 +107,7 @@ class ImmigrationGuidePage {
     });
   }
 
-  async getPendingStatus(email) {
+  async getUserStatus(email) {
     return await allureReporter.step('Check member pending status', async () => {
       const emailHashed = createHash('md5').update(email).digest('hex');
       const listId = await this.fetchMailchimpListId();
