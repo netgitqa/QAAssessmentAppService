@@ -24,7 +24,6 @@ module.exports = defineConfig({
         },
       },
       testIgnore: [
-        
       ],
     },
   ],
