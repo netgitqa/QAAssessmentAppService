@@ -1,0 +1,27 @@
+Response Check {"headers":{"Date":"Wed, 22 Oct 2025 14:40:07 +0000","To":"testqaaa@replyloop.com","From":"USAHello <classroom@usahello.org>","Message-Id":"<4Z3XcXLFKHP6x83PR51xo9opiAM3qRlC0f7Ts2Bop9U@stg-sandboxw-staging.kinsta.cloud>","X-Mailer":"WPMailSMTP\/Mailer\/smtp 4.6.0","Mime-Version":"1.0","Content-Type":"text\/html; charset=UTF-8"},"html":"<!DOCTYPE html>\nA request to change your password for the USAHello Classroom has been made. Please click on this link to set a new password.<br><br><a href=\"https:\/\/mandrillapp.com\/track\/click\/31312912\/stg-sandboxw-staging.kinsta.cloud?p=eyJzIjoiWlBzYWwtUE9ROGR6QUx3V1YtcWlPcDRxRnBnIiwidiI6MiwicCI6IntcInVcIjozMTMxMjkxMixcInZcIjoyLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3N0Zy1zYW5kYm94dy1zdGFnaW5nLmtpbnN0YS5jbG91ZFxcXC9zZXQtbmV3LXBhc3N3b3JkXFxcLz9lbWFpbFZlcmlmaWVkPXRydWUmZW1haWw9ZEdWemRIRmhZV0ZBY21Wd2JIbHNiMjl3TG1OdmJRJTNEJTNEJnZlcmlmaWNhdGlvbkNvZGU9QVM0NWRQVHRjZEFSUjB0YVVHU0QmcmVzZXRQYXNzd29yZD10cnVlXCIsXCJpZFwiOlwiZDU5MDg4M2RkNTgyNGEzZmI3MmQ2NDJmMDE4MzQyMmZcIixcInVybF9pZHNcIjpbXCI5NTRkMzU4ZmMzMDJmYmY1MmE5YzY2MTEzNDUxYWMyZGM4YjE4YmI3XCJdLFwibXNnX3RzXCI6MTc2MTE0NDAwOH0ifQ\" target=\"_blank\"> Click this link to create a new password. <\/a>","from_email":"classroom@usahello.org","from_name":"USAHello","to":{"email":"testqaaa@replyloop.com","name":""},"subject":"Reset your password","attachments":[],"text":"A request to change your password for the USAHello Classroom has been made.\nPlease click on this link to set a new password.\n\n Click this link to create a new password.\n<https:\/\/stg-sandboxw-staging.kinsta.cloud\/set-new-password\/?emailVerified=true&email=dGVzdHFhYWFAcmVwbHlsb29wLmNvbQ%3D%3D&verificationCode=AS45dPTtcdARR0taUGSD&resetPassword=true>","ts":1761144008,"tags":[],"_id":"d590883dd5824a3fb72d642f0183422f"}
+Response html: {
+  headers: {
+    Date: 'Wed, 22 Oct 2025 14:40:07 +0000',
+    To: 'testqaaa@replyloop.com',
+    From: 'USAHello <classroom@usahello.org>',
+    'Message-Id': '<4Z3XcXLFKHP6x83PR51xo9opiAM3qRlC0f7Ts2Bop9U@stg-sandboxw-staging.kinsta.cloud>',
+    'X-Mailer': 'WPMailSMTP/Mailer/smtp 4.6.0',
+    'Mime-Version': '1.0',
+    'Content-Type': 'text/html; charset=UTF-8'
+  },
+  html: '<!DOCTYPE html>\n' +
+    'A request to change your password for the USAHello Classroom has been made. Please click on this link to set a new password.<br><br><a href="https://mandrillapp.com/track/click/31312912/stg-sandboxw-staging.kinsta.cloud?p=eyJzIjoiWlBzYWwtUE9ROGR6QUx3V1YtcWlPcDRxRnBnIiwidiI6MiwicCI6IntcInVcIjozMTMxMjkxMixcInZcIjoyLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3N0Zy1zYW5kYm94dy1zdGFnaW5nLmtpbnN0YS5jbG91ZFxcXC9zZXQtbmV3LXBhc3N3b3JkXFxcLz9lbWFpbFZlcmlmaWVkPXRydWUmZW1haWw9ZEdWemRIRmhZV0ZBY21Wd2JIbHNiMjl3TG1OdmJRJTNEJTNEJnZlcmlmaWNhdGlvbkNvZGU9QVM0NWRQVHRjZEFSUjB0YVVHU0QmcmVzZXRQYXNzd29yZD10cnVlXCIsXCJpZFwiOlwiZDU5MDg4M2RkNTgyNGEzZmI3MmQ2NDJmMDE4MzQyMmZcIixcInVybF9pZHNcIjpbXCI5NTRkMzU4ZmMzMDJmYmY1MmE5YzY2MTEzNDUxYWMyZGM4YjE4YmI3XCJdLFwibXNnX3RzXCI6MTc2MTE0NDAwOH0ifQ" target="_blank"> Click this link to create a new password. </a>',
+  from_email: 'classroom@usahello.org',
+  from_name: 'USAHello',
+  to: { email: 'testqaaa@replyloop.com', name: '' },
+  subject: 'Reset your password',
+  attachments: [],
+  text: 'A request to change your password for the USAHello Classroom has been made.\n' +
+    'Please click on this link to set a new password.\n' +
+    '\n' +
+    ' Click this link to create a new password.\n' +
+    '<https://stg-sandboxw-staging.kinsta.cloud/set-new-password/?emailVerified=true&email=dGVzdHFhYWFAcmVwbHlsb29wLmNvbQ%3D%3D&verificationCode=AS45dPTtcdARR0taUGSD&resetPassword=true>',
+  ts: 1761144008,
+  tags: [],
+  _id: 'd590883dd5824a3fb72d642f0183422f'
+}
