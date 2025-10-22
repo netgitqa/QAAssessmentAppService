@@ -23,8 +23,6 @@ module.exports = defineConfig({
           )}`,
         },
       },
-      testIgnore: [
-      ],
     },
   ],
 });
