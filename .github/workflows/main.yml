@@ -1,22 +1,18 @@
-name: Playwright Tests on LambdaTest
+name: Playwright Web Testing on LambdaTest
 
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * 0'
 
-permissions:
-  contents: write
-
 jobs:
-  chrome:
-    name: Chrome Tests on LambdaTest
+  playwright-tests:
     runs-on: ubuntu-latest
 
     env:
+      USERNAME_LT: ${{ secrets.USERNAME_LT }}
+      ACCESS_KEY_LT: ${{ secrets.ACCESS_KEY_LT }}
       LT_GRID_URL: mobile-hub.lambdatest.com
-      LT_USERNAME: ${{ secrets.USERNAME_LT }}
-      LT_ACCESS_KEY: ${{ secrets.ACCESS_KEY_LT }}
 
       # Email testing
       MANDRILL_API_KEY: ${{ secrets.MANDRILL_API_KEY }}
@@ -26,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -34,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Chrome tests remotely
+      - name: Run Playwright test suite on LambdaTest
         run: npm run test:all
 
       - name: Generate Allure report
@@ -49,7 +45,7 @@ jobs:
           publish_dir: ./allure-report
           publish_branch: gh-pages
 
-      - name: Upload Allure results as artifact (optional)
+      - name: Upload Allure results as artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:

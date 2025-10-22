@@ -14,7 +14,7 @@ module.exports = defineConfig({
     ...commonConfig,
     projects: [
         {
-            name: 'Playwright Windows 10',
+            name: 'Playwright Windows 11',
             use: {
                 ...devices['Desktop Chrome'],
                 connectOptions: {
