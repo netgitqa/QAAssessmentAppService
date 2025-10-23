@@ -26,13 +26,8 @@ test('should complete donation', async ({ page }) => {
     await donatePage.clickPayByCreditCardBtn();
     await donatePage.enterCardholderName('Tester Test');
     await donatePage.enterEmail('testchecktestn123@replyloop.com');
-    const cardNumberFrame = await page.frameLocator('iframe[name^="__privateStripeFrame"]').first();
-    await cardNumberFrame.locator('input[name="cardnumber"]').fill('4242424242424242');
-    const expFrame = page.frameLocator('iframe[name^="__privateStripeFrame"]').nth(1);
-    const cvcFrame = page.frameLocator('iframe[name^="__privateStripeFrame"]').nth(2);
-    await expFrame.locator('input[name="exp-date"]').fill('1230');
-    await cvcFrame.locator('input[name="cvc"]').fill('123');
-    // await donatePage.enterCardValues();
+    await donatePage.enterCardValues();
+    await donatePage.clickEnterBillingAddressBtn();
     await donatePage.enterState('BestState');
     await donatePage.enterPostal('10000');
     await donatePage.selectConsent();

@@ -84,46 +84,15 @@ class DonatePage{
     });
   }
 
-  async getStripeIframe() {
-    return this.page.locator('iframe[name="__privateStripeFrame"]');
-  }
-
-  async getCardNumber() {
-    const iframe = await this.getStripeIframe();
-    const frame = await iframe.contentFrame();
-    return frame.locator('input.__PrivateStripeElement-input');
-  }
-
-  async getCardExp() {
-    const iframe = await this.getStripeIframe();
-    const frame = await iframe.contentFrame();
-    return frame.locator('input#__PrivateStripeElement-expiry');
-  }
-
-  async getCardCvv() {
-    const iframe = await this.getStripeIframe();
-    const frame = await iframe.contentFrame();
-    return frame.locator('input#__PrivateStripeElement-cvc');
-  }
-
-  async getStripeIframe() {
-      const iframes = await this.page.locator('iframe');
-      for (let i = 0; i < await iframes.count(); i++) {
-          const iframe = iframes.nth(i);
-          const src = await iframe.getAttribute('src');
-          if (src && src.includes('js.stripe.com')) {
-              return iframe;
-          }
-      }
-      throw new Error('Stripe iframe not found');
-  }
-
   async enterCardValues() {
-      const iframe = await this.getStripeIframe();
-      const frame = await iframe.contentFrame();
-
-      const cardNumberInput = frame.locator('input#__PrivateStripeElement-cardNumber');
-      await cardNumberInput.fill('4242424242424242');
+    await allureReporter.step('Fill in card details', async () => {
+      const cardNumberFrame = await this.page.frameLocator('iframe[name^="__privateStripeFrame"]').first();
+      await cardNumberFrame.locator('input[name="cardnumber"]').fill('4242424242424242');
+      const expFrame = this.page.frameLocator('iframe[name^="__privateStripeFrame"]').nth(1);
+      await expFrame.locator('input[name="exp-date"]').fill('12/30');
+      const cvcFrame = this.page.frameLocator('iframe[name^="__privateStripeFrame"]').nth(2);
+      await cvcFrame.locator('input[name="cvc"]').fill('123');
+    });
   }
 
   async clickEnterBillingAddressBtn() {
