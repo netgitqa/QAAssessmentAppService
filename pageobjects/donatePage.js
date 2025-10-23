@@ -83,6 +83,10 @@ class DonatePage{
     });
   }
 
+  async getStripeIframe() {
+    return this.page.locator('iframe[name="__privateStripeFrame"]');
+  }
+
   async getCardNumber() {
     const iframe = await this.getStripeIframe();
     const frame = await iframe.frame();
