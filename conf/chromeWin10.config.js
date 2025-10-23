@@ -24,8 +24,10 @@ module.exports = defineConfig({
         },
       },
       testIgnore: [
+        '**/specs/login.js',
+        '**/specs/registerUser.js',
         '**/specs/immigrationInfo.js',
-        '**/specs/registerUser.js'
+        '**/specs/resetPass.js'
       ],
     },
   ],

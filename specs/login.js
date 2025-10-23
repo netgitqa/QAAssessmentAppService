@@ -24,7 +24,7 @@ test.beforeEach(async ({ page }) => {
 
 test('should log in with valid credentials', async ({ page }) => {
   await loginPage.enterEmailForLogin(EMAIL);
-  await loginPage.enterPasswordLogin(PASSWORD);
+  await loginPage.enterPasswordForLogin(PASSWORD);
   await loginPage.clickLoginBtn();
 
   await learningPage.waitForTitle('My learning');

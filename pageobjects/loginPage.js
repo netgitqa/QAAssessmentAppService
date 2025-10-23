@@ -49,10 +49,9 @@ class LoginPage {
         state: 'visible'
       });
 
-      const errors = await this.page.$$eval(this.errorMessages, elements =>
+      return await this.page.$$eval(this.errorMessages, elements =>
         elements.map(el => el.textContent.trim()).join(' ')
       );
-      return errors;
     });
   }
 }
