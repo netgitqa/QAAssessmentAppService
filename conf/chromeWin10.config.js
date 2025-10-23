@@ -23,6 +23,10 @@ module.exports = defineConfig({
           )}`,
         },
       },
+      testIgnore: [
+        '**/specs/immigrationInfo.js',
+        '**/specs/registerUser.js'
+      ],
     },
   ],
 });

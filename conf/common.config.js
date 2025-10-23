@@ -35,4 +35,5 @@ module.exports = defineConfig({
         args: ['--start-maximized']
     },
     getCapabilities,
+    testMatch: '**/specs/*.js'
 });
