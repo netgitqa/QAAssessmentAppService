@@ -107,7 +107,7 @@ class DonatePage{
   }
 
   async enterCardValues() {
-      const iframe = await page.locator('iframe[name="__privateStripeFrame"]');
+      const iframe = await this.page.locator('iframe[name="__privateStripeFrame"]');
       const frame = await iframe.contentFrame();
 
       await frame.waitForSelector('input.__PrivateStripeElement-input', { state: 'attached' });
