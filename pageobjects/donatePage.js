@@ -115,7 +115,7 @@ class DonatePage{
 
   async selectConsent() {
     await allureReporter.step('Select consent option', async () => {
-      await this.consentCheck.click();
+      await this.consentCheck.check();
     });
   }
 
