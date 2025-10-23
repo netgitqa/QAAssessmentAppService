@@ -19,7 +19,7 @@ class DonatePage{
   get enterBillingAddressBtn() { return this.page.locator('#enter-cc-info'); }
   get addressState() { return this.page.locator('#address_state'); }
   get addressPostal() { return this.page.locator('#address_zip'); }
-  get consentCheck() { return this.page.locator('#donation_consent'); }
+  get consentCheck() { return this.page.locator('label[for="donation_consent"]'); }
   get completeDonationBtn() { return this.page.locator('#mc-embedded-subscribe'); }
   get modalCloseBtn() { return this.page.locator('.modal-dialog .btn-close'); }
 
@@ -115,7 +115,7 @@ class DonatePage{
 
   async selectConsent() {
     await allureReporter.step('Select consent option', async () => {
-      await this.consentCheck.check();
+      await this.consentCheck.click();
     });
   }
 
