@@ -106,26 +106,24 @@ class DonatePage{
     return frame.locator('input#__PrivateStripeElement-cvc');
   }
 
-  async enterCardValues() {
-      const iframe = await this.page.locator('iframe[name="__privateStripeFrame"]');
-      const frame = await iframe.contentFrame();
-      
-      const cardNumberInput = frame.locator('input.__PrivateStripeElement-input');
-      await cardNumberInput.fill('4242424242424242');
+  async getStripeIframe() {
+      const iframes = await this.page.locator('iframe');
+      for (let i = 0; i < await iframes.count(); i++) {
+          const iframe = iframes.nth(i);
+          const src = await iframe.getAttribute('src');
+          if (src && src.includes('js.stripe.com')) {
+              return iframe;
+          }
+      }
+      throw new Error('Stripe iframe not found');
+  }
 
-    // const cardNumberInput = await this.getCardNumber();
-    // const cardExpiryInput = await this.getCardExp();
-    // const cardCvvInput = await this.getCardCvv();
-    //
-    // await allureReporter.step('Enter card number', async () => {
-    //   await cardNumberInput.fill('4242424242424242');
-    // });
-    // await allureReporter.step('Enter exp', async () => {
-    //   await cardExpiryInput.fill('1227');
-    // });
-    // await allureReporter.step('Enter CVV', async () => {
-    //   await cardCvvInput.fill('123');
-    // });
+  async enterCardValues() {
+      const iframe = await this.getStripeIframe();
+      const frame = await iframe.contentFrame();
+
+      const cardNumberInput = frame.locator('input#__PrivateStripeElement-cardNumber');
+      await cardNumberInput.fill('4242424242424242');
   }
 
   async clickEnterBillingAddressBtn() {
