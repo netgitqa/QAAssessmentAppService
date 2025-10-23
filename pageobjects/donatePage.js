@@ -21,6 +21,7 @@ class DonatePage{
   get addressPostal() { return this.page.locator('#address_zip'); }
   get consentCheck() { return this.page.locator('#donation_consent'); }
   get completeDonationBtn() { return this.page.locator('#mc-embedded-subscribe'); }
+  get modalCloseBtn() { return this.page.locator('.modal-dialog .btn-close'); }
 
   async openDonate() {
     await allureReporter.step('Open donate page', async () => {
@@ -145,6 +146,13 @@ class DonatePage{
       await this.completeDonationBtn.click();
 
       await this.page.waitForTimeout(10000);
+    });
+  }
+
+  async closeModal() {
+    await allureReporter.step('Close modal', async () => {
+      await this.modalCloseBtn.nth(0).isVisible({ timeout: 10000 });
+      await this.modalCloseBtn.nth(0).click();
     });
   }
 
