@@ -89,19 +89,19 @@ class DonatePage{
 
   async getCardNumber() {
     const iframe = await this.getStripeIframe();
-    const frame = await iframe.frame();
+    const frame = await iframe.contentFrame();
     return frame.locator('input.__PrivateStripeElement-input');
   }
 
   async getCardExp() {
     const iframe = await this.getStripeIframe();
-    const frame = await iframe.frame();
+    const frame = await iframe.contentFrame();
     return frame.locator('input#__PrivateStripeElement-expiry');
   }
 
   async getCardCvv() {
     const iframe = await this.getStripeIframe();
-    const frame = await iframe.frame();
+    const frame = await iframe.contentFrame();
     return frame.locator('input#__PrivateStripeElement-cvc');
   }
 
