@@ -68,6 +68,7 @@ class DonatePage{
   async clickPayByCreditCardBtn() {
     await allureReporter.step('Click pay by credit card', async () => {
       await this.payBtn.click();
+      await this.page.waitForTimeout(10000);
     });
   }
 
@@ -106,19 +107,26 @@ class DonatePage{
   }
 
   async enterCardValues() {
-    const cardNumberInput = await this.getCardNumber();
-    const cardExpiryInput = await this.getCardExp();
-    const cardCvvInput = await this.getCardCvv();
+      const iframe = await page.locator('iframe[name="__privateStripeFrame"]');
+      const frame = await iframe.contentFrame();
 
-    await allureReporter.step('Enter card number', async () => {
+      await frame.waitForSelector('input.__PrivateStripeElement-input', { state: 'attached' });
+      const cardNumberInput = frame.locator('input.__PrivateStripeElement-input');
       await cardNumberInput.fill('4242424242424242');
-    });
-    await allureReporter.step('Enter exp', async () => {
-      await cardExpiryInput.fill('1227');
-    });
-    await allureReporter.step('Enter CVV', async () => {
-      await cardCvvInput.fill('123');
-    });
+
+    // const cardNumberInput = await this.getCardNumber();
+    // const cardExpiryInput = await this.getCardExp();
+    // const cardCvvInput = await this.getCardCvv();
+    //
+    // await allureReporter.step('Enter card number', async () => {
+    //   await cardNumberInput.fill('4242424242424242');
+    // });
+    // await allureReporter.step('Enter exp', async () => {
+    //   await cardExpiryInput.fill('1227');
+    // });
+    // await allureReporter.step('Enter CVV', async () => {
+    //   await cardCvvInput.fill('123');
+    // });
   }
 
   async clickEnterBillingAddressBtn() {
