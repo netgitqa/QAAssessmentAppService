@@ -22,7 +22,7 @@ test.beforeEach(async ({ page }) => {
 
 test('should complete donation', async ({ page }) => {
     await donatePage.closeModal();
-    await donatePage.enterDonationAmount(1000);
+    await donatePage.enterDonationAmount('1000');
     await donatePage.clickPayByCreditCardBtn();
     await donatePage.enterCardholderName('Tester Test');
     await donatePage.enterEmail('testchecktestn123@replyloop.com');
