@@ -202,7 +202,7 @@ class DonatePage{
             const res = JSON.parse(raw);
 
             const values = this.getContributorNameAndAmount(res.html)
-            console.log(`Test: ${values}`);
+            console.log(`Test: ${JSON.stringify(values)}`);
 
             return values;
         });
