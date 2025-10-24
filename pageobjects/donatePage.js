@@ -207,7 +207,7 @@ class DonatePage{
         const nameMatch = value.match(nameRegex);
 
         if (nameMatch && nameMatch[1]) {
-            return { name: nameMatch[1].trim() };
+            return { recipient: nameMatch[1].trim() };
         }
 
         throw new Error('Recipient name not found in the header.');
@@ -215,10 +215,10 @@ class DonatePage{
 
     retrieveDonationAmount(value) {
         const amountRegex = /donation of\s*([\$\d,]+\.\d{2})/;
-        const amountMatch = emailContent.match(amountRegex);
+        const amountMatch = value.match(amountRegex);
 
         if (amountMatch && amountMatch[1]) {
-            return amountMatch[1].trim();
+            return { amount: nameMatch[1].trim() };
         }
 
         throw new Error('Donation amount not found in the email content.');
