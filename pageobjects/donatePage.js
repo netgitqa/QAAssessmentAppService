@@ -192,14 +192,36 @@ class DonatePage{
             const raw = await response.text();
             const res = JSON.parse(raw);
 
-            const recipient = this.retrieveRecipientFromHeader(res.headers.To);
+            const recipient = this.retrieveRecipient(res.headers.To);
             console.log(`Check: ${JSON.stringify(recipient)}`);
 
-            const amount = this.retrieveContributorNameAndAmount(res.text);
+            const amount = this.retrieveDonationAmount(res.text);
             console.log(`Test: ${JSON.stringify(amount)}`);
 
             return { recipient, amount };
         });
+    }
+
+    retrieveRecipient(value) {
+        const nameRegex = /"([^"]+)"/;
+        const nameMatch = value.match(nameRegex);
+
+        if (nameMatch && nameMatch[1]) {
+            return { name: nameMatch[1].trim() };
+        }
+
+        throw new Error('Recipient name not found in the header.');
+    }
+
+    retrieveDonationAmount(value) {
+        const amountRegex = /donation of\s*([\$\d,]+\.\d{2})/;
+        const amountMatch = emailContent.match(amountRegex);
+
+        if (amountMatch && amountMatch[1]) {
+            return amountMatch[1].trim();
+        }
+
+        throw new Error('Donation amount not found in the email content.');
     }
 
     async getContributorNameAndAmount(email, subject) {
