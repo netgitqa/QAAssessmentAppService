@@ -21,7 +21,7 @@ test.beforeEach(async ({ page }) => {
     EMAIL = `testemail${Math.floor(Math.random() * 100000)}@${randValue}.com`;
     const webClient = await webClientInfo(page);
     await allureReporter.suite(`Donation: ${webClient}`);
-    
+
     donatePage = new DonatePage(page);
     await donatePage.openDonate();
 });

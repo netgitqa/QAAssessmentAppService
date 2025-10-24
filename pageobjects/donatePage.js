@@ -69,7 +69,6 @@ class DonatePage{
   async clickPayByCreditCardBtn() {
     await allureReporter.step('Click pay by credit card', async () => {
       await this.payBtn.click();
-      await this.page.waitForTimeout(10000);
     });
   }
 
@@ -202,7 +201,10 @@ class DonatePage{
             const raw = await response.text();
             const res = JSON.parse(raw);
 
-            return this.getContributorNameAndAmount(res.html);
+            const values = this.getContributorNameAndAmount(res.html)
+            console.log(`Test: ${values}`);
+
+            return values;
         });
     }
 
