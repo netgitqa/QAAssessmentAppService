@@ -1,1 +1,1 @@
-[{"uid":"a98d6a774ef6a551","name":"should complete donation with custom amount and send email","time":{"start":1761304017670,"stop":1761304040209,"duration":22539},"status":"failed","severity":"normal"}]
+[{"uid":"96e38f18fc3eee8a","name":"should complete donation with custom amount and send email","time":{"start":1761305055977,"stop":1761305075817,"duration":19840},"status":"passed","severity":"normal"}]

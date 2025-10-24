@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","22539","should complete donation with custom amount and send email","Playwright Windows 10","Fri Oct 24 11:06:57 UTC 2025","failed","Fri Oct 24 11:07:20 UTC 2025","","Donation: Chrome 129.0.6668.29","",""
+"","19840","should complete donation with custom amount and send email","Playwright Windows 10","Fri Oct 24 11:24:15 UTC 2025","passed","Fri Oct 24 11:24:35 UTC 2025","","Donation: Chrome 129.0.6668.29","",""
