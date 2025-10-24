@@ -43,6 +43,6 @@ test('should complete donation with custom amount and send email', async () => {
   expect(actual).toContain(expectedDonationNotice);
 
   const values = await donatePage.getContributorNameAndAmount(EMAIL, SUBJECT);
-  expect(values.name).toBe(cardholderName);
+  expect(values.recipient).toBe(cardholderName);
   expect(values.amount).toBe(donationAmount);
 });

@@ -142,50 +142,41 @@ class DonatePage{
     });
   }
 
+  async searchEmailBySubject(email, subject) {
+    return await allureReporter.step(`Search email by subject: "${subject}", "${email}"`, async () => {
+      const limit = 1;
+      const maxRetries = 100;
+      const delayMs = 1000;
+      let response;
+      let attempts = 0;
 
-    async getRegisterTitle() {
-        return await allureReporter.step('Check if the title appears', async () => {
-            const actualValue = await this.emailTitle.textContent();
+      while (attempts < maxRetries) {
+        attempts++;
 
-            return actualValue;
+        response = await fetch('https://mandrillapp.com/api/1.0/messages/search.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            key: this.apiKey,
+            query: `subject:"${subject}" AND email:"${email}"`,
+            limit
+          })
         });
-    }
 
-    async searchEmailBySubject(email, subject) {
-        return await allureReporter.step(`Search email by subject: "${subject}", "${email}"`, async () => {
-            const limit = 1;
-            const maxRetries = 100;
-            const delayMs = 1000;
-            let response;
-            let attempts = 0;
+        const res = await response.json();
 
-            while (attempts < maxRetries) {
-                attempts++;
+        if (res?.length > 0) {
+          return res[0]._id;
+        }
 
-                response = await fetch('https://mandrillapp.com/api/1.0/messages/search.json', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        key: this.apiKey,
-                        query: `subject:"${subject}" AND email:"${email}"`,
-                        limit
-                    })
-                });
+        if (attempts < maxRetries) {
+          await this.page.waitForTimeout(delayMs);
+        }
+      }
 
-                const res = await response.json();
-
-                if (res?.length > 0) {
-                    return res[0]._id;
-                }
-
-                if (attempts < maxRetries) {
-                    await this.page.waitForTimeout(delayMs);
-                }
-            }
-
-            throw new Error(`Failed to retrieve valid email with subject ${subject} after ${maxRetries} attempts`);
-        });
-    }
+      throw new Error(`Failed to retrieve valid email with subject ${subject} after ${maxRetries} attempts`);
+    });
+  }
 
     async getEmailInfo(emailId) {
         return await allureReporter.step(`Email info for ID: ${emailId}`, async () => {
@@ -201,10 +192,13 @@ class DonatePage{
             const raw = await response.text();
             const res = JSON.parse(raw);
 
-            const values = this.retrieveContributorNameAndAmount(res.html)
-            console.log(`Test: ${JSON.stringify(values)}`);
+            const recipient = this.retrieveRecipientFromHeader(res.headers.To);
+            console.log(`Check: ${JSON.stringify(recipient)}`);
 
-            return values;
+            const amount = this.retrieveContributorNameAndAmount(res.text);
+            console.log(`Test: ${JSON.stringify(amount)}`);
+
+            return { recipient, amount };
         });
     }
 
@@ -225,7 +219,7 @@ class DonatePage{
 
       if (nameMatch && nameMatch[1] && amountMatch && amountMatch[1]) {
         return {
-          name: nameMatch[1].trim(),
+          recipient: nameMatch[1].trim(),
           amount: amountMatch[1].trim()
         };
       }
