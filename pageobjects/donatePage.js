@@ -21,6 +21,7 @@ class DonatePage{
   get addressPostal() { return this.page.locator('#address_zip'); }
   get consentCheck() { return this.page.locator('label[for="donation_consent"]'); }
   get completeDonationBtn() { return this.page.locator('#mc-embedded-subscribe'); }
+  get donationNotice() { return this.page.locator('#donation-success-msg'); }
   get modalCloseBtn() { return this.page.locator('.modal-dialog .btn-close'); }
 
   async openDonate() {
@@ -78,20 +79,20 @@ class DonatePage{
     });
   }
 
-  async enterEmail(email) {
+  async enterDonationEmail(email) {
     await allureReporter.step(`Enter email: ${email}`, async () => {
       await this.emailInput.fill(email);
     });
   }
 
-  async enterCardValues() {
+  async enterCardValues(number, exp, cvc) {
     await allureReporter.step('Fill in card details', async () => {
       const cardNumberFrame = await this.page.frameLocator('iframe[name^="__privateStripeFrame"]').first();
-      await cardNumberFrame.locator('input[name="cardnumber"]').fill('4242424242424242');
+      await cardNumberFrame.locator('input[name="cardnumber"]').fill(number);
       const expFrame = this.page.frameLocator('iframe[name^="__privateStripeFrame"]').nth(1);
-      await expFrame.locator('input[name="exp-date"]').fill('12/30');
+      await expFrame.locator('input[name="exp-date"]').fill(exp);
       const cvcFrame = this.page.frameLocator('iframe[name^="__privateStripeFrame"]').nth(2);
-      await cvcFrame.locator('input[name="cvc"]').fill('123');
+      await cvcFrame.locator('input[name="cvc"]').fill(cvc);
     });
   }
 
@@ -101,13 +102,13 @@ class DonatePage{
     });
   }
 
-  async enterState(value) {
+  async enterContributorState(value) {
     await allureReporter.step('Enter billing address state', async () => {
       await this.addressState.fill(value);
     });
   }
 
-  async enterPostal(value) {
+  async enterContributorPostal(value) {
     await allureReporter.step('Enter billing address postal', async () => {
       await this.addressPostal.fill(value);
     });
@@ -127,18 +128,21 @@ class DonatePage{
     });
   }
 
-  async closeModal() {
+  async closeDonateModal() {
     await allureReporter.step('Close modal', async () => {
       await this.modalCloseBtn.nth(0).isVisible({ timeout: 10000 });
       await this.modalCloseBtn.nth(0).click();
     });
   }
 
-    async getRegisterErrorNotice() {
-        return await allureReporter.step('Check if the error notice appears', async () => {
-            return await this.noticeError.textContent();
-        });
-    }
+  async getDonationNotice() {
+    return await allureReporter.step('Fetch the donation notice', async () => {
+        await this.donationNotice.waitFor({ state: 'visible', timeout: 15000 });
+
+      return await this.donationNotice.textContent();
+    });
+  }
+
 
     async getRegisterTitle() {
         return await allureReporter.step('Check if the title appears', async () => {
@@ -197,33 +201,34 @@ class DonatePage{
 
             const raw = await response.text();
             const res = JSON.parse(raw);
-            const activationLink = this.retrieveActivationLink(res.html);
 
-            if (activationLink) {
-                return activationLink;
-            }
-
-            throw new Error(`No emails found with subject ${emailId}`);
+            return this.getContributorNameAndAmount(res.html);
         });
     }
 
-    async getActivationUrl(email, subject) {
-        return await allureReporter.step('Verify reset email was sent to email address', async () => {
-            const emailId = await this.searchEmailBySubject(email, subject);
-            await this.page.waitForTimeout(3000);
-            return await this.getEmailInfo(emailId);
-        });
+    async getContributorNameAndAmount(email, subject) {
+      return await allureReporter.step('Verify reset email was sent to email address', async () => {
+        const emailId = await this.searchEmailBySubject(email, subject);
+        await this.page.waitForTimeout(3000);
+        return await this.getEmailInfo(emailId);
+      });
     }
 
-    retrieveActivationLink(htmlContent) {
-        const regex = /href="(https:\/\/[^"]+)"/;
-        const match = htmlContent.match(regex);
+    retrieveContributorNameAndAmount(htmlContent) {
+      const nameRegex = /Thank you,\s*([^<]+)<\/h1>/;
+      const nameMatch = htmlContent.match(nameRegex);
 
-        if (match && match[1]) {
-            return match[1];
-        }
+      const amountRegex = /donation of\s*([\$\d,]+\.\d{2})/;
+      const amountMatch = htmlContent.match(amountRegex);
 
-        throw new Error('Reset password link not found in the email HTML content');
+      if (nameMatch && nameMatch[1] && amountMatch && amountMatch[1]) {
+        return {
+          name: nameMatch[1].trim(),
+          amount: amountMatch[1].trim()
+        };
+      }
+
+      throw new Error('Contributor name or donation amount not found in the email HTML content');
     }
 }
 
