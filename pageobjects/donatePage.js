@@ -201,7 +201,7 @@ class DonatePage{
             const raw = await response.text();
             const res = JSON.parse(raw);
 
-            const values = this.getContributorNameAndAmount(res.html)
+            const values = this.retrieveContributorNameAndAmount(res.html)
             console.log(`Test: ${JSON.stringify(values)}`);
 
             return values;
