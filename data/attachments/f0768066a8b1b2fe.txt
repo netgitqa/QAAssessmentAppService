@@ -1,1 +1,2 @@
 Check: {"recipient":"TestDonate Playwright"}
+Test: {"amount":"$1,000.00"}
