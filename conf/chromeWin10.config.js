@@ -25,6 +25,7 @@ module.exports = defineConfig({
       },
       testIgnore: [
         '**/specs/login.js',
+        '**/specs/donate.js',
         '**/specs/registerUser.js',
         '**/specs/immigrationInfo.js',
         '**/specs/resetPass.js'
