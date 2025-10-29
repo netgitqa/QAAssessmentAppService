@@ -60,5 +60,5 @@ test('should not login with empty credentials', async ({ page }) => {
 
 test('should redirect to reset password page after clicking the Forgot password', async ({ page }) => {
   await loginPage.clickForgotPassword();
-  
+  await expect(page).toHaveURL(/reset-password/);
 });
