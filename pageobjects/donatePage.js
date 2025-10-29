@@ -202,6 +202,14 @@ class DonatePage{
         });
     }
 
+    async getContributorNameAndAmount(email, subject) {
+      return await allureReporter.step('Verify reset email was sent to email address', async () => {
+        const emailId = await this.searchEmailBySubject(email, subject);
+        await this.page.waitForTimeout(3000);
+        return await this.getEmailInfo(emailId);
+      });
+    }
+
     retrieveRecipient(value) {
         const regex = /"([^"]+)"/;
         const recipient = value.match(regex);
@@ -224,30 +232,7 @@ class DonatePage{
         throw new Error('Donation amount not found in the email content.');
     }
 
-    async getContributorNameAndAmount(email, subject) {
-      return await allureReporter.step('Verify reset email was sent to email address', async () => {
-        const emailId = await this.searchEmailBySubject(email, subject);
-        await this.page.waitForTimeout(3000);
-        return await this.getEmailInfo(emailId);
-      });
-    }
 
-    retrieveContributorNameAndAmount(htmlContent) {
-      const nameRegex = /Thank you,\s*([^<]+)<\/h1>/;
-      const nameMatch = htmlContent.match(nameRegex);
-
-      const amountRegex = /donation of\s*([\$\d,]+\.\d{2})/;
-      const amountMatch = htmlContent.match(amountRegex);
-
-      if (nameMatch && nameMatch[1] && amountMatch && amountMatch[1]) {
-        return {
-          recipient: nameMatch[1].trim(),
-          amount: amountMatch[1].trim()
-        };
-      }
-
-      throw new Error('Contributor name or donation amount not found in the email HTML content');
-    }
 }
 
 module.exports = DonatePage;

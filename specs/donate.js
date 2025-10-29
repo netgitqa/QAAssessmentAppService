@@ -43,10 +43,6 @@ test('should complete donation with custom amount and send email', async () => {
   expect(actual).toContain(expectedDonationNotice);
 
   const values = await donatePage.getContributorNameAndAmount(EMAIL, SUBJECT);
-    const formattedDonationAmount = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    }).format(donationAmount);
   expect(values.recipient).toBe(cardholderName);
   expect(values.amount).toBe(new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(donationAmount));
 });
