@@ -35,6 +35,6 @@ jobs:
 
       - name: Trigger Appium tests in test-appium repo
         run: |
-          response=$(curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/netgitqa/QAAssessmentWD/dispatches -d '{"event_type": "trigger-appium-tests"}')
+          response=$(curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" https://api.github.com/repos/netgitqa/QAAssessmentWD/dispatches -d '{"event_type": "trigger-appium-tests"}')
           echo "Response: $response"
         continue-on-error: true
