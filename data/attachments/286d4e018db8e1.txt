@@ -1,2 +1,0 @@
-Check: "TestDonate Playwright"
-Test: "$1,000.00"
