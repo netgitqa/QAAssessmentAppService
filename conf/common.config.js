@@ -43,9 +43,7 @@ module.exports = defineConfig({
       if (testInfo.status === 'failed') {
         const screenshot = await page.screenshot();
         testInfo.attachments.push({
-          name: 'Failure Screenshot',
-          path: screenshot,
-          contentType: 'image/png',
+          name: 'Failure Screenshot', path: screenshot, contentType: 'image/png', type: 'image/png'
         });
       }
     }
