@@ -41,8 +41,11 @@ module.exports = defineConfig({
   outputDir: './allure-results',
   test: {
     async afterAll({ page }) {
-      const screenshot = await page.screenshot();
-      allure.attachment('Final Screenshot after all tests', screenshot, 'image/png');
+      if (testInfo.status === 'failed') {
+        const screenshot = await page.screenshot();
+
+        allure.attachment('Error Message', screenshot, 'image/png');
+      }
     }
   }
 });
