@@ -33,8 +33,9 @@ module.exports = defineConfig({
     video: 'off',
     viewport: null,
     args: ['--start-maximized'],
-    screenshotPath: './test-results/screenshots'
+    screenshotPath: './allure-results/screenshots'
   },
   getCapabilities,
-  testMatch: '**/specs/*.js'
+  testMatch: '**/specs/*.js',
+  outputDir: './allure-results'
 });

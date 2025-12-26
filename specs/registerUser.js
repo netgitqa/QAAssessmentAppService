@@ -9,7 +9,7 @@ const randValue = Array.from({ length: 7 }, () => 'abcdefghijklmnopqrstuvwxyz'.c
 
 let EMAIL = ``;
 const EMAIL_REGISTERED = process.env.EMAIL_REGISTERED;
-const FAKE_EMAIL = 'fakevalue@test.com';
+const FAKE_EMAIL = 'fakevalue';
 const PASSWORD = process.env.PASSWORD;
 const SUBJECT = 'Verify your registration';
 let registerPage;
