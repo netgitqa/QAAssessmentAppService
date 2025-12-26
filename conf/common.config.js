@@ -1,4 +1,5 @@
 const { defineConfig } = require('@playwright/test');
+const allure = require("allure-js-commons");
 const path = require('path');
 require('dotenv').config();
 
@@ -42,9 +43,8 @@ module.exports = defineConfig({
     afterEach: async ({ page }, testInfo) => {
       if (testInfo.status === 'failed') {
         const screenshot = await page.screenshot();
-        testInfo.attachments.push({
-          name: 'Failure Screenshot', path: screenshot, contentType: 'image/png', type: 'image/png'
-        });
+
+        allure.attachment('Failure Screenshot', screenshot, 'image/png');
       }
     }
   }
