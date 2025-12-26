@@ -37,5 +37,17 @@ module.exports = defineConfig({
   },
   getCapabilities,
   testMatch: '**/specs/*.js',
-  outputDir: './allure-results'
+  outputDir: './allure-results',
+  test: {
+    afterEach: async ({ page }, testInfo) => {
+      if (testInfo.status === 'failed') {
+        const screenshot = await page.screenshot();
+        testInfo.attachments.push({
+          name: 'Failure Screenshot',
+          path: screenshot,
+          contentType: 'image/png',
+        });
+      }
+    }
+  }
 });
