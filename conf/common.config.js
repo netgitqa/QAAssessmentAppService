@@ -43,8 +43,8 @@ module.exports = defineConfig({
     async afterAll({ page }) {
       if (testInfo.status === 'failed') {
         const screenshot = await page.screenshot();
-
         allure.attachment('Error Message', screenshot, 'image/png');
+        console.log('Please review the attached screenshot');
       }
     }
   }
