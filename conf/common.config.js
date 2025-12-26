@@ -32,7 +32,8 @@ module.exports = defineConfig({
     screenshot: 'only-on-failure',
     video: 'off',
     viewport: null,
-    args: ['--start-maximized']
+    args: ['--start-maximized'],
+    screenshotPath: './test-results/screenshots'
   },
   getCapabilities,
   testMatch: '**/specs/*.js'

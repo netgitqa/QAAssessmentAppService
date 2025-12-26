@@ -2,7 +2,7 @@
   "name": "playwright",
   "description": "Classroom dekstop tests with Allure reporting and GitHub Actions integration",
   "scripts": {
-    "test:all": "sh -c 'for f in $(ls conf/*.config.js | grep -v \"common.config.js\"); do echo Running $f; npx playwright test --config=$f; done'",
+    "test:all": "sh -c 'rm -rf allure-results && for f in $(ls conf/*.config.js | grep -v \"common.config.js\"); do echo Running $f; npx playwright test --config=$f; done'",
     "allure:generate": "npx allure-commandline generate allure-results --clean -o allure-report",
     "allure:open": "npx allure-commandline open allure-report",
     "allure:serve": "npx allure-commandline serve allure-results"
@@ -13,7 +13,7 @@
     "@playwright/test": "1.47.0"
   },
   "devDependencies": {
-    "playwright": "1.41.0",
+    "playwright": "1.47.0",
     "allure-commandline": "^2.34.1"
   },
   "allure": {
