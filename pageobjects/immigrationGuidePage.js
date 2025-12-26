@@ -29,8 +29,7 @@ class ImmigrationGuidePage {
 
   async getTitleText() {
     await allureReporter.step('Fetch the page title', async () => {
-      const title = await this.page.title();
-    return title;
+      return await this.page.title();
     });
   }
 
@@ -108,7 +107,7 @@ class ImmigrationGuidePage {
 
   async getUserStatus(email) {
     return await allureReporter.step('Check member pending status', async () => {
-      const emailHashed = createHash('md5').update(email).digest('hex');
+      const emailHashed = createHash('md5').update(email.toLowerCase()).digest('hex');
       const listId = await this.fetchMailchimpListId();
 
       const credentials = Buffer.from(`anystring:${this.apiKey}`).toString('base64');

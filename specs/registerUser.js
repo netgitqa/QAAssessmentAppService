@@ -12,7 +12,6 @@ const EMAIL_REGISTERED = process.env.EMAIL_REGISTERED;
 const FAKE_EMAIL = 'fakevalue@test.com';
 const PASSWORD = process.env.PASSWORD;
 const SUBJECT = 'Verify your registration';
-
 let registerPage;
 let learningPage;
 
@@ -22,7 +21,7 @@ test.beforeEach(async ({ page }) => {
 
     registerPage = new RegisterPage(page);
     learningPage = new LearningPage(page);
-    EMAIL = `testemail${Math.floor(Math.random() * 100000)}@${randValue}.com`;
+    EMAIL = `usahelloAutomation${Math.floor(Math.random() * 100000)}@${randValue}.com`;
 
     await registerPage.openSignup();
 });

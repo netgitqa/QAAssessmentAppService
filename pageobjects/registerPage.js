@@ -33,37 +33,35 @@ class RegisterPage{
     });
   }
 
-    async enterPasswordForRegistration(value) {
-        await allureReporter.step(`Enter password: ${value}`, async () => {
-            await this.passwordInput.fill(value);
-        });
-    }
+  async enterPasswordForRegistration(value) {
+    await allureReporter.step(`Enter password: ${value}`, async () => {
+      await this.passwordInput.fill(value);
+    });
+  }
 
-    async clickSignupBtn() {
-        await allureReporter.step('Click login button', async () => {
-            await this.signupBtn.click();
-        });
-    }
+  async clickSignupBtn() {
+    await allureReporter.step('Click login button', async () => {
+      await this.signupBtn.click();
+    });
+  }
 
-    async clickSetPasswordBtn() {
-        await allureReporter.step('Click set password button', async () => {
-            await this.setPasswordBtn.click();
-        });
-    }
+  async clickSetPasswordBtn() {
+    await allureReporter.step('Click set password button', async () => {
+      await this.setPasswordBtn.click();
+    });
+  }
 
-    async getRegisterErrorNotice() {
-        return await allureReporter.step('Check if the error notice appears', async () => {
-            return await this.noticeError.textContent();
-        });
-    }
+  async getRegisterErrorNotice() {
+    return await allureReporter.step('Check if the error notice appears', async () => {
+      return await this.noticeError.textContent();
+    });
+  }
 
-    async getRegisterTitle() {
-        return await allureReporter.step('Check if the title appears', async () => {
-            const actualValue = await this.emailTitle.textContent();
-
-            return actualValue;
-        });
-    }
+  async getRegisterTitle() {
+    return await allureReporter.step('Check if the title appears', async () => {
+      return await this.emailTitle.textContent();
+    });
+  }
 
     async searchEmailBySubject(email, subject) {
         return await allureReporter.step(`Search email by subject: "${subject}", "${email}"`, async () => {

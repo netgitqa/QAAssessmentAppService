@@ -3,11 +3,11 @@ const commonConfig = require('./common.config');
 const path = require('path');
 
 const capabilities = commonConfig.getCapabilities(
-    'Chrome',
-    'Windows 11',
-    'Playwright Win 11 Chrome',
-    'Login Test',
-    path.basename(__filename, '.config.js')
+  'Chrome',
+  'Windows 11',
+  'Playwright Win 11 Chrome Test Check',
+  'Login Test',
+  path.basename(__filename, '.config.js')
 );
 
 module.exports = defineConfig({
@@ -23,13 +23,6 @@ module.exports = defineConfig({
                     )}`,
                 },
             },
-            testIgnore: [
-                '**/specs/login.js',
-                '**/specs/donate.js',
-                '**/specs/registerUser.js',
-                '**/specs/immigrationInfo.js',
-                '**/specs/resetPass.js'
-            ],
         },
     ],
 });

@@ -136,7 +136,7 @@ class DonatePage{
 
   async getDonationNotice() {
     return await allureReporter.step('Fetch the donation notice', async () => {
-        await this.donationNotice.waitFor({ state: 'visible', timeout: 15000 });
+      await this.donationNotice.waitFor({ state: 'visible', timeout: 15000 });
 
       return await this.donationNotice.textContent();
     });

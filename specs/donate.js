@@ -7,7 +7,7 @@ const randValue = Array.from({ length: 7 }, () => 'abcdefghijklmnopqrstuvwxyz'.c
 
 const SUBJECT = 'Thank you for your donation';
 
-const cardholderName = 'TestDonate Playwright';
+const cardholderName = 'USAHello Automation';
 const cardNumber = '4242 4242 4242 4242';
 const exp = '12/30';
 const cvc = '123';
@@ -18,7 +18,7 @@ let donatePage;
 let EMAIL = ``;
 
 test.beforeEach(async ({ page }) => {
-    EMAIL = `testemail${Math.floor(Math.random() * 100000)}@${randValue}.com`;
+    EMAIL = `usahelloAutomation${Math.floor(Math.random() * 100000)}@${randValue}.com`;
     const webClient = await webClientInfo(page);
     await allureReporter.suite(`Donation: ${webClient}`);
 

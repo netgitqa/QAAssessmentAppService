@@ -60,16 +60,14 @@ class ResetPasswordPage {
   }
 
   async getResetPasswordErrorNotice() {
-    return await allureReporter.step('Check if the error notice appears', async () => {
+    return await allureReporter.step('Fetch the error notice', async () => {
       return await this.noticeError.textContent();
     });
   }
 
-  async getSentEmailTitle() {
-    return await allureReporter.step('Check if the title appears', async () => {
-      const actualValue = await this.emailTitle.textContent();
-
-      return actualValue;
+  async getResetPasswordTitle() {
+    return await allureReporter.step('Fetch the title', async () => {
+      return await this.emailTitle.textContent();
     });
   }
 

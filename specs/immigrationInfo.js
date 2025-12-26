@@ -10,7 +10,7 @@ const FAKE_VALUE = 'fakevalue';
 let immigrationGuidePage;
 
 test.beforeEach(async ({ page }) => {
-  EMAIL = `testemail${Math.floor(Math.random() * 100000)}@${randValue}.com`;
+  EMAIL = `usahelloAutomation${Math.floor(Math.random() * 100000)}@${randValue}.com`;
   const webClient = await webClientInfo(page);
   await allureReporter.suite(`Sign up for USAHello updates: ${webClient}`);
 
