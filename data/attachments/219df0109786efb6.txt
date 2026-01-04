@@ -1,0 +1,2 @@
+Check: "USAHello Automation"
+Test: "$1,000.00"
